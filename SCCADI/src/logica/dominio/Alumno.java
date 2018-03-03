@@ -9,8 +9,6 @@ import java.sql.Blob;
 public class Alumno {
     private String matricula; 
     private String nombre;
-    private String apPaterno; 
-    private String apMaterno; 
     private String correo;
     private String programaEducativo; 
     private String contactoEmergencia; 
@@ -20,11 +18,9 @@ public class Alumno {
     public Alumno() {
     }
 
-    public Alumno(String matricula, String nombre, String apPaterno, String apMaterno, String correo, String programaEducativo, String contactoEmergencia, String numeroEmergencia, Blob fotografia) {
+    public Alumno(String matricula, String nombre, String correo, String programaEducativo, String contactoEmergencia, String numeroEmergencia, Blob fotografia) {
         this.matricula = matricula;
         this.nombre = nombre;
-        this.apPaterno = apPaterno;
-        this.apMaterno = apMaterno;
         this.correo = correo;
         this.programaEducativo = programaEducativo;
         this.contactoEmergencia = contactoEmergencia;
@@ -46,22 +42,6 @@ public class Alumno {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getApPaterno() {
-        return apPaterno;
-    }
-
-    public void setApPaterno(String apPaterno) {
-        this.apPaterno = apPaterno;
-    }
-
-    public String getApMaterno() {
-        return apMaterno;
-    }
-
-    public void setApMaterno(String apMaterno) {
-        this.apMaterno = apMaterno;
     }
 
     public String getCorreo() {
