@@ -14,8 +14,8 @@ public class Conexion {
     public Connection conn;
     private String HOST = "localhost";
     private String BD = "sccadi";
-    private String USER_NAME = "root";
-    private String PASSWORD = "alanbase";
+    private String USER_NAME = "sccadiAdmin";
+    private String PASSWORD = "RoarOmegaRoar";
     private String DRIVER_CLASS = "com.mysql.jdbc.Driver";
 
     private static Conexion connect;

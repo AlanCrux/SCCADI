@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import logica.dominio.Asesor;
 
+/**
  *
  * @author Alan Yoset Garcia Cruz
  */
