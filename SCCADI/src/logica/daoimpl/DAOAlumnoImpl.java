@@ -1,7 +1,7 @@
-package dao.implementacion;
+package logica.daoimpl;
 
-import dao.Conexion;
-import dao.interfaces.DaoAlumno;
+import datos.Conexion;
+import logica.dao.DaoAlumno;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +16,7 @@ import logica.dominio.Alumno;
  * @version 1.0 
  */
 
-public class ImplmAlumno extends Conexion implements DaoAlumno {
+public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
 
   /**
    * Obtiene un Alumno. Este método busca todos los Alumnos registrados en la BD y los regresa en

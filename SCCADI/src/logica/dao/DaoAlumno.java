@@ -1,4 +1,4 @@
-package dao.interfaces;
+package logica.dao;
 
 import java.sql.SQLException;
 import java.util.List;
