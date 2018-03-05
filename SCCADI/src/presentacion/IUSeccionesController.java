@@ -2,7 +2,6 @@ package presentacion;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -24,14 +23,15 @@ import logica.daoimpl.DAOSeccionImpl;
 import logica.dominio.Asesor;
 import logica.dominio.ExperienciaEducativa;
 import logica.dominio.Seccion;
+import utilerias.Herramientas;
 
 /**
- * FXML Controller class
- *
- * @author alancrux
+ * Controlador de la ventana IUSecciones
+ * Nos permite visualizar las secciones asociadas a un asesor.
+ * @author Alan Yoset Garcia Cruz
+ * @version 1.0
  */
 public class IUSeccionesController implements Initializable {
-  //Componentes de la IU
   @FXML
   private ImageView botonAtras;
   @FXML
@@ -41,14 +41,14 @@ public class IUSeccionesController implements Initializable {
   @FXML
   private FlowPane mpSecciones;
   
-  //Atributos globales
   private Asesor asesor;
   private String periodo;
   private final String COLOR_AVANZADO = "#FFB7E7";
   private final String COLOR_INTERMEDIO = "#F7DC6F"; 
   private final String COLOR_BASICO = "#76D7C4"; 
+  
   /**
-   * Initializes the controller class.
+   * Inicializa los componentes de la ventana.
    */
   @Override
   public void initialize(URL url, ResourceBundle rb) {
@@ -58,6 +58,12 @@ public class IUSeccionesController implements Initializable {
     obtenerSecciones(mpSecciones, asesor.getNoPersonal());
   }
 
+  /**
+   * Llena un flowPane con lase secciones asociadas a un asesor.
+   * @param mpSecciones FlowPane a llenar
+   * @param noPersonal identificador del asesor. 
+   * @return número de secciones obtenidas.
+   */
   public int obtenerSecciones(FlowPane mpSecciones, int noPersonal) {
     List<Seccion> secciones = new ArrayList();
     DAOSeccionImpl daoSeccion = new DAOSeccionImpl();
@@ -65,8 +71,8 @@ public class IUSeccionesController implements Initializable {
 
     try {
       secciones = daoSeccion.obtenerSecciones(noPersonal);
-    } catch (SQLException ex) {
-      System.out.println("Se perdio la conexión con la BD");
+    } catch (Exception ex) {
+      Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
     }
 
     cantidadSecciones = secciones.size();
@@ -77,21 +83,27 @@ public class IUSeccionesController implements Initializable {
     return cantidadSecciones;
   }
 
+  /**
+   * Obtiene la experiencia educativa asociada a un id y la devuelve en un contenedor tipo FichaSeccion.
+   * @param nrc identificador de la seccion.
+   * @param idExperiencia identificador de la experiencia educativa.
+   * @return contenedor con los datos de la experiencia educativa y la sección.
+   */
   public FichaSeccion obtenerExperiencia(int nrc, int idExperiencia) {
     DAOExperienciaEducativaImpl daoExperiencia = new DAOExperienciaEducativaImpl();
     ExperienciaEducativa experiencia = new ExperienciaEducativa();
 
     try {
       experiencia = daoExperiencia.obtenerExperiencia(idExperiencia);
-    } catch (SQLException ex) {
-      System.out.println("Se perdio la conexión con la BD");
+    } catch (Exception ex) {
+      Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
     }
 
     String nombreExperiencia = experiencia.getNombre();
     String nivel = experiencia.getNivel();
     FichaSeccion fichaSeccion = new FichaSeccion(nrc, nombreExperiencia, nivel);
     
-    fichaSeccion.setPrefSize(120, 70);
+    fichaSeccion.setPrefSize(160, 70);
     fichaSeccion.setAsesor(asesor);
    
     if (nivel.contains("Avanzado")) {
@@ -116,6 +128,17 @@ public class IUSeccionesController implements Initializable {
     ImageView ficha = (ImageView) event.getSource();
     ficha.setImage(new Image("/recursos/iconos/back_arrow.png"));
   }
+  
+  /**
+   * Cierra la ventana. 
+   * @param event evento que activa el método
+   */
+  @FXML
+  public void salir(MouseEvent event) {
+    Stage mainStage = (Stage) botonAtras.getScene().getWindow();
+    mainStage.close();
+  }
+
 
   public Asesor getAsesor() {
     return asesor;
@@ -133,6 +156,10 @@ public class IUSeccionesController implements Initializable {
     this.periodo = periodo;
   }
   
+  /**
+   * Muestra la ventana asociada a un loader. 
+   * @param loader FXMLLloader del cual se quiere mostrar la ventana.
+   */
   public void mostrarVentana(FXMLLoader loader){
     try {
       Stage stagePrincipal = new Stage();

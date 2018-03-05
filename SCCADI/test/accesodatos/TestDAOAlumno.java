@@ -28,7 +28,7 @@ public class TestDAOAlumno {
       boolean editarAlumno = alumnoAux.actualizarAlumno("S123", alumno);
       boolean resultadoEsperado = true;
       assertEquals(resultadoEsperado, editarAlumno);
-    } catch (SQLException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(TestDAOAlumno.class.getName()).log(Level.SEVERE, null, ex);
     }
 
@@ -39,7 +39,12 @@ public class TestDAOAlumno {
    */
   @Test
   public void eliminarAlumno() {
-    boolean eliminarAlumno = alumnoAux.eliminarAlumno("S123");
+    boolean eliminarAlumno = false;
+    try {
+      eliminarAlumno = alumnoAux.eliminarAlumno("S123");
+    } catch (Exception ex) {
+      Logger.getLogger(TestDAOAlumno.class.getName()).log(Level.SEVERE, null, ex);
+    }
     boolean resultadoEsperado = true;
 
     assertEquals(eliminarAlumno, resultadoEsperado);

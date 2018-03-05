@@ -9,9 +9,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * FXML Controller class
- *
+ * Controlador de la ventana IUFichaAlumno
+ * Nos sirve de contenedor para los datos de un alumno en especifico. 
  * @author Alan Yoset Garcia Cruz
+ * @version 1.0
  */
 public class IUFichaAlumnoController implements Initializable {
 
@@ -25,7 +26,7 @@ public class IUFichaAlumnoController implements Initializable {
   private Label lbCorreo = new Label();
 
   /**
-   * Initializes the controller class.
+   * inicializa los elementos de la ventana.
    */
   @Override
   public void initialize(URL url, ResourceBundle rb) {

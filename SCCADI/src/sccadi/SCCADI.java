@@ -13,6 +13,10 @@ import presentacion.IUSeccionesController;
 public class SCCADI extends Application {
   private Stage stagePrincipal;
 
+  /**
+   * Inicializa el programa.
+   * @param stagePrincipal el stage sobre el cual cargara la escena. 
+   */
   @Override
   public void start(Stage stagePrincipal) {
     this.stagePrincipal = stagePrincipal;
@@ -26,6 +30,9 @@ public class SCCADI extends Application {
     launch(args);
   }
 
+  /**
+   * Muestra la ventana principal.
+   */
   public void showMainWindows() {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUSecciones.fxml"));
     IUSeccionesController seccionesController = new IUSeccionesController();

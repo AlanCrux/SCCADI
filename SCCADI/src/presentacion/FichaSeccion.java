@@ -7,54 +7,73 @@ import javafx.stage.Stage;
 import logica.dominio.Asesor;
 
 /**
- *
- * @author alancrux
+ * Esta clase nos permite asociar los datos de una sección a un contenedor tipo Button. 
+ * @author Alan Yoset Garcia Cruz
+ * @version 1.0
  */
-public class FichaSeccion extends Button{
+public class FichaSeccion extends Button {
+
   private String datosSeccion;
   private String BACKGROUND_COLOR;
-  private Asesor asesor; 
+  private Asesor asesor;
 
+  /**
+   * Construye el objeto. 
+   * @param nrc nrc de la sección.
+   * @param experiencia nombre de la experiencia educativa de la sección.
+   * @param nivel nivel de la experiencia educativa de la sección. 
+   */
   public FichaSeccion(int nrc, String experiencia, String nivel) {
-    datosSeccion = "NRC: "+ nrc + "\n";
-    datosSeccion += "EE: "+ experiencia + "\n";
-    datosSeccion += "Nivel: "+ nivel;
-    
+    datosSeccion = "NRC: " + nrc + "\n";
+    datosSeccion += "EE: " + experiencia + "\n";
+    datosSeccion += "Nivel: " + nivel;
+
     setText(datosSeccion);
     setCursor(Cursor.HAND);
-    this.setOnMouseEntered(event->{
+    this.setOnMouseEntered(event -> {
       efectoMouseSobre();
     });
-    
-    this.setOnMouseExited(event->{
+
+    this.setOnMouseExited(event -> {
       efectoMouseFuera();
     });
-    
-    this.setOnAction(event->{
-      mostrarVentanaAlumnos(nrc,experiencia);
+
+    this.setOnAction(event -> {
+      mostrarVentanaAlumnos(nrc, experiencia);
     });
   }
-  
-  public void efectoMouseSobre(){
+
+  /**
+   * Aplica un cambio de color al objeto.
+   */
+  public void efectoMouseSobre() {
     setText("Ver alumnos");
     setStyle("-fx-background-color: #85C1E9");
   }
-  
-  public void efectoMouseFuera(){
+
+  /**
+   * Aplica un cambio de color al objeto.
+   */
+  public void efectoMouseFuera() {
     setText(datosSeccion);
-    setStyle("-fx-background-color: "+BACKGROUND_COLOR);
+    setStyle("-fx-background-color: " + BACKGROUND_COLOR);
   }
-  
-  public void mostrarVentanaAlumnos(int nrc, String experiencia){
+
+  /**
+   * Muestra la ventana IUAlumnos. 
+   * @param nrc el nrc de la sección.
+   * @param experiencia el nombre de la experiencia educativa de la sección. 
+   */
+  public void mostrarVentanaAlumnos(int nrc, String experiencia) {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("IUAlumnos.fxml"));
-	IUAlumnosController controller = new IUAlumnosController();
-	loader.setController(controller);
-    
+    IUAlumnosController controller = new IUAlumnosController();
+    loader.setController(controller);
+
     controller.setNrc(nrc);
     controller.setExperiencia(experiencia);
     controller.mostrarVentana(loader);
     controller.setAsesor(asesor);
-    
+
     Stage mainStage = (Stage) this.getScene().getWindow();
     mainStage.close();
   }
@@ -64,7 +83,7 @@ public class FichaSeccion extends Button{
   }
 
   public void setBackgroundColor(String backgroundColor) {
-    setStyle("-fx-background-color: "+backgroundColor);
+    setStyle("-fx-background-color: " + backgroundColor);
     this.BACKGROUND_COLOR = backgroundColor;
   }
 
@@ -74,5 +93,5 @@ public class FichaSeccion extends Button{
 
   public void setAsesor(Asesor asesor) {
     this.asesor = asesor;
-  }  
+  }
 }

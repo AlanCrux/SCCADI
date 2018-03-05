@@ -9,18 +9,26 @@ import logica.dao.DAOExperienciaEducativa;
 import logica.dominio.ExperienciaEducativa;
 
 /**
- *
- * @author alancrux
+ * Esta clase implementa los métodos definidos en la interfaz DAOExperienciaEducativa
+ * nos permite realizar inserciones, consultas, actualizaciones y eliminar datos de la tabla
+ * ExperienciaEducativa en la base de datos.
+ * @author Alan Yoset Garcia Curz
  */
 public class DAOExperienciaEducativaImpl extends Conexion implements DAOExperienciaEducativa {
 
   @Override
-  public List<ExperienciaEducativa> obtenerExperiencias() throws SQLException {
+  public List<ExperienciaEducativa> obtenerExperiencias() throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
+  /**
+   * 
+   * @param idExperiencia el identificador de la experiencia que se quiere recuperar.
+   * @return devuelve un objeto de tipo ExperienciaEducativa.
+   * @throws SQLException 
+   */
   @Override
-  public ExperienciaEducativa obtenerExperiencia(int idExperiencia) throws SQLException {
+  public ExperienciaEducativa obtenerExperiencia(int idExperiencia) throws Exception {
     ExperienciaEducativa experiencia = null;
     this.connection();
     try {
@@ -35,8 +43,8 @@ public class DAOExperienciaEducativaImpl extends Conexion implements DAOExperien
       }
       rs.close();
       st.close();
-    } catch (SQLException sqlEx) {
-      throw sqlEx;
+    } catch (Exception ex) {
+      throw ex;
     } finally {
       this.close();
     }
@@ -44,17 +52,17 @@ public class DAOExperienciaEducativaImpl extends Conexion implements DAOExperien
   }
 
   @Override
-  public boolean insertarExperiencia(ExperienciaEducativa experienciaEducativa) throws SQLException {
+  public boolean insertarExperiencia(ExperienciaEducativa experienciaEducativa) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   @Override
-  public boolean actualizarExperiencia(int idExperiencia) throws SQLException {
+  public boolean actualizarExperiencia(int idExperiencia) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   @Override
-  public boolean eliminarExperiencia(int idExperiencia) throws SQLException {
+  public boolean eliminarExperiencia(int idExperiencia) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 

@@ -1,6 +1,5 @@
 package logica.dao;
 
-import java.sql.SQLException;
 import java.util.List;
 import logica.dominio.Alumno;
 
@@ -11,11 +10,11 @@ import logica.dominio.Alumno;
  */
 
 public interface DaoAlumno {
-  public List<Alumno> obtenerAlumnos() throws SQLException;
-  public List<Alumno> obtenerAlumnosFiltrados(String caracterBusqueda) throws SQLException;
-  public Alumno obtenerAlumno(String matricula) throws SQLException;
-  public boolean insertarAlumno(Alumno Alumno) throws SQLException;
-  public boolean actualizarAlumno(String identificador, Alumno alumno) throws SQLException;
-  public boolean eliminarAlumno(Alumno alumno) throws SQLException;
-  public boolean eliminarAlumno(String matricula) throws SQLException;
+  public List<Alumno> obtenerAlumnos() throws Exception;
+  public List<Alumno> obtenerAlumnosFiltrados(String caracterBusqueda) throws Exception;
+  public Alumno obtenerAlumno(String matricula) throws Exception;
+  public boolean insertarAlumno(Alumno Alumno) throws Exception;
+  public boolean actualizarAlumno(String identificador, Alumno alumno) throws Exception;
+  public boolean eliminarAlumno(Alumno alumno) throws Exception;
+  public boolean eliminarAlumno(String matricula) throws Exception;
 }

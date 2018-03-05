@@ -5,13 +5,14 @@ import java.util.List;
 import logica.dominio.Asesor;
 
 /**
- *
+ * Define los métodos a implementar en el DAOAsesorImpl.
  * @author Alan Yoset Garcia Cruz
+ * @version 1.0
  */
 public interface DAOAsesor {
-    public List<Asesor> obtenerAsesores() throws SQLException;
-    public Asesor obtenerAsesor(int noPersonal) throws SQLException;
-    public boolean insertarAsesor(Asesor asesor) throws SQLException;
-    public boolean actualizarAsesor(int noPersonal) throws SQLException;
-    public boolean eliminarAsesor(int noPersonal) throws SQLException;
+    public List<Asesor> obtenerAsesores() throws Exception;
+    public Asesor obtenerAsesor(int noPersonal) throws Exception;
+    public boolean insertarAsesor(Asesor asesor) throws Exception;
+    public boolean actualizarAsesor(int noPersonal) throws Exception;
+    public boolean eliminarAsesor(int noPersonal) throws Exception;
 }
