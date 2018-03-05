@@ -46,7 +46,7 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
       }
       rs.close();
       st.close();
-    } catch (SQLException ex) {
+    } catch (Exception ex) {
       throw ex; 
     }
     return alumnos;

@@ -52,16 +52,9 @@ public class IUSeccionesController implements Initializable {
    */
   @Override
   public void initialize(URL url, ResourceBundle rb) {
-    //Inicializar datos de la ventana
-    
-    //Prueba ------------------------------------------------------------------------
-    //asesor = new Asesor(1234, "José Antonio", "Martinez", "Salazar", "pepedD@gmail.com");
- 
-    //--------------------------------------------------------------------------------
     periodo = "Periodo: Feb - Jul 2018";
     lbNombreAsesor.setText(asesor.getNombre() +" "+ asesor.getApPaterno() +" "+ asesor.getApMaterno());
     lbPeriodo.setText(periodo);
-    
     obtenerSecciones(mpSecciones, asesor.getNoPersonal());
   }
 
