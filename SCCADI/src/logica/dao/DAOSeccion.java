@@ -9,7 +9,7 @@ import logica.dominio.Seccion;
  * @author Alan Yoset Garcia Cruz
  */
 public interface DAOSeccion {
-    public List<Seccion> obtenerSecciones() throws SQLException;
+    public List<Seccion> obtenerSecciones(int noPersonal) throws SQLException;
     public Seccion obtenerSeccion(String nrc) throws SQLException;
     public boolean insertarSeccion(Seccion seccion) throws SQLException;
     public boolean actualizarSeccion(String nrc) throws SQLException;

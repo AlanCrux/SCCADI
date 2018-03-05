@@ -10,12 +10,12 @@ import java.util.List;
 import logica.dominio.Alumno;
 
 /**
- * En esta clase se implementan todos los metodos del DaoAlumno, nos permite 
- * realizar consultas y cambios en la base de datos
+ * En esta clase se implementan todos los metodos del DaoAlumno, nos permite realizar consultas y
+ * cambios en la base de datos
+ *
  * @author Esmeralda Jimenez Ramos
- * @version 1.0 
+ * @version 1.0
  */
-
 public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
 
   /**
@@ -93,51 +93,51 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
   }
 
   /**
-   * Este metodo nos permite actualizar los datos de un alumno en la base de 
-   * datos
+   * Este metodo nos permite actualizar los datos de un alumno en la base de datos
+   *
    * @param alumno Objeto que contiene toda la informacion de un alumno
-   * @return True si la actualizacion se realizo con exito 
-   * @throws SQLException ocurre si se pierde la conexion con la base de datos
-   * o hay algun error en los querys
+   * @return True si la actualizacion se realizo con exito
+   * @throws SQLException ocurre si se pierde la conexion con la base de datos o hay algun error en
+   * los querys
    */
   public boolean actualizarAlumno(Alumno alumno) throws SQLException {
-      try {
-          this.connection();
-          PreparedStatement st = this.conn.prepareStatement("update Alumno set matricula, "
-                  + "nombre, correo, programaEducativo, contactoEmergencia, "
-                  + "numeroEmergencia, fotografia where matricula = ?");
-          st.setString(1, alumno.getMatricula());
-          ResultSet rs = st.executeQuery();
-          rs.close();
-          st.close();
-      } catch (SQLException e) {
-          return false;
-      } finally {
-          this.close();
-      }
-      return true;
-  }
-
-    /**
-     * Este metodo permite eliminar el registro de un alumno de la base de datos
-     * @param alumno Objeto que contiene toda la informacion de un alumno
-     * @return True si se elimino el registro exitosamente
-     */
-    public boolean eliminarAlumno(Alumno alumno) {
-        try {
+    try {
       this.connection();
-      PreparedStatement st = this.conn.prepareStatement("delete from Alumno where matricula = ?");
-            st.setString(1,alumno.getMatricula());
+      PreparedStatement st = this.conn.prepareStatement("update Alumno set matricula, "
+          + "nombre, correo, programaEducativo, contactoEmergencia, "
+          + "numeroEmergencia, fotografia where matricula = ?");
+      st.setString(1, alumno.getMatricula());
       ResultSet rs = st.executeQuery();
       rs.close();
       st.close();
     } catch (SQLException e) {
-        return false;
+      return false;
     } finally {
       this.close();
     }
-        return true;  }
+    return true;
+  }
 
+  /**
+   * Este metodo permite eliminar el registro de un alumno de la base de datos
+   * @param alumno Objeto que contiene toda la informacion de un alumno
+   * @return True si se elimino el registro exitosamente
+   */
+  @Override
+  public boolean eliminarAlumno(Alumno alumno) {
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement("delete from Alumno where matricula = ?");
+      st.setString(1, alumno.getMatricula());
+      ResultSet rs = st.executeQuery();
+      rs.close();
+      st.close();
+    } catch (SQLException e) {
+      return false;
+    } finally {
+      this.close();
+    }
+    return true;
+  }
 
 }
-

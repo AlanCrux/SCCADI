@@ -17,7 +17,7 @@ public class Conexion {
     private String USER_NAME = "sccadiAdmin";
     private String PASSWORD = "RoarOmegaRoar";
     private String DRIVER_CLASS = "com.mysql.jdbc.Driver";
-
+    
     private static Conexion connect;
 
     public Conexion() {

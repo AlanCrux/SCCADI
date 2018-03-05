@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="botonAtras" fitHeight="50.0" fitWidth="50.0" layoutX="69.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botonAtras" fitHeight="50.0" fitWidth="50.0" layoutX="69.0" layoutY="82.0" onMouseEntered="#efectoMouseSobre" onMouseExited="#efectoMouseFuera" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="69.0">
          <image>
-            <Image url="@../recursos/iconos/icons8-back-arrow-48.png" />
+            <Image url="@../recursos/iconos/back_arrow.png" />
          </image>
       </ImageView>
-      <Label fx:id="labelNombreAsesor" layoutX="130.0" layoutY="92.0" text="nombre del asesor">
+      <Label fx:id="lbNombreAsesor" layoutX="130.0" layoutY="92.0" text="nombre del asesor">
          <font>
             <Font name="Avenir Roman" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="labelPeriodo" layoutX="471.0" layoutY="66.0" text="Período escolar">
+      <Label fx:id="lbPeriodo" layoutX="471.0" layoutY="66.0" text="Período escolar">
          <font>
             <Font name="Avenir Roman" size="22.0" />
          </font>
       </Label>
-      <FlowPane fx:id="fpSecciones" layoutX="75.0" layoutY="140.0" prefHeight="301.0" prefWidth="624.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="150.0" />
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="150.0">
+         <content>
+            <FlowPane fx:id="mpSecciones" columnHalignment="CENTER" hgap="10.0" prefHeight="400.0" prefWidth="660.0" vgap="10.0" />
+         </content>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </ScrollPane>
    </children>
 </AnchorPane>

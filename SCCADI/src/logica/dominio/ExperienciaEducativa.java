@@ -8,12 +8,12 @@ package logica.dominio;
 public class ExperienciaEducativa {
     private int idExperiencia; 
     private String nombre;
-    private int nivel;
+    private String nivel;
 
     public ExperienciaEducativa() {
     }
 
-    public ExperienciaEducativa(int idExperiencia, String nombre, int nivel) {
+    public ExperienciaEducativa(int idExperiencia, String nombre, String nivel) {
         this.idExperiencia = idExperiencia;
         this.nombre = nombre;
         this.nivel = nivel;
@@ -35,11 +35,11 @@ public class ExperienciaEducativa {
         this.nombre = nombre;
     }
 
-    public int getNivel() {
+    public String getNivel() {
         return nivel;
     }
 
-    public void setNivel(int nivel) {
+    public void setNivel(String nivel) {
         this.nivel = nivel;
     }
     

@@ -16,11 +16,12 @@ import logica.dominio.Seccion;
 public class DAOSeccionImpl extends Conexion implements DAOSeccion{
 
     @Override
-    public List<Seccion> obtenerSecciones() throws SQLException {
+    public List<Seccion> obtenerSecciones(int noPersonal) throws SQLException {
         List<Seccion> secciones = null;
         this.connection();
         try {
-            PreparedStatement st = this.conn.prepareStatement("select * from seccion");
+            PreparedStatement st = this.conn.prepareStatement("select * from seccion where noPersonal=?");
+            st.setInt(1, noPersonal);
             secciones = new ArrayList();
             ResultSet rs = st.executeQuery();
             while (rs.next()) {

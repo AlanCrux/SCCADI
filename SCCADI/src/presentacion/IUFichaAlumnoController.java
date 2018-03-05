@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
@@ -14,54 +15,54 @@ import javafx.scene.image.ImageView;
  */
 public class IUFichaAlumnoController implements Initializable {
 
-    @FXML
-    private ImageView ivFotografia;
-    @FXML
-    private Label lbMatricula;
-    @FXML
-    private Label lbNombre;
-    @FXML
-    private Label lbCorreo;
+  @FXML
+  private ImageView ivFotografia = new ImageView();
+  @FXML
+  private Label lbMatricula = new Label();
+  @FXML
+  private Label lbNombre = new Label();
+  @FXML
+  private Label lbCorreo = new Label();
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+  /**
+   * Initializes the controller class.
+   */
+  @Override
+  public void initialize(URL url, ResourceBundle rb) {
+    ivFotografia.setFitWidth(60);
+    ivFotografia.setFitHeight(80);
+  }
 
-    public ImageView getIvFotografia() {
-        return ivFotografia;
-    }
+  public Image getIvFotografia() {
+    return ivFotografia.getImage();
+  }
 
-    public void setIvFotografia(ImageView ivFotografia) {
-        this.ivFotografia = ivFotografia;
-    }
+  public void setIvFotografia(Image ivFotografia) {
+    this.ivFotografia.setImage(ivFotografia);
+  }
 
-    public Label getLbMatricula() {
-        return lbMatricula;
-    }
+  public String getLbMatricula() {
+    return lbMatricula.getText();
+  }
 
-    public void setLbMatricula(Label lbMatricula) {
-        this.lbMatricula = lbMatricula;
-    }
+  public void setLbMatricula(String matricula) {
+    this.lbMatricula.setText(matricula);
+  }
 
-    public Label getLbNombre() {
-        return lbNombre;
-    }
+  public String getLbNombre() {
+    return lbNombre.getText();
+  }
 
-    public void setLbNombre(Label lbNombre) {
-        this.lbNombre = lbNombre;
-    }
+  public void setLbNombre(String nombre) {
+    this.lbNombre.setText(nombre);
+  }
 
-    public Label getLbCorreo() {
-        return lbCorreo;
-    }
+  public String getLbCorreo() {
+    return lbCorreo.getText();
+  }
 
-    public void setLbCorreo(Label lbCorreo) {
-        this.lbCorreo = lbCorreo;
-    }
-    
-    
+  public void setLbCorreo(String correo) {
+    this.lbCorreo.setText(correo);
+  }
+
 }
