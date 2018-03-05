@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+   <children>
+      <JFXComboBox layoutX="484.0" layoutY="70.0" promptText="Experiencia educativa" />
+      <JFXComboBox layoutX="659.0" layoutY="70.0" promptText="Semana" />
+      <ImageView fitHeight="43.0" fitWidth="44.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/back_arrow_transparent.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="34.0" layoutY="108.0" prefHeight="361.0" prefWidth="732.0">
+        <columns>
+          <TableColumn prefWidth="158.0" text="Nombre" />
+          <TableColumn prefWidth="201.0" text="Asesor" />
+            <TableColumn prefWidth="100.0" text="Fecha" />
+            <TableColumn text="Hora" />
+            <TableColumn prefWidth="118.0" text="Sala" />
+            <TableColumn prefWidth="68.0" text="Cupo" />
+        </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="562.0" layoutY="530.0" text="Reservacion" />
+      <JFXButton buttonType="RAISED" layoutX="678.0" layoutY="530.0" prefHeight="25.0" prefWidth="65.0" text="Salir" />
+   </children>
+</AnchorPane>
