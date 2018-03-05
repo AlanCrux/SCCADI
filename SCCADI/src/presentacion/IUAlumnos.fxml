@@ -9,36 +9,36 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1476B7;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="botonAtras" fitHeight="50.0" fitWidth="50.0" layoutX="79.0" layoutY="92.0" onMouseEntered="#efectoMouseSobre" onMouseExited="#efectoMouseFuera" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="69.0">
          <image>
-            <Image url="@../recursos/iconos/back_arrow.png" />
+            <Image url="@../recursos/iconos/back_arrow%20copia.png" />
          </image>
       </ImageView>
-      <Label fx:id="lbExperiencia" layoutX="140.0" layoutY="102.0" text="Experiencia educativa" AnchorPane.leftAnchor="140.0">
+      <Label fx:id="lbExperiencia" layoutX="140.0" layoutY="102.0" text="Experiencia educativa" textFill="WHITE" AnchorPane.leftAnchor="140.0">
          <font>
             <Font name="Avenir Roman" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lbNrc" layoutX="435.0" layoutY="102.0" text="NRC" AnchorPane.leftAnchor="350.0">
+      <Label fx:id="lbNrc" layoutX="435.0" layoutY="102.0" text="NRC" textFill="WHITE" AnchorPane.leftAnchor="350.0">
          <font>
             <Font name="Avenir Roman" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lbNumAlumnos" layoutX="535.0" layoutY="102.0" text="Alumnos inscritos" AnchorPane.leftAnchor="550.0">
+      <Label fx:id="lbNumAlumnos" layoutX="535.0" layoutY="102.0" text="Alumnos inscritos" textFill="WHITE" AnchorPane.leftAnchor="550.0">
          <font>
             <Font name="Avenir Roman" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lbPeriodo" layoutX="140.0" layoutY="60.0" text="Período escolar">
+      <Label fx:id="lbPeriodo" layoutX="140.0" layoutY="60.0" text="Período escolar" textFill="WHITE">
          <font>
             <Font name="Avenir Roman" size="22.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="69.0" layoutY="142.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="150.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="69.0" layoutY="142.0" pannable="true" prefHeight="400.0" prefWidth="637.0" style="-fx-background-color: #1476B7;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="150.0">
          <content>
-            <FlowPane fx:id="mpAlumnos" hgap="10.0" prefHeight="400.0" prefWidth="660.0" vgap="10.0" />
+            <FlowPane fx:id="mpAlumnos" hgap="10.0" prefHeight="400.0" prefWidth="660.0" style="-fx-background-color: #1476B7;" vgap="10.0" />
          </content>
          <padding>
             <Insets left="10.0" top="10.0" />

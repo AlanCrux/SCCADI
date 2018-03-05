@@ -23,7 +23,7 @@ public class FichaSeccion extends Button {
    * @param experiencia nombre de la experiencia educativa de la sección.
    * @param nivel nivel de la experiencia educativa de la sección. 
    */
-  public FichaSeccion(int nrc, String experiencia, String nivel) {
+  public FichaSeccion(int nrc, String experiencia, String nivel, String periodo) {
     datosSeccion = "NRC: " + nrc + "\n";
     datosSeccion += "EE: " + experiencia + "\n";
     datosSeccion += "Nivel: " + nivel;
@@ -39,7 +39,7 @@ public class FichaSeccion extends Button {
     });
 
     this.setOnAction(event -> {
-      mostrarVentanaAlumnos(nrc, experiencia);
+      mostrarVentanaAlumnos(nrc, experiencia,periodo);
     });
   }
 
@@ -64,16 +64,17 @@ public class FichaSeccion extends Button {
    * @param nrc el nrc de la sección.
    * @param experiencia el nombre de la experiencia educativa de la sección. 
    */
-  public void mostrarVentanaAlumnos(int nrc, String experiencia) {
+  public void mostrarVentanaAlumnos(int nrc, String experiencia, String periodo) {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("IUAlumnos.fxml"));
     IUAlumnosController controller = new IUAlumnosController();
     loader.setController(controller);
 
     controller.setNrc(nrc);
     controller.setExperiencia(experiencia);
-    controller.mostrarVentana(loader);
     controller.setAsesor(asesor);
-
+    controller.setPeriodo(periodo);
+    controller.mostrarVentana(loader);
+    
     Stage mainStage = (Stage) this.getScene().getWindow();
     mainStage.close();
   }
@@ -94,4 +95,5 @@ public class FichaSeccion extends Button {
   public void setAsesor(Asesor asesor) {
     this.asesor = asesor;
   }
+  
 }

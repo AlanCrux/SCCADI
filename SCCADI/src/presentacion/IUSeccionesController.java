@@ -101,7 +101,7 @@ public class IUSeccionesController implements Initializable {
 
     String nombreExperiencia = experiencia.getNombre();
     String nivel = experiencia.getNivel();
-    FichaSeccion fichaSeccion = new FichaSeccion(nrc, nombreExperiencia, nivel);
+    FichaSeccion fichaSeccion = new FichaSeccion(nrc, nombreExperiencia, nivel, periodo);
     
     fichaSeccion.setPrefSize(160, 70);
     fichaSeccion.setAsesor(asesor);
@@ -166,6 +166,7 @@ public class IUSeccionesController implements Initializable {
       Parent root = (Parent) loader.load();
       Scene scene = new Scene(root);
       stagePrincipal.setScene(scene);
+      stagePrincipal.setResizable(false);
       stagePrincipal.show();
     } catch (IOException ex) {
       Logger.getLogger(IUAlumnosController.class.getName()).log(Level.SEVERE, null, ex);

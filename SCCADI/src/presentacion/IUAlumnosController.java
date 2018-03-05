@@ -53,6 +53,7 @@ public class IUAlumnosController implements Initializable {
 
   private Asesor asesor;
   private String experiencia;
+  private String periodo; 
   private int nrc;
 
   /**
@@ -63,7 +64,7 @@ public class IUAlumnosController implements Initializable {
     lbExperiencia.setText("EE: " + experiencia);
     lbNrc.setText("NRC: " + nrc);
     lbNumAlumnos.setText("Alumnos: " + cargarAlumnos(nrc));
-    
+    lbPeriodo.setText(periodo);
     botonAtras.setOnMouseClicked(event->{
       regresar();
     });
@@ -79,6 +80,7 @@ public class IUAlumnosController implements Initializable {
       Parent root = (Parent) loader.load();
       Scene scene = new Scene(root);
       stagePrincipal.setScene(scene);
+      stagePrincipal.setResizable(false);
       stagePrincipal.show();
     } catch (IOException ex) {
       Logger.getLogger(IUAlumnosController.class.getName()).log(Level.SEVERE, null, ex);
@@ -96,7 +98,7 @@ public class IUAlumnosController implements Initializable {
     try {
       alumnos = daoInscripcion.obtenerAlumnos(nrc);
     } catch (Exception ex) {
-      Herramientas.displayInformation("Error conexion", "No se pudo obtener la información");
+      Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
     }
     int cantidadAlumnos = alumnos.size();
 
@@ -206,4 +208,14 @@ public class IUAlumnosController implements Initializable {
     ImageView ficha = (ImageView) event.getSource();
     ficha.setImage(new Image("/recursos/iconos/back_arrow.png"));
   }
+
+  public String getPeriodo() {
+    return periodo;
+  }
+
+  public void setPeriodo(String periodo) {
+    this.periodo = periodo;
+  }
+  
+  
 }
