@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.IUAdministrarAlumnosController">
+   <children>
+      <ImageView fx:id="botonRegresar" fitHeight="45.0" fitWidth="44.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/icons8-back-arrow-48.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="textBuscarAlumno" focusTraversable="false" layoutX="516.0" layoutY="20.0" onAction="#filtarAlumnos" onInputMethodTextChanged="#filtarAlumnos" onKeyPressed="#filtarAlumnos" onKeyReleased="#filtarAlumnos" onKeyTyped="#filtarAlumnos" prefHeight="32.0" prefWidth="270.0" promptText="Buscar alumno" />
+      <TableView fx:id="tablaAlumnos" layoutX="27.0" layoutY="73.0" prefHeight="211.0" prefWidth="751.0">
+         <columns>
+            <TableColumn fx:id="columnaMatricula" prefWidth="98.0" sortable="false" text="Matricula" />
+            <TableColumn fx:id="columnaNombre" prefWidth="192.0" sortable="false" text="Nombre" />
+            <TableColumn fx:id="columnaCorreo" minWidth="0.0" prefWidth="213.0" sortable="false" text="Correo" />
+            <TableColumn fx:id="columnaPrograma" prefWidth="231.0" sortable="false" text="Programa educativo" />
+         </columns>
+      </TableView>
+      <Label layoutX="336.0" layoutY="300.0" text="Datos personales">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3fa2ff" height="3.0" layoutX="53.0" layoutY="325.0" stroke="#4e698200" strokeType="INSIDE" width="696.0" />
+      <Label layoutX="53.0" layoutY="340.0" prefHeight="19.0" prefWidth="58.0" text="Matricula">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="560.0" layoutY="340.0" prefHeight="19.0" prefWidth="129.0" text="Programa educativo">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="364.0" layoutY="340.0" prefHeight="19.0" prefWidth="58.0" text="Correo">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="164.0" layoutY="340.0" prefHeight="19.0" prefWidth="58.0" text="Nombre">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textMatricula" editable="false" focusTraversable="false" layoutX="53.0" layoutY="360.0" prefHeight="25.0" prefWidth="90.0" />
+      <TextField fx:id="textNombre" editable="false" focusTraversable="false" layoutX="164.0" layoutY="360.0" prefHeight="25.0" prefWidth="183.0" />
+      <TextField fx:id="textCorreo" editable="false" focusTraversable="false" layoutX="364.0" layoutY="360.0" prefHeight="25.0" prefWidth="183.0" />
+      <TextField fx:id="textPrograma" editable="false" focusTraversable="false" layoutX="560.0" layoutY="360.0" prefHeight="25.0" prefWidth="183.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4fc62e" height="3.0" layoutX="303.0" layoutY="434.0" stroke="#4e698200" strokeType="INSIDE" width="447.0" />
+      <Label layoutX="543.0" layoutY="451.0" prefHeight="19.0" prefWidth="129.0" text="Telefono">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="451.0" prefHeight="19.0" prefWidth="58.0" text="Nombre">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textContactoEmergencia" editable="false" focusTraversable="false" layoutX="347.0" layoutY="471.0" prefHeight="25.0" prefWidth="183.0" />
+      <TextField fx:id="textTelefonoEmergencia" editable="false" focusTraversable="false" layoutX="543.0" layoutY="471.0" prefHeight="25.0" prefWidth="183.0" />
+      <ImageView fx:id="imageFotoAlumno" fitHeight="150.0" fitWidth="200.0" layoutX="77.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="452.0" layoutY="410.0" text="Contacto de emergencia">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="botonAgregar" focusTraversable="false" layoutX="526.0" layoutY="547.0" prefHeight="27.0" prefWidth="69.0" style="-fx-border-color: #4fc62e;" text="Agregar" />
+      <JFXButton fx:id="botonEditar" focusTraversable="false" layoutX="603.0" layoutY="547.0" onAction="#editarAlumno" prefHeight="27.0" prefWidth="69.0" style="-fx-border-color: #ff6a00;" text="Editar" />
+      <JFXButton fx:id="botonEliminar" focusTraversable="false" layoutX="680.0" layoutY="547.0" onAction="#eliminarAlumno" prefHeight="25.0" prefWidth="69.0" style="-fx-border-color: #ff4040;" text="Eliminar" />
+   </children>
+</AnchorPane>
