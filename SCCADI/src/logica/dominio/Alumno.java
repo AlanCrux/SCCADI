@@ -28,6 +28,15 @@ public class Alumno {
         this.fotografia = fotografia;
     }
 
+      public Alumno(String matricula, String nombre, String correo, String programaEducativo, String contactoEmergencia, String numeroEmergencia) {
+        this.matricula = matricula;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.programaEducativo = programaEducativo;
+        this.contactoEmergencia = contactoEmergencia;
+        this.numeroEmergencia = numeroEmergencia;
+    }
+
     public String getMatricula() {
         return matricula;
     }
