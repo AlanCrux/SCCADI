@@ -19,4 +19,5 @@ public interface DAOInscripcion {
     public boolean insertarInscripciones(Inscripcion inscripcion) throws Exception;
     public boolean actualizarInscripciones(int folio) throws Exception;
     public boolean eliminarInscripciones(int folio) throws Exception;
+    public boolean eliminarInscripcionesPorMatricula(Alumno alumno) throws Exception;
 }

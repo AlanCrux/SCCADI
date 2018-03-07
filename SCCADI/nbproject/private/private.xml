@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/alancrux/Documents/GitHub/SCCADI/SCCADI/src/presentacion/IUSeccionesController.java</file>
-            <file>file:/Users/alancrux/Documents/GitHub/SCCADI/SCCADI/src/presentacion/IUAlumnosController.java</file>
-            <file>file:/Users/alancrux/Documents/GitHub/SCCADI/SCCADI/src/sccadi/SCCADI.java</file>
-            <file>file:/Users/alancrux/Documents/GitHub/SCCADI/SCCADI/src/utilerias/Herramientas.java</file>
-            <file>file:/Users/alancrux/Documents/GitHub/SCCADI/SCCADI/src/presentacion/FichaSeccion.java</file>
+            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/IUAdministrarAlumnosController.java</file>
+            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/daoimpl/DAOAlumnoImpl.java</file>
+            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/daoimpl/DAOInscripcionImpl.java</file>
+            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/dao/DAOInscripcion.java</file>
         </group>
     </open-files>
 </project-private>

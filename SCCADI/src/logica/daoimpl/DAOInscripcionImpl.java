@@ -3,6 +3,7 @@ package logica.daoimpl;
 import datos.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import logica.dao.DAOInscripcion;
@@ -82,6 +83,24 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
   public boolean eliminarInscripciones(int folio) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
+  
+  
+    @Override
+    public boolean eliminarInscripcionesPorMatricula(Alumno alumno) throws Exception {
+        try {
+            this.connection();
+            PreparedStatement st = this.conn.prepareStatement("delete from Inscripcion where matricula = ?");
+            st.setString(1, alumno.getMatricula());
+            st.executeUpdate();
+            st.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            this.close();
+        }
+        return true;
+    }
 
 
 

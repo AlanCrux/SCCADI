@@ -1,7 +1,12 @@
 package sccadi;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import logica.dominio.Asesor;
 import presentacion.IUSeccionesController;
@@ -19,8 +24,15 @@ public class SCCADI extends Application {
    */
   @Override
   public void start(Stage stagePrincipal) {
-    this.stagePrincipal = stagePrincipal;
-    showMainWindows();
+    try {
+            AnchorPane page = FXMLLoader.load(getClass().getResource("/presentacion/IUAdministrarAlumnos.fxml"));
+            Scene scene = new Scene(page);
+            stagePrincipal.setScene(scene);
+            stagePrincipal.show();
+            stagePrincipal.setResizable(false);
+        } catch (IOException ex) {
+            Logger.getLogger(SCCADI.class.getName()).log(Level.SEVERE, null, ex);
+        }
   }
 
   /**
@@ -34,7 +46,7 @@ public class SCCADI extends Application {
    * Muestra la ventana principal.
    */
   public void showMainWindows() {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUSecciones.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUAdministrarAlumnos.fxml"));
     IUSeccionesController seccionesController = new IUSeccionesController();
     loader.setController(seccionesController);
     
