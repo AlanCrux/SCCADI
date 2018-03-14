@@ -27,6 +27,7 @@ import javax.imageio.ImageIO;
 import logica.daoimpl.DAOAlumnoImpl;
 import logica.daoimpl.DAOInscripcionImpl;
 import logica.dominio.Alumno;
+import utilerias.Herramientas;
 
 /**
  * Controller de la ventana IUAdministrarAlumnos, permite consultar, editar o
@@ -83,8 +84,7 @@ public class IUAdministrarAlumnosController implements Initializable {
             try {
                 cargarAlumno();
             } catch (Exception ex) {
-                System.out.println(ex);
-                System.out.println("Se detuvo la excepción");
+                Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
             }
         });
     }
@@ -108,11 +108,7 @@ public class IUAdministrarAlumnosController implements Initializable {
             columnaPrograma.setCellValueFactory(new PropertyValueFactory<>("programaEducativo"));
             tablaAlumnos.setItems(listaAlumno);
         } catch (Exception ex) {
-            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-            alerta.setTitle("Confirmación");
-            alerta.setHeaderText(null);
-            alerta.setContentText("Ha ocurrido un error, intente mas tarde");
-            alerta.show();
+            Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
         }
     }
 
@@ -158,11 +154,11 @@ public class IUAdministrarAlumnosController implements Initializable {
      */
     @FXML
     public void eliminarAlumno() {
-        Alumno seleccionado = tablaAlumnos.getSelectionModel().getSelectedItem();
-        for (int i = 0; i < listaAlumno.size(); i++) {
-            if (listaAlumno.get(i).getMatricula().equals(seleccionado.getMatricula())) {
-                try {
-                    System.out.println(seleccionado.getMatricula());
+        try {
+            Alumno seleccionado = tablaAlumnos.getSelectionModel().getSelectedItem();
+            for (int i = 0; i < listaAlumno.size(); i++) {
+                if (listaAlumno.get(i).getMatricula().equals(seleccionado.getMatricula())) {
+
                     if (inscripcion.eliminarInscripcionesPorMatricula(seleccionado)) {
                         if (alumno.eliminarAlumno(seleccionado.getMatricula())) {
                             listaAlumno.remove(i);
@@ -175,20 +171,13 @@ public class IUAdministrarAlumnosController implements Initializable {
                         } else {
                         }
                     } else {
-                        System.out.println("else de eliminar inscripcion");
-                        Alert alerta = new Alert(Alert.AlertType.WARNING);
-                        alerta.setTitle("Error");
-                        alerta.setHeaderText(null);
-                        alerta.setContentText("Ha ocurrido un error, intente mas tarde");
-                        alerta.show();
+                        Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
                     }
-                } catch (Exception ex) {
-                    System.out.println(ex);
                 }
-
             }
+        } catch (Exception ex) {
+            Herramientas.displayWarningAlert("Error conexion", "Seleccione un elemento de la tabla");
         }
-
     }
 
     /**
@@ -214,21 +203,13 @@ public class IUAdministrarAlumnosController implements Initializable {
                     alerta.setContentText("Actualización exitosa");
                     alerta.show();
                 } else {
-                    Alert alerta = new Alert(Alert.AlertType.WARNING);
-                    alerta.setTitle("Error");
-                    alerta.setHeaderText(null);
-                    alerta.setContentText("Ha ocurrido un error, intente mas tarde");
-                    alerta.show();
+                    Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
                 }
             } else {
-                Alert alerta = new Alert(Alert.AlertType.WARNING);
-                alerta.setTitle("Error");
-                alerta.setHeaderText(null);
-                alerta.setContentText("Existen campos vacio, por favor llenalos");
-                alerta.show();
+                Herramientas.displayWarningAlert("Campos vacios", "Existen campos vacios por favor llenarlos");
             }
         } catch (Exception ex) {
-            System.out.println(ex);
+            Herramientas.displayWarningAlert("Error conexion", "Seleccione un elemento de la tabla");
         }
 
     }
@@ -295,15 +276,7 @@ public class IUAdministrarAlumnosController implements Initializable {
             columnaPrograma.setCellValueFactory(new PropertyValueFactory<>("programaEducativo"));
             tablaAlumnos.setItems(listaAlumno);
         } catch (Exception ex) {
-            try {
-                Alert alerta = new Alert(Alert.AlertType.WARNING);
-                alerta.setTitle("Error en la conexión");
-                alerta.setHeaderText(null);
-                alerta.setContentText("Ha ocurrido un error, intente mas tarde");
-                alerta.show();
-            } catch (Exception ex1) {
-                Logger.getLogger(IUAdministrarAlumnosController.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
         }
     }
 
