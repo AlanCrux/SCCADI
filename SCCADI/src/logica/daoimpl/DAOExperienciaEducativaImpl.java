@@ -4,6 +4,7 @@ import datos.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import logica.dao.DAOExperienciaEducativa;
 import logica.dominio.ExperienciaEducativa;
@@ -18,7 +19,26 @@ public class DAOExperienciaEducativaImpl extends Conexion implements DAOExperien
 
   @Override
   public List<ExperienciaEducativa> obtenerExperiencias() throws Exception {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    List<ExperienciaEducativa> experiencias; 
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement("select * from experienciaeducativa");
+      ResultSet rs = st.executeQuery();
+      experiencias = new ArrayList();
+      while (rs.next()) {
+        ExperienciaEducativa experiencia = new ExperienciaEducativa();
+        experiencia.setIdExperiencia(rs.getInt("idExperiencia"));
+        experiencia.setNombre(rs.getString("nombre"));
+        experiencia.setNivel(rs.getString("nivel"));
+        experiencia.setNumModulos(rs.getInt("numModulos"));
+        experiencia.setNumUnidades(rs.getInt("numUnidades"));
+        experiencias.add(experiencia);
+      }
+    } catch (Exception e) {
+      throw e; 
+    }
+    
+    return experiencias; 
   }
 
   /**
@@ -43,7 +63,7 @@ public class DAOExperienciaEducativaImpl extends Conexion implements DAOExperien
       }
       rs.close();
       st.close();
-    } catch (Exception ex) {
+    } catch (SQLException ex) {
       throw ex;
     } finally {
       this.close();

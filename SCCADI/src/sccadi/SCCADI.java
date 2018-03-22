@@ -9,30 +9,32 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import logica.dominio.Asesor;
-import presentacion.IUSeccionesController;
+import presentacion.controladores.IUSeccionesController;
 
 /**
  *
  * @author alancrux
  */
 public class SCCADI extends Application {
+
   private Stage stagePrincipal;
 
   /**
    * Inicializa el programa.
-   * @param stagePrincipal el stage sobre el cual cargara la escena. 
+   *
+   * @param stagePrincipal el stage sobre el cual cargara la escena.
    */
   @Override
   public void start(Stage stagePrincipal) {
     try {
-            AnchorPane page = FXMLLoader.load(getClass().getResource("/presentacion/IUAdministrarAlumnos.fxml"));
-            Scene scene = new Scene(page);
-            stagePrincipal.setScene(scene);
-            stagePrincipal.show();
-            stagePrincipal.setResizable(false);
-        } catch (IOException ex) {
-            Logger.getLogger(SCCADI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      AnchorPane page = FXMLLoader.load(getClass().getResource("/presentacion/IUInscripcion.fxml"));
+      Scene scene = new Scene(page);
+      stagePrincipal.setScene(scene);
+      stagePrincipal.show();
+      //stagePrincipal.setResizable(false);
+    } catch (IOException ex) {
+      Logger.getLogger(SCCADI.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }
 
   /**
@@ -49,15 +51,17 @@ public class SCCADI extends Application {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUAdministrarAlumnos.fxml"));
     IUSeccionesController seccionesController = new IUSeccionesController();
     loader.setController(seccionesController);
-    
+
     Asesor asesor = new Asesor();
     asesor.setNoPersonal(1234);
-    asesor.setNombre("Jose Antonio Martinez Salazar");
-    
+    asesor.setNombre("Jose Antonio");
+    asesor.setApPaterno("Martinez");
+    asesor.setApMaterno("Salazar");
+
     seccionesController.setAsesor(asesor);
-    
+
     seccionesController.mostrarVentana(loader);
-    
+
   }
 
 }

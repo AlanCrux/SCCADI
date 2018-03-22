@@ -8,84 +8,98 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controladores.IUInscripcionController">
    <children>
-      <ImageView fx:id="botonAtras" fitHeight="50.0" fitWidth="50.0" layoutX="50.0" layoutY="40.0" onMouseClicked="#salir" onMouseEntered="#efectoMouseSobre" onMouseExited="#efectoMouseFuera" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="botonAtras" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="41.0" onMouseClicked="#salir" onMouseEntered="#efectoMouseSobre" onMouseExited="#efectoMouseFuera" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/iconos/back_arrow.png" />
          </image>
       </ImageView>
       <Label fx:id="lbNombreAsesor" layoutX="100.0" layoutY="53.0" text="Inscripción al periodo escolar: ">
          <font>
-            <Font name="Proxima Nova Alt Rg Bold" size="22.0" />
+            <Font name="Proxima Nova ScOsf Th Regular" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lbNombreAsesor1" layoutX="100.0" layoutY="120.0" text="Datos del alumno">
+      <Label fx:id="lbNombreAsesor1" layoutX="86.0" layoutY="106.0" text="Datos del alumno">
          <font>
             <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lbNombreAsesor11" layoutX="97.0" layoutY="250.0" text="Contacto de emergencia">
+      <Label fx:id="lbNombreAsesor11" layoutX="83.0" layoutY="236.0" text="Contacto de emergencia">
          <font>
             <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="100.0" layoutY="141.0" promptText="Matricula">
+      <TextField fx:id="tfMatricula" layoutX="86.0" layoutY="127.0" promptText="Matricula">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="310.0" layoutY="141.0" prefHeight="31.0" prefWidth="278.0" promptText="Nombre completo">
+      <TextField fx:id="tfNombre" layoutX="296.0" layoutY="127.0" prefHeight="31.0" prefWidth="278.0" promptText="Nombre completo">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="100.0" layoutY="195.0" promptText="correo electronico">
+      <TextField fx:id="tfCorreo" layoutX="86.0" layoutY="181.0" promptText="Correo electronico">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="612.0" layoutY="280.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Tomar foto">
+      <Button fx:id="btnFoto" layoutX="598.0" layoutY="255.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="FOTO">
          <font>
             <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="612.0" layoutY="328.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Inscribir">
+      <Button fx:id="btnInscribir" layoutX="598.0" layoutY="304.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="INSCRIBIR">
          <font>
             <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="120.0" layoutX="612.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../recursos/imagenes/img_00461.jpg" />
-         </image>
-      </ImageView>
-      <TextField layoutX="100.0" layoutY="285.0" prefHeight="31.0" prefWidth="266.0" promptText="Nombre completo">
+      <TextField fx:id="tfNombreEmergencia" layoutX="86.0" layoutY="271.0" prefHeight="31.0" prefWidth="266.0" promptText="Nombre completo">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="400.0" layoutY="285.0" promptText="Teléfono">
+      <TextField fx:id="tfTelefonoEmergencia" layoutX="386.0" layoutY="271.0" promptText="Teléfono">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>
       </TextField>
-      <TableView layoutX="99.0" layoutY="386.0" prefHeight="162.0" prefWidth="490.0">
+      <TableView fx:id="tablaExperiencias" layoutX="83.0" layoutY="364.0" prefHeight="162.0" prefWidth="634.0" style="-fx-font: 15px &quot;Proxima Nova Alt Rg&quot;;">
         <columns>
-          <TableColumn prefWidth="59.0" text="NRC" />
-          <TableColumn prefWidth="102.0" text="Experiencia" />
-            <TableColumn minWidth="0.0" prefWidth="122.0" text="Nivel" />
-            <TableColumn prefWidth="66.0" text="Cupo" />
-            <TableColumn minWidth="7.0" prefWidth="140.0" text="Asesor" />
+          <TableColumn fx:id="tbcNRC" prefWidth="59.0" text="NRC" />
+          <TableColumn fx:id="tbcExperiencia" prefWidth="136.0" text="Experiencia" />
+            <TableColumn fx:id="tbcNivel" minWidth="0.0" prefWidth="156.0" text="Nivel" />
+            <TableColumn fx:id="tbcCupo" prefWidth="74.0" text="Cupo" />
+            <TableColumn fx:id="tbcAsesor" minWidth="7.0" prefWidth="208.0" text="Asesor" />
         </columns>
       </TableView>
-      <Label fx:id="lbNombreAsesor111" layoutX="100.0" layoutY="358.0" text="Experiencias educativas disponibles:">
+      <Label fx:id="lbNombreAsesor111" layoutX="83.0" layoutY="334.0" text="Experiencias educativas disponibles:">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="18.0" />
          </font>
       </Label>
+      <Pane layoutX="598.0" layoutY="91.0" prefHeight="155.0" prefWidth="120.0" style="-fx-border-color: blue;">
+         <children>
+            <ImageView fx:id="imageViewFoto" fitHeight="150.0" fitWidth="120.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/imagenes/uno.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField fx:id="tfProgramaEducativo" layoutX="296.0" layoutY="181.0" prefHeight="31.0" prefWidth="278.0" promptText="Programa educativo">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

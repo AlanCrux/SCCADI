@@ -1,6 +1,5 @@
 package logica.dao;
 
-import java.sql.SQLException;
 import java.util.List;
 import logica.dominio.ExperienciaEducativa;
 
@@ -10,9 +9,9 @@ import logica.dominio.ExperienciaEducativa;
  * @version 1.0
  */
 public interface DAOExperienciaEducativa {
-    public List<ExperienciaEducativa> obtenerExperiencias() throws Exception;
-    public ExperienciaEducativa obtenerExperiencia(int idExperiencia) throws Exception;
-    public boolean insertarExperiencia(ExperienciaEducativa experienciaEducativa) throws Exception;
-    public boolean actualizarExperiencia(int idExperiencia) throws Exception;
-    public boolean eliminarExperiencia(int idExperiencia) throws Exception;
+  public List<ExperienciaEducativa> obtenerExperiencias() throws Exception;
+  public ExperienciaEducativa obtenerExperiencia(int idExperiencia) throws Exception;
+  public boolean insertarExperiencia(ExperienciaEducativa experienciaEducativa) throws Exception;
+  public boolean actualizarExperiencia(int idExperiencia) throws Exception;
+  public boolean eliminarExperiencia(int idExperiencia) throws Exception;
 }

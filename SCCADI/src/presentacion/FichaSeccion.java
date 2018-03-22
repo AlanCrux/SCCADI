@@ -1,5 +1,6 @@
 package presentacion;
 
+import presentacion.controladores.IUAlumnosController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;

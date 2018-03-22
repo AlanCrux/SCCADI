@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controladores.IUProgramacionActividadesController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="807.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="123.0" layoutY="55.0" text="Programación de actividades">
+         <font>
+            <Font name="Proxima Nova ScOsf Th Regular" size="28.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="botonAtras" fitHeight="50.0" fitWidth="50.0" layoutX="65.0" layoutY="45.0" onMouseClicked="#salir" onMouseEntered="#efectoMouseSobre" onMouseExited="#efectoMouseFuera" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/back_arrow.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <TextField fx:id="tfBuscar" layoutX="65.0" layoutY="121.0" prefHeight="40.0" prefWidth="250.0" promptText="Buscar..." style="-fx-font: 15px &quot;Proxima Nova Alt Rg&quot;;" />
+      <Label layoutX="356.0" layoutY="244.0" text="Nombre:">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="354.0" layoutY="129.0" text="Experiencia:">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="22.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboExperiencia" layoutX="485.0" layoutY="121.0" prefHeight="40.0" prefWidth="250.0" promptText="Seleccionar experiencia" style="-fx-font: 18px &quot;Proxima Nova Alt Rg&quot;;" />
+      <ComboBox fx:id="comboModulo" layoutX="486.0" layoutY="178.0" prefHeight="40.0" prefWidth="120.0" promptText="MODULO" style="-fx-font: 15px &quot;Proxima Nova Alt Rg&quot;;" />
+      <ComboBox fx:id="comboUnidad" layoutX="616.0" layoutY="179.0" prefHeight="40.0" prefWidth="120.0" promptText="UNIDAD" style="-fx-font: 15px &quot;Proxima Nova Alt Rg&quot;;" />
+      <TextField fx:id="tfNombre" layoutX="486.0" layoutY="237.0" prefHeight="40.0" prefWidth="250.0" promptText="Nombre" style="-fx-font: 15px &quot;Proxima Nova Alt Rg&quot;;" />
+      <DatePicker fx:id="datePickerInicio" editable="false" layoutX="486.0" layoutY="301.0" prefHeight="40.0" prefWidth="250.0" promptText="Fecha de inicio" style="-fx-font: 15px &quot;Proxima Nova Alt Rg&quot;;" />
+      <DatePicker fx:id="datePickerFin" editable="false" layoutX="486.0" layoutY="356.0" prefHeight="40.0" prefWidth="250.0" promptText="Fecha de fin" style="-fx-font: 15px &quot;Proxima Nova Alt Rg&quot;;" />
+      <Label layoutX="356.0" layoutY="309.0" text="Inicio:">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="356.0" layoutY="364.0" text="Fin:">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="22.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listViewActividades" layoutX="65.0" layoutY="178.0" prefHeight="332.0" prefWidth="250.0" style="-fx-font: 18px &quot;Proxima Nova Alt Rg&quot;;" />
+      <JFXButton fx:id="btnAceptar" layoutX="356.0" layoutY="441.0" onAction="#onActionAgregar" prefHeight="40.0" prefWidth="120.0" ripplerFill="#2ecc71" style="-fx-border-color: #2ecc71;" text="AGREGAR">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnEditar" layoutX="487.0" layoutY="441.0" onAction="#onActionEditar" prefHeight="40.0" prefWidth="120.0" style="-fx-border-color: #f1c40f;" text="EDITAR">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnEliminar" layoutX="617.0" layoutY="441.0" onAction="#onActionEliminar" prefHeight="40.0" prefWidth="120.0" style="-fx-border-color: #e74c3c;" text="ELIMINAR">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Pane fx:id="paneCombos" layoutX="480.0" layoutY="119.0" prefHeight="287.0" prefWidth="262.0" />
+   </children>
+</AnchorPane>

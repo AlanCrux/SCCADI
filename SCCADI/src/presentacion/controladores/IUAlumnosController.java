@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.controladores;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -28,7 +28,7 @@ import javax.imageio.ImageIO;
 import logica.daoimpl.DAOInscripcionImpl;
 import logica.dominio.Alumno;
 import logica.dominio.Asesor;
-import utilerias.Herramientas;
+import utilerias.Mensajes;
 
 /**
  * Controlador de la ventana IUAlumnos
@@ -98,7 +98,7 @@ public class IUAlumnosController implements Initializable {
     try {
       alumnos = daoInscripcion.obtenerAlumnos(nrc);
     } catch (Exception ex) {
-      Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
+      Mensajes.displayWarningAlert("Error conexion", "No se pudo obtener la información");
     }
     int cantidadAlumnos = alumnos.size();
 
