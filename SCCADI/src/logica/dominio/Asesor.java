@@ -7,19 +7,15 @@ package logica.dominio;
  */
 public class Asesor {
     private int noPersonal; 
-    private String nombre; 
-    private String apPaterno;
-    private String apMaterno; 
+    private String nombre;  
     private String correo; 
 
     public Asesor() {
     }
 
-    public Asesor(int noPersonal, String nombre, String apPaterno, String apMaterno, String correo) {
+    public Asesor(int noPersonal, String nombre, String correo) {
         this.noPersonal = noPersonal;
         this.nombre = nombre;
-        this.apPaterno = apPaterno;
-        this.apMaterno = apMaterno;
         this.correo = correo;
     }
 
@@ -37,22 +33,6 @@ public class Asesor {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getApPaterno() {
-        return apPaterno;
-    }
-
-    public void setApPaterno(String apPaterno) {
-        this.apPaterno = apPaterno;
-    }
-
-    public String getApMaterno() {
-        return apMaterno;
-    }
-
-    public void setApMaterno(String apMaterno) {
-        this.apMaterno = apMaterno;
     }
 
     public String getCorreo() {

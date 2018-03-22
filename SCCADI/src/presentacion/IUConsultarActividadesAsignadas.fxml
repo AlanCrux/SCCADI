@@ -10,29 +10,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.IUConsultarActividadesAsignadasController">
    <children>
-      <ImageView fitHeight="45.0" fitWidth="48.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botonRegresar" fitHeight="45.0" fitWidth="48.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../recursos/iconos/icons8-back-arrow-48.png" />
+            <Image url="@../recursos/iconos/back_arrow.png" />
          </image>
       </ImageView>
-      <Label fx:id="nombreAsesor" layoutX="97.0" layoutY="78.0" prefHeight="32.0" prefWidth="247.0" text="nombreAsesor">
+      <Label fx:id="labelNombreAsesor" layoutX="97.0" layoutY="78.0" prefHeight="32.0" prefWidth="247.0" text="nombreAsesor" underline="true">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <JFXComboBox layoutX="400.0" layoutY="85.0" promptText="Experiencia educativa" />
-      <JFXComboBox layoutX="587.0" layoutY="85.0" promptText="Semana" />
-      <TableView layoutX="97.0" layoutY="131.0" prefHeight="320.0" prefWidth="606.0">
+      <JFXComboBox fx:id="comboExperienciaEdu" layoutX="400.0" layoutY="85.0" promptText="Experiencia educativa" />
+      <JFXComboBox fx:id="comboSemana" layoutX="587.0" layoutY="85.0" prefHeight="25.0" prefWidth="114.0" promptText="Semana" />
+      <TableView fx:id="tablaActividades" layoutX="97.0" layoutY="131.0" prefHeight="320.0" prefWidth="606.0">
         <columns>
-          <TableColumn prefWidth="255.0" text="Actividad" />
-          <TableColumn prefWidth="103.0" text="Sala" />
-            <TableColumn prefWidth="121.0" text="Hora" />
-            <TableColumn prefWidth="115.0" text="Fecha" />
+          <TableColumn fx:id="columnaActividad" prefWidth="255.0" text="Actividad" />
+          <TableColumn fx:id="columnaSala" prefWidth="103.0" text="Sala" />
+            <TableColumn fx:id="columnaHora" prefWidth="121.0" text="Hora" />
+            <TableColumn fx:id="columnaFecha" prefWidth="115.0" text="Fecha" />
         </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="613.0" layoutY="523.0" ripplerFill="#00eb69" text="Registar asistencia" />
+      <JFXButton fx:id="botonRegistrarAsistencia" buttonType="RAISED" layoutX="613.0" layoutY="523.0" prefHeight="32.0" prefWidth="114.0" ripplerFill="WHITE" style="-fx-background-color: #00eb69;" text="Registar asistencia" />
    </children>
 </AnchorPane>

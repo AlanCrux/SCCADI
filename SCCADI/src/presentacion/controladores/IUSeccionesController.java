@@ -53,7 +53,7 @@ public class IUSeccionesController implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle rb) {
     periodo = "Periodo: Feb - Jul 2018";
-    lbNombreAsesor.setText(asesor.getNombre() +" "+ asesor.getApPaterno() +" "+ asesor.getApMaterno());
+    lbNombreAsesor.setText(asesor.getNombre());
     lbPeriodo.setText(periodo);
     obtenerSecciones(mpSecciones, asesor.getNoPersonal());
   }

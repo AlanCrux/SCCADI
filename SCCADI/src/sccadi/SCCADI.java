@@ -52,9 +52,7 @@ public class SCCADI extends Application {
     
     Asesor asesor = new Asesor();
     asesor.setNoPersonal(1234);
-    asesor.setNombre("Jose Antonio");
-    asesor.setApPaterno("Martinez");
-    asesor.setApMaterno("Salazar");
+    asesor.setNombre("Jose Antonio Martinez Salazar");
     
     seccionesController.setAsesor(asesor);
     
