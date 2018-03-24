@@ -37,6 +37,7 @@ public class DAOSeccionImpl extends Conexion implements DAOSeccion {
         seccion.setIdExperiencia(rs.getInt("idExperiencia"));
         seccion.setNoPersonal(rs.getInt("noPersonal"));
         seccion.setPeriodo(rs.getString("periodo"));
+        seccion.setCupo(rs.getInt("cupo"));
         secciones.add(seccion);
       }
       rs.close();
@@ -66,6 +67,31 @@ public class DAOSeccionImpl extends Conexion implements DAOSeccion {
   @Override
   public boolean eliminarSeccion(String nrc) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  public List<Seccion> obtenerSecciones() throws Exception {
+    List<Seccion> secciones = null;
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement("select * from seccion");
+      secciones = new ArrayList();
+      ResultSet rs = st.executeQuery();
+      while (rs.next()) {
+        Seccion seccion = new Seccion();
+        seccion.setNrc(rs.getInt("nrc"));
+        seccion.setIdExperiencia(rs.getInt("idExperiencia"));
+        seccion.setNoPersonal(rs.getInt("noPersonal"));
+        seccion.setPeriodo(rs.getString("periodo"));
+        seccion.setCupo(rs.getInt("cupo"));
+        secciones.add(seccion);
+      }
+      rs.close();
+    } catch (Exception e) {
+      throw e;
+    } finally {
+      this.close();
+    }
+    return secciones;
   }
 
 }

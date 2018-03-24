@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/daoimpl/DAOActividadAsignadaImpl.java</file>
             <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/test/accesodatos/TestDAOActividadAsignada.java</file>
+=======
+            <file>file:/C:/Users/Alan/Documents/Git/SCCADI/SCCADI/src/logica/dominio/ExperienciaEducativa.java</file>
+            <file>file:/C:/Users/Alan/Documents/Git/SCCADI/SCCADI/src/presentacion/controladores/IUInscripcionController.java</file>
+            <file>file:/C:/Users/Alan/Documents/Git/SCCADI/SCCADI/src/sccadi/SCCADI.java</file>
+            <file>file:/C:/Users/Alan/Documents/Git/SCCADI/SCCADI/src/logica/daoimpl/DAOSeccionImpl.java</file>
+            <file>file:/C:/Users/Alan/Documents/Git/SCCADI/SCCADI/src/logica/dominio/Seccion.java</file>
+>>>>>>> 7da2a3230588ea1d0ce1c5063e1ce2cb4bcdfcab
         </group>
     </open-files>
 </project-private>

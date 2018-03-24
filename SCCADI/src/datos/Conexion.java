@@ -5,8 +5,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Programa SCCADI 1.0 01 Marzo de 2018
- * Esta clase nos permite establecer la conexión con la base de de datos.
+ * Programa SCCADI 1.0 
+ * 01 Marzo de 2018 
+ * Esta clase nos permite establecer la conexión con la base de datos.
  * @author Alan Yoset García Cruz
  */
 public class Conexion {
@@ -21,31 +22,32 @@ public class Conexion {
   private static Conexion connect;
 
   /**
-   * Construye el objeto conexión. 
+   * Construye el objeto conexión.
    */
   public Conexion() {
-   
+
   }
 
   /**
    * Establece la conexión con la base de datos
+   *
    * @return el objeto conexión.
-   * @throws java.lang.Exception   
+   * @throws java.lang.Exception
    */
   public Connection connection() throws Exception {
-     try {
+    try {
       Class.forName(DRIVER_CLASS).newInstance();
       String url = "jdbc:mysql://" + HOST + "/" + BD;
       conn = DriverManager.getConnection(url, USER_NAME, PASSWORD);
       connect = this;
-    } catch (Exception ex) {
-      throw ex; 
-    } 
-     return conn;
+    } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException ex) {
+      throw ex;
+    }
+    return conn;
   }
 
   /**
-   * Cierra la conexión con la base de datos. 
+   * Cierra la conexión con la base de datos.
    */
   public void close() {
     try {

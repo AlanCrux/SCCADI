@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/IU_ASESOR.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton disable="true" layoutX="540.0" layoutY="165.0" prefHeight="119.0" prefWidth="220.0" style="-fx-background-color: gray;" />
+      <JFXButton disable="true" layoutX="39.0" layoutY="315.0" prefHeight="119.0" prefWidth="220.0" style="-fx-background-color: gray;" />
+      <Label layoutX="39.0" layoutY="90.0" text="Nombre del asesor">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="24.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="hpCerrarSesion" layoutX="348.0" layoutY="463.0" text="Cerrar sesión" underline="true">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </Hyperlink>
+      <JFXButton fx:id="btnActividades" layoutX="290.0" layoutY="165.0" prefHeight="119.0" prefWidth="220.0" ripplerFill="#45bfa8">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnSecciones" layoutX="39.0" layoutY="165.0" prefHeight="119.0" prefWidth="220.0" ripplerFill="#3ab6d6">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

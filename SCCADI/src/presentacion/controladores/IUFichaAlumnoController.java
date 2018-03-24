@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.controladores;
 
 import java.net.URL;
 import java.util.ResourceBundle;

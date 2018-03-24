@@ -19,6 +19,7 @@ import logica.dominio.ExperienciaEducativa;
  */
 public class DAOExperienciaEducativaImpl extends Conexion implements DAOExperienciaEducativa {
 
+<<<<<<< HEAD
     /**
      * Metodo que obtiene todas las experiencias educativas registradas 
      * @return Lista de tipo experiencia educativa
@@ -108,6 +109,58 @@ public class DAOExperienciaEducativaImpl extends Conexion implements DAOExperien
             this.close();
         }
         return experiencia;
+=======
+  @Override
+  public List<ExperienciaEducativa> obtenerExperiencias() throws Exception {
+    List<ExperienciaEducativa> experiencias; 
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement("select * from experienciaeducativa");
+      ResultSet rs = st.executeQuery();
+      experiencias = new ArrayList();
+      while (rs.next()) {
+        ExperienciaEducativa experiencia = new ExperienciaEducativa();
+        experiencia.setIdExperiencia(rs.getInt("idExperiencia"));
+        experiencia.setNombre(rs.getString("nombre"));
+        experiencia.setNivel(rs.getString("nivel"));
+        experiencia.setNumModulos(rs.getInt("numModulos"));
+        experiencia.setNumUnidades(rs.getInt("numUnidades"));
+        experiencias.add(experiencia);
+      }
+    } catch (Exception e) {
+      throw e; 
+    }
+    
+    return experiencias; 
+  }
+
+  /**
+   * 
+   * @param idExperiencia el identificador de la experiencia que se quiere recuperar.
+   * @return devuelve un objeto de tipo ExperienciaEducativa.
+   * @throws SQLException 
+   */
+  @Override
+  public ExperienciaEducativa obtenerExperiencia(int idExperiencia) throws Exception {
+    ExperienciaEducativa experiencia = null;
+    this.connection();
+    try {
+      PreparedStatement st = this.conn.prepareStatement("select * from ExperienciaEducativa where idExperiencia =?");
+      st.setInt(1, idExperiencia);
+      ResultSet rs = st.executeQuery();
+      while (rs.next()) {
+        experiencia = new ExperienciaEducativa();
+        experiencia.setIdExperiencia(idExperiencia);
+        experiencia.setNivel(rs.getString("nivel"));
+        experiencia.setNombre(rs.getString("nombre"));
+      }
+      rs.close();
+      st.close();
+    } catch (SQLException ex) {
+      throw ex;
+    } finally {
+      this.close();
+>>>>>>> 7da2a3230588ea1d0ce1c5063e1ce2cb4bcdfcab
     }
 
     @Override

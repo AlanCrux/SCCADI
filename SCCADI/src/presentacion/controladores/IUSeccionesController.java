@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.controladores;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +23,8 @@ import logica.daoimpl.DAOSeccionImpl;
 import logica.dominio.Asesor;
 import logica.dominio.ExperienciaEducativa;
 import logica.dominio.Seccion;
-import utilerias.Herramientas;
+import presentacion.FichaSeccion;
+import utilerias.Mensajes;
 
 /**
  * Controlador de la ventana IUSecciones
@@ -72,7 +73,7 @@ public class IUSeccionesController implements Initializable {
     try {
       secciones = daoSeccion.obtenerSecciones(noPersonal);
     } catch (Exception ex) {
-      Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
+      Mensajes.displayWarningAlert("Error conexion", "No se pudo obtener la información");
     }
 
     cantidadSecciones = secciones.size();
@@ -96,7 +97,7 @@ public class IUSeccionesController implements Initializable {
     try {
       experiencia = daoExperiencia.obtenerExperiencia(idExperiencia);
     } catch (Exception ex) {
-      Herramientas.displayWarningAlert("Error conexion", "No se pudo obtener la información");
+      Mensajes.displayWarningAlert("Error conexion", "No se pudo obtener la información");
     }
 
     String nombreExperiencia = experiencia.getNombre();
