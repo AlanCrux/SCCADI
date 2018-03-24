@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -22,6 +23,9 @@
          <image>
             <Image url="@../recursos/iconos/back_arrow.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <Label fx:id="lbNombreAsesor" layoutX="100.0" layoutY="53.0" text="Inscripción al periodo escolar: ">
          <font>
@@ -36,6 +40,11 @@
       <Label fx:id="lbNombreAsesor11" layoutX="83.0" layoutY="236.0" text="Contacto de emergencia">
          <font>
             <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNombreAsesor111" layoutX="83.0" layoutY="334.0" text="Experiencias educativas disponibles:">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="18.0" />
          </font>
       </Label>
       <TextField fx:id="tfMatricula" layoutX="86.0" layoutY="127.0" promptText="Matricula">
@@ -53,16 +62,11 @@
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>
       </TextField>
-      <Button fx:id="btnFoto" layoutX="598.0" layoutY="255.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="FOTO">
+      <TextField fx:id="tfProgramaEducativo" layoutX="296.0" layoutY="181.0" prefHeight="31.0" prefWidth="278.0" promptText="Programa educativo">
          <font>
-            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>
-      </Button>
-      <Button fx:id="btnInscribir" layoutX="598.0" layoutY="304.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="INSCRIBIR">
-         <font>
-            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
-         </font>
-      </Button>
+      </TextField>
       <TextField fx:id="tfNombreEmergencia" layoutX="86.0" layoutY="271.0" prefHeight="31.0" prefWidth="266.0" promptText="Nombre completo">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
@@ -73,7 +77,7 @@
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>
       </TextField>
-      <TableView fx:id="tablaExperiencias" layoutX="83.0" layoutY="364.0" prefHeight="162.0" prefWidth="634.0" style="-fx-font: 15px &quot;Proxima Nova Alt Rg&quot;;">
+      <TableView fx:id="tablaExperiencias" layoutX="83.0" layoutY="364.0" prefHeight="162.0" prefWidth="634.0" style="-fx-font: 15px &quot;Century Gothic&quot;;">
         <columns>
           <TableColumn fx:id="tbcNRC" prefWidth="59.0" text="NRC" />
           <TableColumn fx:id="tbcExperiencia" prefWidth="136.0" text="Experiencia" />
@@ -82,24 +86,30 @@
             <TableColumn fx:id="tbcAsesor" minWidth="7.0" prefWidth="208.0" text="Asesor" />
         </columns>
       </TableView>
-      <Label fx:id="lbNombreAsesor111" layoutX="83.0" layoutY="334.0" text="Experiencias educativas disponibles:">
-         <font>
-            <Font name="Proxima Nova Alt Rg Regular" size="18.0" />
-         </font>
-      </Label>
-      <Pane layoutX="598.0" layoutY="91.0" prefHeight="155.0" prefWidth="120.0" style="-fx-border-color: blue;">
+      <Pane layoutX="598.0" layoutY="91.0" prefHeight="155.0" prefWidth="120.0">
          <children>
-            <ImageView fx:id="imageViewFoto" fitHeight="150.0" fitWidth="120.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageViewFoto" fitHeight="142.0" fitWidth="120.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../recursos/imagenes/uno.jpg" />
+                  <Image url="@../recursos/imagenes/IMG_ALUMNO.jpg" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <TextField fx:id="tfProgramaEducativo" layoutX="296.0" layoutY="181.0" prefHeight="31.0" prefWidth="278.0" promptText="Programa educativo">
+      <JFXButton layoutX="598.0" layoutY="255.0" onAction="#onActionFoto" prefHeight="40.0" prefWidth="120.0" style="-fx-border-color: #f5b041;" text="FOTO">
          <font>
-            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
          </font>
-      </TextField>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnInscribir" layoutX="598.0" layoutY="302.0" onAction="#onActionInscribir" prefHeight="40.0" prefWidth="120.0" style="-fx-border-color: blue;" text="INSCRIBIR">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

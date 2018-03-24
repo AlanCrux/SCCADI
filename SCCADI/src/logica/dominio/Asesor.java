@@ -6,42 +6,42 @@ package logica.dominio;
  * @version 1.0
  */
 public class Asesor {
-    private int noPersonal; 
-    private String nombre;  
-    private String correo; 
 
-    public Asesor() {
-    }
+  private int noPersonal;
+  private String nombre;
+  private String correo;
 
-    public Asesor(int noPersonal, String nombre, String correo) {
-        this.noPersonal = noPersonal;
-        this.nombre = nombre;
-        this.correo = correo;
-    }
+  public Asesor() {
+  }
 
-    public int getNoPersonal() {
-        return noPersonal;
-    }
+  public Asesor(int noPersonal, String nombre, String correo) {
+    this.noPersonal = noPersonal;
+    this.nombre = nombre;
+    this.correo = correo;
+  }
 
-    public void setNoPersonal(int noPersonal) {
-        this.noPersonal = noPersonal;
-    }
+  public int getNoPersonal() {
+    return noPersonal;
+  }
 
-    public String getNombre() {
-        return nombre;
-    }
+  public void setNoPersonal(int noPersonal) {
+    this.noPersonal = noPersonal;
+  }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+  public String getNombre() {
+    return nombre;
+  }
 
-    public String getCorreo() {
-        return correo;
-    }
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-    
-    
+  public String getCorreo() {
+    return correo;
+  }
+
+  public void setCorreo(String correo) {
+    this.correo = correo;
+  }
+
 }

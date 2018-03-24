@@ -27,18 +27,7 @@ public class SCCADI extends Application {
   @Override
   public void start(Stage stagePrincipal) {
     try {
-<<<<<<< HEAD
-            AnchorPane page = FXMLLoader.load(getClass().getResource(
-                    "/presentacion/IUConsultarDetalleSemanaActividades.fxml"));
-            Scene scene = new Scene(page);
-            stagePrincipal.setScene(scene);
-            stagePrincipal.show();
-            stagePrincipal.setResizable(false);
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
-=======
-      AnchorPane page = FXMLLoader.load(getClass().getResource("/presentacion/IUInscripcion.fxml"));
+      AnchorPane page = FXMLLoader.load(getClass().getResource("/presentacion/IUAdministrarAlumnos.fxml"));
       Scene scene = new Scene(page);
       stagePrincipal.setScene(scene);
       stagePrincipal.show();
@@ -67,8 +56,6 @@ public class SCCADI extends Application {
     Asesor asesor = new Asesor();
     asesor.setNoPersonal(1234);
     asesor.setNombre("Jose Antonio");
-    asesor.setApPaterno("Martinez");
-    asesor.setApMaterno("Salazar");
 
     seccionesController.setAsesor(asesor);
 

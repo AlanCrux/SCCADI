@@ -1,6 +1,5 @@
 package accesodatos;
 
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import logica.daoimpl.DAOAlumnoImpl;
@@ -11,7 +10,8 @@ import static org.junit.Assert.*;
 /**
  * En esta clase se encuentran las pruebas unitarias de la clase DAOAlumno
  *
- * @author Esmeralda
+ * @author Esmeralda Jiménez Ramos
+ * @author Alan Yoset Garcia Cruz
  * @version 1.0
  */
 public class TestDAOAlumno {
@@ -20,7 +20,7 @@ public class TestDAOAlumno {
   Alumno alumno = new Alumno("S123", "hernan ", "aaaaa", "aaaaa", "aaaa", "aaaaaa");
 
   /**
-   * Prueba del metodo para editar los datos de un alumno
+   * Prueba del metodo para editar los datos de un alumno.
    */
   @Test
   public void editarAlumno() {
@@ -31,11 +31,10 @@ public class TestDAOAlumno {
     } catch (Exception ex) {
       Logger.getLogger(TestDAOAlumno.class.getName()).log(Level.SEVERE, null, ex);
     }
-
   }
 
   /**
-   * Prueba del metodo que elimina los datos de un alumno
+   * Prueba del metodo que elimina los datos de un alumno.
    */
   @Test
   public void eliminarAlumno() {
@@ -46,7 +45,21 @@ public class TestDAOAlumno {
       Logger.getLogger(TestDAOAlumno.class.getName()).log(Level.SEVERE, null, ex);
     }
     boolean resultadoEsperado = true;
-
     assertEquals(eliminarAlumno, resultadoEsperado);
+  }
+  
+  /**
+   * Prueba unitaria del método que inserta un alumno en la BD.
+   */
+  public void testInsertarAlumno(){
+    Alumno nuevoAlumno = new Alumno("S321", "Josesito ", "aaaaa", "aaaaa", "aaaa", "aaaaaa");
+    boolean obtenido = false;
+    try {
+      obtenido = alumnoAux.insertarAlumno(nuevoAlumno);
+    } catch (Exception ex) {
+      Logger.getLogger(TestDAOAlumno.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    boolean esperado = true; 
+    assertEquals(obtenido, esperado);
   }
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="111.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../recursos/fondos/IU_COORDINADOR.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="68.0" layoutY="300.0" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: rgba(130,130,130,0.7);;" text="NO DISPONIBLE" textFill="#808080">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="528.0" layoutY="165.0" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: rgba(130,130,130,0.7);;" text="NO DISPONIBLE" textFill="#6f6f6f">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnAlumnos" layoutX="68.0" layoutY="168.0" onAction="#abrirAlumnos" prefHeight="108.0" prefWidth="203.0" ripplerFill="#160cf5" text=" ">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnActividades" layoutX="299.0" layoutY="168.0" onAction="#abrirActividades" prefHeight="108.0" prefWidth="203.0" ripplerFill="#ee5d5d" text=" ">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label fx:id="lblNombre" layoutX="68.0" layoutY="104.0" text="Nombre del coordinador">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="24.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="hpCerrarSesion" layoutX="348.0" layoutY="463.0" text="Cerrar sesión" underline="true">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>

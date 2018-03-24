@@ -9,32 +9,53 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="822.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/fondos/IU_ASESOR.jpg" />
          </image>
       </ImageView>
-      <JFXButton disable="true" layoutX="540.0" layoutY="165.0" prefHeight="119.0" prefWidth="220.0" style="-fx-background-color: gray;" />
-      <JFXButton disable="true" layoutX="39.0" layoutY="315.0" prefHeight="119.0" prefWidth="220.0" style="-fx-background-color: gray;" />
-      <Label layoutX="39.0" layoutY="90.0" text="Nombre del asesor">
+      <Label fx:id="lblNombre" layoutX="68.0" layoutY="111.0" text="Nombre del asesor">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="24.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="hpCerrarSesion" layoutX="348.0" layoutY="463.0" text="Cerrar sesión" underline="true">
+      <Hyperlink fx:id="hpCerrarSesion" layoutX="348.0" layoutY="463.0" onAction="#cerrarSesion" text="Cerrar sesión" underline="true">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>
       </Hyperlink>
-      <JFXButton fx:id="btnActividades" layoutX="290.0" layoutY="165.0" prefHeight="119.0" prefWidth="220.0" ripplerFill="#45bfa8">
+      <JFXButton fx:id="btnActividades" layoutX="296.0" layoutY="165.0" onAction="#abrirActividades" prefHeight="108.0" prefWidth="209.0" ripplerFill="#c4334d">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="btnSecciones" layoutX="39.0" layoutY="165.0" prefHeight="119.0" prefWidth="220.0" ripplerFill="#3ab6d6">
+      <JFXButton fx:id="btnSecciones" layoutX="68.0" layoutY="165.0" onAction="#abrirSecciones" prefHeight="108.0" prefWidth="203.0" ripplerFill="#3ab6d6">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="529.0" layoutY="162.0" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: rgba(130,130,130,0.7);;" text="NO DISPONIBLE" textFill="#6f6f6f">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="68.0" layoutY="300.0" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: rgba(130,130,130,0.7);;" text="NO DISPONIBLE" textFill="#6f6f6f">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="299.0" layoutY="300.0" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: rgba(130,130,130,0.7);;" text="NO DISPONIBLE" textFill="#6f6f6f">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="20.0" />
+         </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

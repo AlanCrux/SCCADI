@@ -12,24 +12,26 @@ import logica.dominio.Inscripcion;
 import logica.dominio.Seccion;
 
 /**
- * Esta clase implementa los métodos definidos en la interfaz DAOInscripcion
- * nos permite realizar inserciones, consultas, actualizaciones y eliminar datos de la tabla
- * Inscripcion en la base de datos.
+ * Esta clase implementa los métodos definidos en la interfaz DAOInscripcion nos permite realizar
+ * inserciones, consultas, actualizaciones y eliminar datos de la tabla Inscripcion en la base de
+ * datos.
+ *
  * @author Alan Yoset Garcia Cruz
  */
 public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
 
   /**
-   * Obtiene de la base de datos los alumnos inscritos a una sección. 
+   * Obtiene de la base de datos los alumnos inscritos a una sección.
+   *
    * @param nrc el identificador de la sección.
-   * @return la lista de alumnos inscritos. 
-   * @throws Exception 
+   * @return la lista de alumnos inscritos.
+   * @throws Exception
    */
   @Override
   public List<Alumno> obtenerAlumnos(int nrc) throws Exception {
     List<Alumno> alumnos = new ArrayList();
     String consulta = "select * from Alumno as T1 INNER JOIN Inscripcion as T2 ON T1.matricula = T2.matricula where nrc =?;";
-    
+
     try {
       this.connection();
       PreparedStatement st = this.conn.prepareStatement(consulta);
@@ -49,7 +51,7 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
       rs.close();
       st.close();
     } catch (Exception ex) {
-      throw ex; 
+      throw ex;
     }
     return alumnos;
   }
@@ -69,9 +71,32 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
+  /**
+   * Inserta una inscripción en la base de datos.
+   *
+   * @param inscripcion la inscripción que se va a insertar.
+   * @return true si la inscripción se inserto correctamente.
+   * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD.
+   */
   @Override
   public boolean insertarInscripciones(Inscripcion inscripcion) throws Exception {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    String query = "INSERT INTO inscripcion(nrc,matricula) values(?,?)";
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement(query);
+      st.setInt(1, inscripcion.getNrc());
+      st.setString(2, inscripcion.getMatricula());
+      st.executeUpdate();
+      return true;
+    } catch (Exception e) {
+      throw e;
+    } finally {
+      try {
+        this.close();
+      } catch (Exception e) {
+        throw e;
+      }
+    }
   }
 
   @Override
@@ -83,25 +108,29 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
   public boolean eliminarInscripciones(int folio) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
-  
-  
-    @Override
-    public boolean eliminarInscripcionesPorMatricula(Alumno alumno) throws Exception {
-        try {
-            this.connection();
-            PreparedStatement st = this.conn.prepareStatement("delete from Inscripcion where matricula = ?");
-            st.setString(1, alumno.getMatricula());
-            st.executeUpdate();
-            st.close();
-        } catch (SQLException e) {
-            System.out.println(e);
-            return false;
-        } finally {
-            this.close();
-        }
-        return true;
+
+  /**
+   * Permite eliminar inscripciones vinculadas a un alumno.
+   *
+   * @param alumno matricula del alumno del cual se quieren eliminar las inscripciones.
+   * @return true si se eliminaron las inscripciones correctemente.
+   * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD.
+   */
+  @Override
+  public boolean eliminarInscripcionesPorMatricula(Alumno alumno) throws Exception {
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement("delete from Inscripcion where matricula = ?");
+      st.setString(1, alumno.getMatricula());
+      st.executeUpdate();
+      st.close();
+    } catch (SQLException e) {
+      System.out.println(e);
+      return false;
+    } finally {
+      this.close();
     }
-
-
+    return true;
+  }
 
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.IULoginController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="607.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/IU_LOGIN.jpg" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="35.0" prefWidth="601.0" style="-fx-background-color: #00519E;" />
+      <JFXButton fx:id="btnIngresar" layoutX="268.0" layoutY="323.0" onAction="#ingresar" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: #00519E;" text="INGRESAR" textFill="WHITE">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="tfNumeroPersonal" layoutX="271.0" layoutY="228.0" prefHeight="35.0" prefWidth="270.0" promptText="Número de personal">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField disable="true" editable="false" layoutX="271.0" layoutY="277.0" prefHeight="35.0" prefWidth="270.0" promptText="Contraseña">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="358.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/Untitled-1-512.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="64.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/icono_idiomas.png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="hpCadi" layoutX="25.0" layoutY="228.0" text="Centro de autoacceso" underline="true">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>

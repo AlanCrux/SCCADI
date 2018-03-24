@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.daoimpl;
 
 import datos.Conexion;
@@ -16,7 +11,7 @@ import logica.dominio.ActividadAsignada;
 
 /**
  *
- * @author Esmeralda
+ * @author Esmeralda Jiménez Ramos
  */
 public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAsignada {
 
@@ -51,6 +46,8 @@ public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAs
         }
         return actividades;
     }
+    return actividades;
+  }
 
     /**
      * Metodo que obtiene de la base de datos las actividades asignadas a un asesor 
@@ -145,20 +142,20 @@ public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAs
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public boolean insertarActividadAsignada(ActividadAsignada actividadAsignada) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  @Override
+  public boolean insertarActividadAsignada(ActividadAsignada actividadAsignada) throws Exception {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 
-    @Override
-    public boolean actualizarActividadAsignada(int idActividadAsignada) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  @Override
+  public boolean actualizarActividadAsignada(int idActividadAsignada) throws Exception {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 
-    @Override
-    public boolean eliminarActividadAsignada(int idActividadAsignada) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  @Override
+  public boolean eliminarActividadAsignada(int idActividadAsignada) throws Exception {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 
     /**
      * Obtiene todas las actividades asignadas de la base de datos 

@@ -37,7 +37,7 @@ public class Conexion {
   public Connection connection() throws Exception {
     try {
       Class.forName(DRIVER_CLASS).newInstance();
-      String url = "jdbc:mysql://" + HOST + "/" + BD;
+      String url = "jdbc:mysql://" + HOST + "/" + BD +"?useSSL=false";
       conn = DriverManager.getConnection(url, USER_NAME, PASSWORD);
       connect = this;
     } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException ex) {

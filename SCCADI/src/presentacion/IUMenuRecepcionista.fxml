@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/IU_RECEPCIONISTA.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnAlumnos" layoutX="65.0" layoutY="166.0" onAction="#abrirAlumnos" prefHeight="108.0" prefWidth="203.0" ripplerFill="#3ab6d6">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnActividades" layoutX="299.0" layoutY="166.0" onAction="#abrirActividades" prefHeight="108.0" prefWidth="203.0" ripplerFill="#b22535">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="529.0" layoutY="163.0" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: rgba(130,130,130,0.7);;" text="NO DISPONIBLE" textFill="#6f6f6f">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="67.0" layoutY="300.0" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: rgba(130,130,130,0.7);;" text="NO DISPONIBLE" textFill="#6f6f6f">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label fx:id="lblNombre" layoutX="65.0" layoutY="105.0" text="Nombre de la recepcionista">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="24.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="hpCerrarSesion" layoutX="348.0" layoutY="463.0" text="Cerrar sesión" underline="true">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>

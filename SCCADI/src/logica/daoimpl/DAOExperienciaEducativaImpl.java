@@ -10,12 +10,10 @@ import logica.dao.DAOExperienciaEducativa;
 import logica.dominio.ExperienciaEducativa;
 
 /**
- * Esta clase implementa los métodos definidos en la interfaz
- * DAOExperienciaEducativa nos permite realizar inserciones, consultas,
- * actualizaciones y eliminar datos de la tabla ExperienciaEducativa en la base
- * de datos.
- *
- * @author Alan Yoset Garcia Curz
+ * Esta clase implementa los métodos definidos en la interfaz DAOExperienciaEducativa
+ * nos permite realizar inserciones, consultas, actualizaciones y eliminar datos de la tabla
+ * ExperienciaEducativa en la base de datos.
+ * @author Alan Yoset Garcia Cruz
  */
 public class DAOExperienciaEducativaImpl extends Conexion implements DAOExperienciaEducativa {
 
@@ -135,7 +133,7 @@ public class DAOExperienciaEducativaImpl extends Conexion implements DAOExperien
   }
 
   /**
-   * 
+   * Permite obtener una experiencia educativa de la base de datos. 
    * @param idExperiencia el identificador de la experiencia que se quiere recuperar.
    * @return devuelve un objeto de tipo ExperienciaEducativa.
    * @throws SQLException 

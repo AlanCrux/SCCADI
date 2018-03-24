@@ -1,7 +1,6 @@
 package logica.daoimpl;
 
 import datos.Conexion;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -16,36 +15,11 @@ import utilerias.DateConvertUtils;
  */
 public class DAOActividadProgramadaImpl extends Conexion implements DAOActividadProgramada {
 
-<<<<<<< HEAD
-    /**
-     * Metodo que obtiene una lista con las actividades programadas
-     * @return Lista de tipo actividad programada
-     * @throws Exception 
-     */
-    @Override
-    public List<ActividadProgramada> obtenerActividadProgramada() throws Exception {
-        List<ActividadProgramada> actividades = null;
-        try {
-            this.connection();
-            PreparedStatement st = this.conn.prepareStatement("select * from actividadprogramada");
-            ResultSet rs = st.executeQuery();
-            actividades = new ArrayList();
-            while (rs.next()) {
-                ActividadProgramada actividad = new ActividadProgramada();
-                actividad.setIdActividadProgramada(rs.getInt("idActividadProgramada"));
-                actividad.setNombre(rs.getString("nombre"));
-                actividad.setFechaInicio(rs.getDate("fechaInicio"));
-                actividad.setFechaFin(rs.getDate("fechaFin"));
-                actividad.setModulo(rs.getInt("modulo"));
-                actividad.setUnidad(rs.getInt("unidad"));
-                actividad.setIdExperiencia(rs.getInt("idExperiencia"));
-                actividades.add(actividad);
-            }
-        } catch (SQLException e) {
-            throw e;
-        }
-        return actividades;
-=======
+  /**
+   * Obtiene todas las actividades programadas registradas en la base de datos. 
+   * @return List con las actividades recuperadas de la base de datos.  
+   * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD.
+   */
   @Override
   public List<ActividadProgramada> obtenerActividadesProgramadas() throws Exception {
     List<ActividadProgramada> actividades;
@@ -77,6 +51,12 @@ public class DAOActividadProgramadaImpl extends Conexion implements DAOActividad
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
+  /**
+   * Permite insertar una actividadprogramada en la base de datos. 
+   * @param actividadProgramada La actividad a insertar. 
+   * @return true si la actividad se inserto correctamente. 
+   * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD.
+   */
   @Override
   public boolean insertarActividadProgramada(ActividadProgramada actividadProgramada) throws Exception {
     String query = "INSERT INTO actividadprogramada(nombre,fechaInicio,fechaFin,modulo,unidad,idExperiencia) values(?,?,?,?,?,?)";
@@ -102,6 +82,12 @@ public class DAOActividadProgramadaImpl extends Conexion implements DAOActividad
     }
   }
 
+  /**
+   * Permite actualizar los datos de una actividadprogramada en la base de datos. 
+   * @param actividadProgramada la actividad programada que se quiere actualizar. 
+   * @return true si los datos de la actividad se actualizaron correctamente. 
+   * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD.
+   */
   @Override
   public boolean actualizarActividadProgramada(ActividadProgramada actividadProgramada) throws Exception {
     String query = "UPDATE actividadprogramada SET nombre = ?, fechaInicio=?, fechaFin = ?,"
@@ -129,6 +115,12 @@ public class DAOActividadProgramadaImpl extends Conexion implements DAOActividad
     }
   }
 
+  /**
+   * Permite eliminar una actividadprogramada de la base de datos. 
+   * @param idActividadProgramada el id de la actividad por eliminar.
+   * @return true si la actividad se elimino correctamente. 
+   * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD.
+   */
   @Override
   public boolean eliminarActividadProgramada(int idActividadProgramada) throws Exception {
     try {

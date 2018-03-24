@@ -2,6 +2,7 @@ package logica.dominio;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import logica.daoimpl.DAOAsesorImpl;
 import logica.daoimpl.DAOExperienciaEducativaImpl;
 
 /**
@@ -15,15 +16,11 @@ public class Seccion {
   private int idExperiencia;
   private int noPersonal;
   private String periodo;
-  private int cupo; 
-  
-  //Atributos que no pertenecen al pojo 
-  private ExperienciaEducativa exp;  
-  private String asesor; 
-  
+  private int cupo;
+  private ExperienciaEducativa exp;
+  private String asesor = "";
+
   public Seccion() {
-    DAOExperienciaEducativaImpl daoExperiencia = new DAOExperienciaEducativaImpl();
-    asesor = "Juanito Pérez";
   }
 
   public Seccion(int nrc, int idExperiencia, int noPersonal, String periodo, int cupo) {
@@ -31,7 +28,16 @@ public class Seccion {
     this.idExperiencia = idExperiencia;
     this.noPersonal = noPersonal;
     this.periodo = periodo;
-    this.cupo = cupo; 
+    this.cupo = cupo;
+
+    DAOExperienciaEducativaImpl daoExperiencia = new DAOExperienciaEducativaImpl();
+    DAOAsesorImpl daoAsesor = new DAOAsesorImpl();
+    try {
+      exp = daoExperiencia.obtenerExperiencia(idExperiencia);
+      asesor = daoAsesor.obtenerAsesor(noPersonal).getNombre();
+    } catch (Exception ex) {
+      Logger.getLogger(Seccion.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }
 
   public int getNrc() {
@@ -65,7 +71,7 @@ public class Seccion {
   public void setPeriodo(String periodo) {
     this.periodo = periodo;
   }
-  
+
   public int getCupo() {
     return cupo;
   }
@@ -73,23 +79,17 @@ public class Seccion {
   public void setCupo(int cupo) {
     this.cupo = cupo;
   }
-  
+
   public String getExperiencia() throws Exception {
-    DAOExperienciaEducativaImpl daoExperiencia = new DAOExperienciaEducativaImpl(); 
-    return daoExperiencia.obtenerExperiencia(idExperiencia).getNombre();
-  }
-  
-  public String getNivel() throws Exception {
-    DAOExperienciaEducativaImpl daoExperiencia = new DAOExperienciaEducativaImpl(); 
-    return daoExperiencia.obtenerExperiencia(idExperiencia).getNivel();
-  }
-  
-  public String getAsesor(){
-    return asesor; 
+    return exp.getNombre();
   }
 
-  
-  
-  
+  public String getNivel() throws Exception {
+    return exp.getNivel();
+  }
+
+  public String getAsesor() throws Exception {
+    return asesor;
+  }
 
 }

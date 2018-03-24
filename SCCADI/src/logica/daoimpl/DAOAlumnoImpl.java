@@ -83,10 +83,17 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
     return alumno;
   }
 
+  /**
+   * Permite insertar un alumno en la base de datos.
+   *
+   * @param alumno el alumno que se va a insertar.
+   * @return true si el alumno se inserto correctamente.
+   * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD.
+   */
   @Override
   public boolean insertarAlumno(Alumno alumno) throws Exception {
     String query = "INSERT INTO alumno(matricula, nombre, correo, programaEducativo, "
-        + "contactoEmergencia, numeroEmergencia) values(?,?,?,?,?,?);";
+        + "contactoEmergencia, numeroEmergencia, fotografia) values(?,?,?,?,?,?,?);";
     try {
       this.connection();
       PreparedStatement st = this.conn.prepareStatement(query);
@@ -96,8 +103,11 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
       st.setString(4, alumno.getProgramaEducativo());
       st.setString(5, alumno.getContactoEmergencia());
       st.setString(6, alumno.getNumeroEmergencia());
+      st.setBlob(7, alumno.getFotografia());
       st.executeUpdate();
       return true;
+    } catch (SQLException e) {
+      throw e;
     } catch (Exception e) {
       throw e;
     } finally {

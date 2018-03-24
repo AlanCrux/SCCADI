@@ -106,8 +106,6 @@ public class ExperienciaEducativa {
   public void setNumUnidades(int numUnidades) {
     this.numUnidades = numUnidades;
   }
-  
-  
 
   @Override
   public String toString() {

@@ -6,42 +6,42 @@ package logica.dominio;
  * @version 1.0
  */
 public class Inscripcion {
-    private int calificacion; 
-    private int nrc; 
-    private String matricula; 
 
-    public Inscripcion() {
-    }
+  private int calificacion;
+  private int nrc;
+  private String matricula;
 
-    public Inscripcion(int calificacion, int nrc, String matricula) {
-        this.calificacion = calificacion;
-        this.nrc = nrc;
-        this.matricula = matricula;
-    }
+  public Inscripcion() {
+  }
 
-    public int getCalificacion() {
-        return calificacion;
-    }
+  public Inscripcion(int calificacion, int nrc, String matricula) {
+    this.calificacion = calificacion;
+    this.nrc = nrc;
+    this.matricula = matricula;
+  }
 
-    public void setCalificacion(int calificacion) {
-        this.calificacion = calificacion;
-    }
+  public int getCalificacion() {
+    return calificacion;
+  }
 
-    public int getNrc() {
-        return nrc;
-    }
+  public void setCalificacion(int calificacion) {
+    this.calificacion = calificacion;
+  }
 
-    public void setNrc(int nrc) {
-        this.nrc = nrc;
-    }
+  public int getNrc() {
+    return nrc;
+  }
 
-    public String getMatricula() {
-        return matricula;
-    }
+  public void setNrc(int nrc) {
+    this.nrc = nrc;
+  }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-    
-    
+  public String getMatricula() {
+    return matricula;
+  }
+
+  public void setMatricula(String matricula) {
+    this.matricula = matricula;
+  }
+
 }

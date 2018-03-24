@@ -20,22 +20,25 @@ public class ActividadAsignada {
     private String nombreSala;
     private String nombreAsesor;
 
-    public ActividadAsignada(int idActividadAsignada, int idActividadProgramda, int noPersonal, int idSala, int cupoMaximo, Date fecha, Time hora) {
-        this.idActividadAsignada = idActividadAsignada;
-        this.idActividadProgramda = idActividadProgramda;
-        this.noPersonal = noPersonal;
-        this.idSala = idSala;
-        this.cupoMaximo = cupoMaximo;
-        this.fecha = fecha;
-        this.hora = hora;
-    }
+  private int idActividadAsignada;
+  private int idActividadProgramda;
+  private int noPersonal;
+  private int idSala;
+  private int cupoMaximo;
+  private Date fecha;
+  private Time hora;
+  private String nombre;
+  private String nombreSala;
 
-    public ActividadAsignada(String nombreSala, Date fecha, Time hora, String nombre) {
-        this.nombreSala=nombreSala;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.nombre = nombre;
-    }
+  public ActividadAsignada(int idActividadAsignada, int idActividadProgramda, int noPersonal, int idSala, int cupoMaximo, Date fecha, Time hora) {
+    this.idActividadAsignada = idActividadAsignada;
+    this.idActividadProgramda = idActividadProgramda;
+    this.noPersonal = noPersonal;
+    this.idSala = idSala;
+    this.cupoMaximo = cupoMaximo;
+    this.fecha = fecha;
+    this.hora = hora;
+  }
 
     public ActividadAsignada() {
         
@@ -69,57 +72,60 @@ public class ActividadAsignada {
         return idActividadAsignada;
     }
 
-    public void setIdActividadAsignada(int idActividadAsignada) {
-        this.idActividadAsignada = idActividadAsignada;
-    }
+  public int getIdActividadAsignada() {
+    return idActividadAsignada;
+  }
 
-    public int getIdActividadProgramda() {
-        return idActividadProgramda;
-    }
+  public void setIdActividadAsignada(int idActividadAsignada) {
+    this.idActividadAsignada = idActividadAsignada;
+  }
 
-    public void setIdActividadProgramda(int idActividadProgramda) {
-        this.idActividadProgramda = idActividadProgramda;
-    }
+  public int getIdActividadProgramda() {
+    return idActividadProgramda;
+  }
 
-    public int getNoPersonal() {
-        return noPersonal;
-    }
+  public void setIdActividadProgramda(int idActividadProgramda) {
+    this.idActividadProgramda = idActividadProgramda;
+  }
 
-    public void setNoPersonal(int noPersonal) {
-        this.noPersonal = noPersonal;
-    }
+  public int getNoPersonal() {
+    return noPersonal;
+  }
 
-    public int getIdSala() {
-        return idSala;
-    }
+  public void setNoPersonal(int noPersonal) {
+    this.noPersonal = noPersonal;
+  }
 
-    public void setIdSala(int idSala) {
-        this.idSala = idSala;
-    }
+  public int getIdSala() {
+    return idSala;
+  }
 
-    public int getCupoMaximo() {
-        return cupoMaximo;
-    }
+  public void setIdSala(int idSala) {
+    this.idSala = idSala;
+  }
 
-    public void setCupoMaximo(int cupoMaximo) {
-        this.cupoMaximo = cupoMaximo;
-    }
+  public int getCupoMaximo() {
+    return cupoMaximo;
+  }
 
-    public Date getFecha() {
-        return fecha;
-    }
+  public void setCupoMaximo(int cupoMaximo) {
+    this.cupoMaximo = cupoMaximo;
+  }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+  public Date getFecha() {
+    return fecha;
+  }
 
-    public Time getHora() {
-        return hora;
-    }
+  public void setFecha(Date fecha) {
+    this.fecha = fecha;
+  }
 
-    public void setHora(Time hora) {
-        this.hora = hora;
-    }
-    
-    
+  public Time getHora() {
+    return hora;
+  }
+
+  public void setHora(Time hora) {
+    this.hora = hora;
+  }
+
 }

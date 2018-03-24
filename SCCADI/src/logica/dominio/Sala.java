@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.dominio;
 
 /**
  *
- * @author Esmeralda
+ * @author Esmeralda Jiménez Ramos
  */
 public class Sala {
     private int idSala;

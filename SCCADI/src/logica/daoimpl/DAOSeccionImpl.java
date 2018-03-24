@@ -3,6 +3,7 @@ package logica.daoimpl;
 import datos.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import logica.dao.DAOSeccion;
@@ -32,12 +33,12 @@ public class DAOSeccionImpl extends Conexion implements DAOSeccion {
       secciones = new ArrayList();
       ResultSet rs = st.executeQuery();
       while (rs.next()) {
-        Seccion seccion = new Seccion();
-        seccion.setNrc(rs.getInt("nrc"));
-        seccion.setIdExperiencia(rs.getInt("idExperiencia"));
-        seccion.setNoPersonal(rs.getInt("noPersonal"));
-        seccion.setPeriodo(rs.getString("periodo"));
-        seccion.setCupo(rs.getInt("cupo"));
+        int nrc = rs.getInt("nrc");
+        int idExperiencia = rs.getInt("idExperiencia");
+        int nPersonal = rs.getInt("noPersonal");
+        String periodo = rs.getString("periodo");
+        int cupo = rs.getInt("cupo");
+        Seccion seccion = new Seccion(nrc, idExperiencia, nPersonal, periodo, cupo);
         secciones.add(seccion);
       }
       rs.close();
@@ -59,9 +60,25 @@ public class DAOSeccionImpl extends Conexion implements DAOSeccion {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
+  /**
+   * Permite actualizar los datos de una sección en la base de datos.
+   * @param seccion la sección que se quiere actualizar. 
+   * @return true si los datos se actualizaron correctamente.
+   * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD. 
+   */
   @Override
-  public boolean actualizarSeccion(String nrc) throws Exception {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  public boolean actualizarSeccion(Seccion seccion) throws Exception {
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement("update seccion set cupo = ? where nrc = ?");
+      st.setInt(1, seccion.getCupo() - 1);
+      st.setInt(2, seccion.getNrc());
+      st.executeUpdate();
+      st.close();
+      return true;
+    } catch (Exception e) {
+      throw e; 
+    }
   }
 
   @Override
@@ -69,6 +86,11 @@ public class DAOSeccionImpl extends Conexion implements DAOSeccion {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
+  /**
+   * Permite obtener todas las secciones de la base de datos. 
+   * @return List cargada de las secciones recuperadas.
+   * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD. 
+   */
   public List<Seccion> obtenerSecciones() throws Exception {
     List<Seccion> secciones = null;
     try {
@@ -77,12 +99,12 @@ public class DAOSeccionImpl extends Conexion implements DAOSeccion {
       secciones = new ArrayList();
       ResultSet rs = st.executeQuery();
       while (rs.next()) {
-        Seccion seccion = new Seccion();
-        seccion.setNrc(rs.getInt("nrc"));
-        seccion.setIdExperiencia(rs.getInt("idExperiencia"));
-        seccion.setNoPersonal(rs.getInt("noPersonal"));
-        seccion.setPeriodo(rs.getString("periodo"));
-        seccion.setCupo(rs.getInt("cupo"));
+        int nrc = rs.getInt("nrc");
+        int idExperiencia = rs.getInt("idExperiencia");
+        int nPersonal = rs.getInt("noPersonal");
+        String periodo = rs.getString("periodo");
+        int cupo = rs.getInt("cupo");
+        Seccion seccion = new Seccion(nrc, idExperiencia, nPersonal, periodo, cupo);
         secciones.add(seccion);
       }
       rs.close();
