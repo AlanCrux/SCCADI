@@ -42,6 +42,11 @@ public class ExperienciaEducativa {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
+
+    @Override
+    public String toString() {
+        return nombre +" "+ nivel;
+    }
     
     
 }

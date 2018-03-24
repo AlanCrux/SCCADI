@@ -25,13 +25,14 @@ public class SCCADI extends Application {
   @Override
   public void start(Stage stagePrincipal) {
     try {
-            AnchorPane page = FXMLLoader.load(getClass().getResource("/presentacion/IUAdministrarAlumnos.fxml"));
+            AnchorPane page = FXMLLoader.load(getClass().getResource(
+                    "/presentacion/IUConsultarDetalleSemanaActividades.fxml"));
             Scene scene = new Scene(page);
             stagePrincipal.setScene(scene);
             stagePrincipal.show();
             stagePrincipal.setResizable(false);
         } catch (IOException ex) {
-            Logger.getLogger(SCCADI.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
   }
 

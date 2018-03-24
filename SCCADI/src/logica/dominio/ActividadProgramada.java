@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.dominio;
 
 import java.util.Date;
@@ -86,6 +81,11 @@ public class ActividadProgramada {
 
     public void setIdExperiencia(int idExperiencia) {
         this.idExperiencia = idExperiencia;
+    }
+
+    @Override
+    public String toString() {
+        return fechaInicio + " - " + fechaFin ;
     }
     
     

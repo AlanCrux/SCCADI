@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.daoimpl;
 
 import datos.Conexion;
@@ -12,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import logica.dao.DAOActividadProgramada;
-import logica.dominio.ActividadAsignada;
 import logica.dominio.ActividadProgramada;
 
 /**
@@ -21,9 +15,14 @@ import logica.dominio.ActividadProgramada;
  */
 public class DAOActividadProgramadaImpl extends Conexion implements DAOActividadProgramada {
 
+    /**
+     * Metodo que obtiene una lista con las actividades programadas
+     * @return Lista de tipo actividad programada
+     * @throws Exception 
+     */
     @Override
     public List<ActividadProgramada> obtenerActividadProgramada() throws Exception {
-                List<ActividadProgramada> actividades = null;
+        List<ActividadProgramada> actividades = null;
         try {
             this.connection();
             PreparedStatement st = this.conn.prepareStatement("select * from actividadprogramada");
@@ -33,11 +32,11 @@ public class DAOActividadProgramadaImpl extends Conexion implements DAOActividad
                 ActividadProgramada actividad = new ActividadProgramada();
                 actividad.setIdActividadProgramada(rs.getInt("idActividadProgramada"));
                 actividad.setNombre(rs.getString("nombre"));
-                    actividad.setFechaInicio(rs.getDate("fechaInicio"));
-                    actividad.setFechaFin(rs.getDate("fechaFin"));
-                    actividad.setModulo(rs.getInt("modulo"));
-                    actividad.setUnidad(rs.getInt("unidad"));
-                    actividad.setIdExperiencia(rs.getInt("idExperiencia"));
+                actividad.setFechaInicio(rs.getDate("fechaInicio"));
+                actividad.setFechaFin(rs.getDate("fechaFin"));
+                actividad.setModulo(rs.getInt("modulo"));
+                actividad.setUnidad(rs.getInt("unidad"));
+                actividad.setIdExperiencia(rs.getInt("idExperiencia"));
                 actividades.add(actividad);
             }
         } catch (SQLException e) {
@@ -65,5 +64,5 @@ public class DAOActividadProgramadaImpl extends Conexion implements DAOActividad
     public boolean eliminarActividadProgramada(int idActividadProgramada) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

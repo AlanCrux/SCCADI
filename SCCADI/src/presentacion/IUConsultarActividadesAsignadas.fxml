@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.IUConsultarActividadesAsignadasController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controladores.IUConsultarActividadesAsignadasController">
    <children>
       <ImageView fx:id="botonRegresar" fitHeight="45.0" fitWidth="48.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,14 +22,14 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="comboExperienciaEdu" layoutX="400.0" layoutY="85.0" promptText="Experiencia educativa" />
-      <JFXComboBox fx:id="comboSemana" layoutX="587.0" layoutY="85.0" prefHeight="25.0" prefWidth="114.0" promptText="Semana" />
+      <JFXComboBox fx:id="comboExperienciaEdu" layoutX="400.0" layoutY="85.0" onAction="#filtrarPorExperiencia" promptText="Experiencia educativa" />
+      <JFXComboBox fx:id="comboSemana" layoutX="587.0" layoutY="85.0" onAction="#filtrarPorSemana" prefHeight="25.0" prefWidth="114.0" promptText="Semana" />
       <TableView fx:id="tablaActividades" layoutX="97.0" layoutY="131.0" prefHeight="320.0" prefWidth="606.0">
         <columns>
-          <TableColumn fx:id="columnaActividad" prefWidth="255.0" text="Actividad" />
-          <TableColumn fx:id="columnaSala" prefWidth="103.0" text="Sala" />
-            <TableColumn fx:id="columnaHora" prefWidth="121.0" text="Hora" />
-            <TableColumn fx:id="columnaFecha" prefWidth="115.0" text="Fecha" />
+          <TableColumn fx:id="columnaActividad" editable="false" prefWidth="255.0" sortable="false" text="Actividad" />
+          <TableColumn fx:id="columnaSala" editable="false" prefWidth="103.0" sortable="false" text="Sala" />
+            <TableColumn fx:id="columnaHora" editable="false" prefWidth="121.0" sortable="false" text="Hora" />
+            <TableColumn fx:id="columnaFecha" editable="false" prefWidth="126.0" sortable="false" text="Fecha" />
         </columns>
       </TableView>
       <JFXButton fx:id="botonRegistrarAsistencia" buttonType="RAISED" layoutX="613.0" layoutY="523.0" prefHeight="32.0" prefWidth="114.0" ripplerFill="WHITE" style="-fx-background-color: #00eb69;" text="Registar asistencia" />

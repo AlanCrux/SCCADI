@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package logica.dominio;
 
 import java.sql.Time;
@@ -22,6 +18,7 @@ public class ActividadAsignada {
     private Time hora;
     private String nombre;
     private String nombreSala;
+    private String nombreAsesor;
 
     public ActividadAsignada(int idActividadAsignada, int idActividadProgramda, int noPersonal, int idSala, int cupoMaximo, Date fecha, Time hora) {
         this.idActividadAsignada = idActividadAsignada;
@@ -41,7 +38,31 @@ public class ActividadAsignada {
     }
 
     public ActividadAsignada() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+    }
+
+    public String getNombreAsesor() {
+        return nombreAsesor;
+    }
+
+    public void setNombreAsesor(String nombreAsesor) {
+        this.nombreAsesor = nombreAsesor;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombreSala() {
+        return nombreSala;
+    }
+
+    public void setNombreSala(String nombreSala) {
+        this.nombreSala = nombreSala;
     }
 
     public int getIdActividadAsignada() {
