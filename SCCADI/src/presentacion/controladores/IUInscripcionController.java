@@ -3,6 +3,7 @@ package presentacion.controladores;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Blob;
 import java.sql.SQLException;
@@ -14,7 +15,10 @@ import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -25,12 +29,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import logica.daoimpl.DAOAlumnoImpl;
 import logica.daoimpl.DAOInscripcionImpl;
 import logica.daoimpl.DAOSeccionImpl;
 import logica.dominio.Alumno;
+import logica.dominio.Coordinador;
 import logica.dominio.Inscripcion;
+import logica.dominio.Recepcionista;
 import logica.dominio.Seccion;
 import utilerias.Mensajes;
 
@@ -82,9 +89,10 @@ public class IUInscripcionController implements Initializable {
   private Label lbNombreAsesor111;
   @FXML
   private ImageView imageViewFoto;
-
+  private boolean origen; 
   private final ObservableList<Seccion> secciones = FXCollections.observableArrayList();
-
+  private Recepcionista recepcionista; 
+  private Coordinador coordinador;
   /**
    * Inicializa los componentes de la ventana
    *
@@ -126,6 +134,24 @@ public class IUInscripcionController implements Initializable {
 
   @FXML
   private void salir(MouseEvent event) {
+    if (origen) {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUMenuRecepcionista.fxml"));
+      IUMenuRecepcionistaController controller = new IUMenuRecepcionistaController();
+      loader.setController(controller);
+      controller.setRecepcionista(recepcionista);
+      controller.mostrarVentana(loader);
+      Stage mainStage = (Stage) botonAtras.getScene().getWindow();
+      mainStage.close();
+    } else{
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUAdministrarAlumnos.fxml"));
+      IUAdministrarAlumnosController controller = new IUAdministrarAlumnosController();
+      loader.setController(controller);
+      controller.setCoordinador(coordinador);
+      controller.mostrarVentana(loader);
+      Stage mainStage = (Stage) botonAtras.getScene().getWindow();
+      mainStage.close();
+    }
+    
   }
 
   /**
@@ -285,4 +311,44 @@ public class IUInscripcionController implements Initializable {
     obtenerSecciones();
     tablaExperiencias.setItems(secciones);
   }
+
+  public Recepcionista getRecepcionista() {
+    return recepcionista;
+  }
+
+  public void setRecepcionista(Recepcionista recepcionista) {
+    this.recepcionista = recepcionista;
+  }
+
+  public Coordinador getCoordinador() {
+    return coordinador;
+  }
+
+  public void setCoordinador(Coordinador coordinador) {
+    this.coordinador = coordinador;
+  }
+  
+  
+  /**
+   * Muestra la ventana.
+   *
+   * @param loader el loader con la ruta de la ventana que se quiere cargar.
+   */
+  public void mostrarVentana(FXMLLoader loader) {
+    try {
+      Stage stagePrincipal = new Stage();
+      Parent root = (Parent) loader.load();
+      Scene scene = new Scene(root);
+      stagePrincipal.setScene(scene);
+      stagePrincipal.show();
+    } catch (IOException ex) {
+      Logger.getLogger(IUMenuRecepcionistaController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
+
+  public void setOrigen(boolean origen) {
+    this.origen = origen;
+  }
+  
+  
 }

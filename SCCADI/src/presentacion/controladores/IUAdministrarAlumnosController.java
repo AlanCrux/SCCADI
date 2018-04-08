@@ -8,12 +8,17 @@ import java.net.URL;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -21,10 +26,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import logica.daoimpl.DAOAlumnoImpl;
 import logica.daoimpl.DAOInscripcionImpl;
 import logica.dominio.Alumno;
+import logica.dominio.Coordinador;
 import utilerias.Mensajes;
 
 /**
@@ -35,7 +42,7 @@ import utilerias.Mensajes;
  * @version 1.0
  */
 public class IUAdministrarAlumnosController implements Initializable {
-
+  
   @FXML
   private ImageView botonRegresar;
   @FXML
@@ -70,11 +77,13 @@ public class IUAdministrarAlumnosController implements Initializable {
   private JFXButton botonEliminar;
   @FXML
   private JFXButton botonAgregar;
-
+  
   ObservableList<Alumno> listaAlumno = null;
   DAOAlumnoImpl alumno = new DAOAlumnoImpl();
   DAOInscripcionImpl inscripcion = new DAOInscripcionImpl();
-
+  
+  private Coordinador coordinador;  
+  
   @Override
   public void initialize(URL url, ResourceBundle rb) {
     llenarTabla();
@@ -85,11 +94,15 @@ public class IUAdministrarAlumnosController implements Initializable {
         Mensajes.displayWarningAlert("Error conexion", "No se pudo obtener la información");
       }
     });
+    
+    botonRegresar.setOnMouseClicked(event->{
+      regresar();
+    });
   }
-
+  
   @FXML
   public void botonAgregar() {
-
+    
   }
 
   /**
@@ -123,7 +136,7 @@ public class IUAdministrarAlumnosController implements Initializable {
     textContactoEmergencia.setText(seleccion.getContactoEmergencia());
     textTelefonoEmergencia.setText(seleccion.getNumeroEmergencia());
     imageFotoAlumno.setImage(blobToImage(seleccion.getFotografia()));
-
+    
   }
 
   /**
@@ -154,7 +167,7 @@ public class IUAdministrarAlumnosController implements Initializable {
       Alumno seleccionado = tablaAlumnos.getSelectionModel().getSelectedItem();
       for (int i = 0; i < listaAlumno.size(); i++) {
         if (listaAlumno.get(i).getMatricula().equals(seleccionado.getMatricula())) {
-
+          
           if (inscripcion.eliminarInscripcionesPorMatricula(seleccionado)) {
             if (alumno.eliminarAlumno(seleccionado.getMatricula())) {
               listaAlumno.remove(i);
@@ -206,7 +219,7 @@ public class IUAdministrarAlumnosController implements Initializable {
     } catch (Exception ex) {
       Mensajes.displayWarningAlert("Error conexion", "Seleccione un elemento de la tabla");
     }
-
+    
   }
 
   /**
@@ -256,9 +269,9 @@ public class IUAdministrarAlumnosController implements Initializable {
     tablaAlumnos.setDisable(false);
     botonEliminar.setDisable(false);
     botonAgregar.setDisable(false);
-
+    
   }
-
+  
   public void llenarTabla() {
     try {
       listaAlumno = FXCollections.observableList(alumno.obtenerAlumnos());
@@ -271,7 +284,7 @@ public class IUAdministrarAlumnosController implements Initializable {
       Mensajes.displayWarningAlert("Error conexion", "No se pudo obtener la información");
     }
   }
-
+  
   public boolean validarCamposVacios() {
     if (textMatricula.getText().equals("") || textNombre.getText().equals("") || textCorreo.getText().equals("")
         || textPrograma.getText().equals("") || textContactoEmergencia.getText().equals("")
@@ -280,5 +293,52 @@ public class IUAdministrarAlumnosController implements Initializable {
     } else {
       return true;
     }
+  }
+
+  /**
+   * Muestra la ventana.
+   *
+   * @param loader el loader con la ruta de la ventana que se quiere cargar.
+   */
+  public void mostrarVentana(FXMLLoader loader) {
+    try {
+      Stage stagePrincipal = new Stage();
+      Parent root = (Parent) loader.load();
+      Scene scene = new Scene(root);
+      stagePrincipal.setScene(scene);
+      stagePrincipal.show();
+    } catch (IOException ex) {
+      Logger.getLogger(IUMenuCoordinadorController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
+  
+  public void regresar() {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUMenuCoordinador.fxml"));
+    IUMenuCoordinadorController controller = new IUMenuCoordinadorController();
+    loader.setController(controller);
+    controller.setCoordinador(coordinador);
+    controller.mostrarVentana(loader);
+    Stage mainStage = (Stage) botonRegresar.getScene().getWindow();
+    mainStage.close();
+  }
+  
+  public Coordinador getCoordinador() {
+    return coordinador;
+  }
+  
+  public void setCoordinador(Coordinador coordinador) {
+    this.coordinador = coordinador;
+  }
+  
+  @FXML
+  public void extenderInscribir(){
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUInscripcion.fxml"));
+    IUInscripcionController controller = new IUInscripcionController();
+    loader.setController(controller);
+    controller.setCoordinador(coordinador);
+    controller.setOrigen(false);
+    controller.mostrarVentana(loader);
+    Stage mainStage = (Stage) botonAgregar.getScene().getWindow();
+    mainStage.close();
   }
 }

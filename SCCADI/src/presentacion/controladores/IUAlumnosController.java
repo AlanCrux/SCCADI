@@ -115,7 +115,7 @@ public class IUAlumnosController implements Initializable {
    * @return retorna un pane que representa la ficha con los datos del alumno.
    */
   public Pane cargarFichaAlumno(Alumno alumno) {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("IUFichaAlumno.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUFichaAlumno.fxml"));
     IUFichaAlumnoController fichaController = new IUFichaAlumnoController();
 
     loader.setController(fichaController);
@@ -156,7 +156,7 @@ public class IUAlumnosController implements Initializable {
    * Cierra la ventana actual y regresa a la ventana IUSecciones. 
    */
   public void regresar() {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("IUSecciones.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUSecciones.fxml"));
     IUSeccionesController controller = new IUSeccionesController();
     loader.setController(controller);
     controller.setAsesor(asesor);

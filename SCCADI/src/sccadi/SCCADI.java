@@ -8,8 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import logica.dominio.Asesor;
-import presentacion.controladores.IUSeccionesController;
+import presentacion.controladores.IULoginController;
 
 /**
  *
@@ -26,16 +25,10 @@ public class SCCADI extends Application {
    */
   @Override
   public void start(Stage stagePrincipal) {
-    try {
-      AnchorPane page = FXMLLoader.load(getClass().getResource("/presentacion/IUAdministrarAlumnos.fxml"));
-      Scene scene = new Scene(page);
-      stagePrincipal.setScene(scene);
-      stagePrincipal.show();
-      //stagePrincipal.setResizable(false);
-    } catch (IOException ex) {
-      Logger.getLogger(SCCADI.class.getName()).log(Level.SEVERE, null, ex);
-    }
->>>>>>> 7da2a3230588ea1d0ce1c5063e1ce2cb4bcdfcab
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IULogin.fxml"));
+    IULoginController controller = new IULoginController();
+    loader.setController(controller);
+    controller.mostrarVentana(loader);
   }
 
   /**
@@ -44,23 +37,4 @@ public class SCCADI extends Application {
   public static void main(String[] args) {
     launch(args);
   }
-
-  /**
-   * Muestra la ventana principal.
-   */
-  public void showMainWindows() {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUAdministrarAlumnos.fxml"));
-    IUSeccionesController seccionesController = new IUSeccionesController();
-    loader.setController(seccionesController);
-
-    Asesor asesor = new Asesor();
-    asesor.setNoPersonal(1234);
-    asesor.setNombre("Jose Antonio");
-
-    seccionesController.setAsesor(asesor);
-
-    seccionesController.mostrarVentana(loader);
-
-  }
-
 }

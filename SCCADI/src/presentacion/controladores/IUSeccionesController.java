@@ -136,6 +136,11 @@ public class IUSeccionesController implements Initializable {
    */
   @FXML
   public void salir(MouseEvent event) {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUMenuAsesor.fxml"));
+    IUMenuAsesorController controller = new IUMenuAsesorController();
+    loader.setController(controller);
+    controller.setAsesor(asesor);
+    controller.mostrarVentana(loader);
     Stage mainStage = (Stage) botonAtras.getScene().getWindow();
     mainStage.close();
   }
@@ -167,7 +172,6 @@ public class IUSeccionesController implements Initializable {
       Parent root = (Parent) loader.load();
       Scene scene = new Scene(root);
       stagePrincipal.setScene(scene);
-      stagePrincipal.setResizable(false);
       stagePrincipal.show();
     } catch (IOException ex) {
       Logger.getLogger(IUAlumnosController.class.getName()).log(Level.SEVERE, null, ex);

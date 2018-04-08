@@ -41,7 +41,6 @@ public class DAOActividadProgramadaImpl extends Conexion implements DAOActividad
       }
     } catch (Exception e) {
       throw e;
->>>>>>> 7da2a3230588ea1d0ce1c5063e1ce2cb4bcdfcab
     }
     return actividades;
   }
@@ -138,9 +137,5 @@ public class DAOActividadProgramadaImpl extends Conexion implements DAOActividad
         throw e;
       }
     }
-<<<<<<< HEAD
-=======
   }
->>>>>>> 7da2a3230588ea1d0ce1c5063e1ce2cb4bcdfcab
-
 }

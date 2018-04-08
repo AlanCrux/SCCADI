@@ -8,16 +8,21 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controladores.IUConsultarDetalleSemanaActividadesController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
+         </image>
+      </ImageView>
       <JFXComboBox fx:id="comboExperiencia" layoutX="390.0" layoutY="70.0" onAction="#filtrarPorExperiencia" promptText="Experiencia educativa" />
       <JFXComboBox fx:id="comboSemana" layoutX="600.0" layoutY="70.0" onAction="#filtrarPorSemana2" prefHeight="25.0" prefWidth="143.0" promptText="Semana" />
-      <ImageView fitHeight="43.0" fitWidth="44.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnRegresar" fitHeight="55.0" fitWidth="63.0" layoutX="34.0" layoutY="31.0" onMouseClicked="#regresar" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/iconos/back_arrow_transparent.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tablaActividades" layoutX="34.0" layoutY="108.0" prefHeight="361.0" prefWidth="732.0">
+      <TableView fx:id="tablaActividades" layoutX="34.0" layoutY="122.0" prefHeight="347.0" prefWidth="732.0">
         <columns>
           <TableColumn fx:id="columnaNombre" editable="false" prefWidth="158.0" sortable="false" text="Nombre" />
           <TableColumn fx:id="columnaAsesor" editable="false" prefWidth="201.0" sortable="false" text="Asesor" />
@@ -30,6 +35,6 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <JFXButton fx:id="botonReservar" buttonType="RAISED" layoutX="686.0" layoutY="524.0" ripplerFill="#b9b9b9" style="-fx-background-color: #02f152;" text="Reservacion" />
+      <JFXButton fx:id="botonReservar" buttonType="RAISED" layoutX="667.0" layoutY="485.0" ripplerFill="#b9b9b9" style="-fx-background-color: #02f152;" text="Reservacion" />
    </children>
 </AnchorPane>

@@ -47,7 +47,7 @@
             <Font name="Proxima Nova Alt Rg Regular" size="24.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="hpCerrarSesion" layoutX="348.0" layoutY="463.0" text="Cerrar sesión" underline="true">
+      <Hyperlink fx:id="hpCerrarSesion" layoutX="348.0" layoutY="463.0" onAction="#cerrarSesion" text="Cerrar sesión" underline="true">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>

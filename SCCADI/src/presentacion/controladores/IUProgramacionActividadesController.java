@@ -1,14 +1,20 @@
 package presentacion.controladores;
 
 import com.jfoenix.controls.JFXButton;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
@@ -17,9 +23,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import logica.daoimpl.DAOActividadProgramadaImpl;
 import logica.daoimpl.DAOExperienciaEducativaImpl;
 import logica.dominio.ActividadProgramada;
+import logica.dominio.Coordinador;
 import logica.dominio.ExperienciaEducativa;
 import utilerias.DateConvertUtils;
 import utilerias.Mensajes;
@@ -62,6 +70,7 @@ public class IUProgramacionActividadesController implements Initializable {
   private ObservableList<ExperienciaEducativa> experiencias;
   private ObservableList<ActividadProgramada> actividades;
 
+  private Coordinador coordinador; 
   /**
    * Inicializa los componentes de la interfaz. 
    *
@@ -131,6 +140,13 @@ public class IUProgramacionActividadesController implements Initializable {
    */
   @FXML
   private void salir(MouseEvent event) {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUMenuCoordinador.fxml"));
+    IUMenuCoordinadorController controller = new IUMenuCoordinadorController();
+    loader.setController(controller);
+    controller.setCoordinador(coordinador);
+    controller.mostrarVentana(loader);
+    Stage mainStage = (Stage) btnAceptar.getScene().getWindow();
+    mainStage.close();
   }
 
   /**
@@ -446,4 +462,26 @@ public class IUProgramacionActividadesController implements Initializable {
     }
     return filtrada;
   }
+  
+  public void mostrarVentana(FXMLLoader loader) {
+    try {
+      Stage stagePrincipal = new Stage();
+      Parent root = (Parent) loader.load();
+      Scene scene = new Scene(root);
+      stagePrincipal.setScene(scene);
+      stagePrincipal.show();
+    } catch (IOException ex) {
+      Logger.getLogger(IUProgramacionActividadesController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
+
+  public Coordinador getCoordinador() {
+    return coordinador;
+  }
+
+  public void setCoordinador(Coordinador coordinador) {
+    this.coordinador = coordinador;
+  }
+  
+  
 }

@@ -11,14 +11,19 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controladores.IUAdministrarAlumnosController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <ImageView fitHeight="619.0" fitWidth="830.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
+         </image>
+      </ImageView>
       <ImageView fx:id="botonRegresar" fitHeight="45.0" fitWidth="44.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/iconos/back_arrow.png" />
          </image>
       </ImageView>
-      <TextField fx:id="textBuscarAlumno" focusTraversable="false" layoutX="509.0" layoutY="21.0" onAction="#filtarAlumnos" onInputMethodTextChanged="#filtarAlumnos" onKeyPressed="#filtarAlumnos" onKeyReleased="#filtarAlumnos" onKeyTyped="#filtarAlumnos" prefHeight="32.0" prefWidth="270.0" promptText="Buscar alumno" />
+      <TextField fx:id="textBuscarAlumno" focusTraversable="false" layoutX="66.0" layoutY="20.0" onAction="#filtarAlumnos" onInputMethodTextChanged="#filtarAlumnos" onKeyPressed="#filtarAlumnos" onKeyReleased="#filtarAlumnos" onKeyTyped="#filtarAlumnos" prefHeight="32.0" prefWidth="270.0" promptText="Buscar alumno" />
       <TableView fx:id="tablaAlumnos" layoutX="27.0" layoutY="73.0" prefHeight="211.0" prefWidth="751.0">
          <columns>
             <TableColumn fx:id="columnaMatricula" prefWidth="98.0" sortable="false" text="Matricula" />
@@ -76,8 +81,8 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <JFXButton fx:id="botonAgregar" focusTraversable="false" layoutX="526.0" layoutY="547.0" prefHeight="27.0" prefWidth="69.0" style="-fx-border-color: #4fc62e;" text="Agregar" />
-      <JFXButton fx:id="botonEditar" focusTraversable="false" layoutX="603.0" layoutY="547.0" onAction="#editarAlumno" prefHeight="27.0" prefWidth="69.0" style="-fx-border-color: #ff6a00;" text="Editar" />
-      <JFXButton fx:id="botonEliminar" focusTraversable="false" layoutX="680.0" layoutY="547.0" onAction="#eliminarAlumno" prefHeight="25.0" prefWidth="69.0" style="-fx-border-color: #ff4040;" text="Eliminar" />
+      <JFXButton fx:id="botonAgregar" focusTraversable="false" layoutX="418.0" layoutY="510.0" onAction="#extenderInscribir" prefHeight="33.0" prefWidth="90.0" style="-fx-border-color: #4fc62e;" text="Agregar" />
+      <JFXButton fx:id="botonEditar" focusTraversable="false" layoutX="527.0" layoutY="510.0" onAction="#editarAlumno" prefHeight="33.0" prefWidth="90.0" style="-fx-border-color: #ff6a00;" text="Editar" />
+      <JFXButton fx:id="botonEliminar" focusTraversable="false" layoutX="636.0" layoutY="510.0" onAction="#eliminarAlumno" prefHeight="33.0" prefWidth="90.0" style="-fx-border-color: #ff4040;" text="Eliminar" />
    </children>
 </AnchorPane>
