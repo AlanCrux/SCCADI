@@ -6,7 +6,7 @@ package logica.dominio;
  * @version 1.0
  */
 public class Inscripcion {
-
+  private int folioInscripcion; 
   private int calificacion;
   private int nrc;
   private String matricula;
@@ -43,5 +43,15 @@ public class Inscripcion {
   public void setMatricula(String matricula) {
     this.matricula = matricula;
   }
+
+  public int getFolioInscripcion() {
+    return folioInscripcion;
+  }
+
+  public void setFolioInscripcion(int folioInscripcion) {
+    this.folioInscripcion = folioInscripcion;
+  }
+  
+  
 
 }

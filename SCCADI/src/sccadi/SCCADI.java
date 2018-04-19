@@ -1,14 +1,11 @@
 package sccadi;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import presentacion.controladores.IUAdministrarAvisoController;
 import presentacion.controladores.IULoginController;
+import presentacion.controladores.IUReservacionActividadesController;
 
 /**
  *
@@ -25,10 +22,22 @@ public class SCCADI extends Application {
    */
   @Override
   public void start(Stage stagePrincipal) {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUReservacionActividades.fxml"));
+    IUReservacionActividadesController controller = new IUReservacionActividadesController();
+    loader.setController(controller);
+    controller.mostrarVentana(loader);
+    
+    /*FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUAdministrarAviso.fxml"));
+    IUAdministrarAvisoController controller = new IUAdministrarAvisoController();
+    loader.setController(controller);
+    controller.mostrarVentana(loader);*/
+    
+    /*
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IULogin.fxml"));
     IULoginController controller = new IULoginController();
     loader.setController(controller);
     controller.mostrarVentana(loader);
+    */
   }
 
   /**

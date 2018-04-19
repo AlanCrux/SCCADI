@@ -56,14 +56,68 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
     return alumnos;
   }
 
-  @Override
-  public List<Inscripcion> obtenerInscripciones() throws Exception {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
-
+  /**
+   * Obtiene las secciones a las que esta inscrito un alumno.
+   * @param matricula identificador del alumno.
+   * @return lista con las secciones a las que esta inscrito el alumno. 
+   * @throws Exception ocurre si hay un error en la consulta. 
+   */
   @Override
   public List<Seccion> obtenerSecciones(String matricula) throws Exception {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    List<Seccion> secciones = new ArrayList();
+    String consulta = "select * from Seccion as T1 INNER JOIN Inscripcion as T2 ON T1.nrc = T2.nrc where matricula =?;";
+
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement(consulta);
+      st.setString(1, matricula);
+      ResultSet rs = st.executeQuery();
+      while (rs.next()) {
+        Seccion seccion = new Seccion();
+        seccion.setNrc(rs.getInt("nrc"));
+        seccion.setIdExperiencia(rs.getInt("idExperiencia"));
+        seccion.setNoPersonal(rs.getInt("noPersonal"));
+        seccion.setPeriodo(rs.getString("periodo"));
+        seccion.setCupo(rs.getInt("cupo"));
+        secciones.add(seccion);
+      }
+      rs.close();
+      st.close();
+    } catch (Exception ex) {
+      throw ex;
+    }
+    return secciones;
+  }
+
+  /**
+   * Obtiene las inscripciones asociadas a un alumno en la BD.
+   * @param matricula identificador del alumno. 
+   * @return lista con las inscripciones del alumno
+   * @throws Exception ocurre si hay un error en la consulta. 
+   */
+  @Override
+  public List<Inscripcion> obtenerInscripciones(String matricula) throws Exception {
+    List<Inscripcion> incripciones = new ArrayList();
+    String consulta = "select * from inscripcion where matricula =?;";
+
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement(consulta);
+      st.setString(1, matricula);
+      ResultSet rs = st.executeQuery();
+      while (rs.next()) {
+        Inscripcion inscripcion = new Inscripcion();
+        inscripcion.setNrc(rs.getInt("nrc"));
+        inscripcion.setMatricula(rs.getString("matricula"));
+        inscripcion.setFolioInscripcion(rs.getInt("folioInscripcion"));
+        incripciones.add(inscripcion);
+      }
+      rs.close();
+      st.close();
+    } catch (Exception ex) {
+      throw ex;
+    }
+    return incripciones;
   }
 
   @Override

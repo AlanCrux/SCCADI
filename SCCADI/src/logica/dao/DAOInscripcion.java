@@ -12,7 +12,7 @@ import logica.dominio.Seccion;
  * @version 1.0
  */
 public interface DAOInscripcion {
-    public List<Inscripcion> obtenerInscripciones() throws Exception;
+    public List<Inscripcion> obtenerInscripciones(String matricula) throws Exception;
     public List<Alumno> obtenerAlumnos(int nrc) throws Exception; 
     public List<Seccion> obtenerSecciones(String matricula) throws Exception; 
     public Inscripcion obtenerInscripciones(int folio) throws Exception;
