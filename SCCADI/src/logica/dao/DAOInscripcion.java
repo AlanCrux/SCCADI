@@ -16,8 +16,8 @@ public interface DAOInscripcion {
     public List<Alumno> obtenerAlumnos(int nrc) throws Exception; 
     public List<Seccion> obtenerSecciones(String matricula) throws Exception; 
     public Inscripcion obtenerInscripciones(int folio) throws Exception;
-    public boolean insertarInscripciones(Inscripcion inscripcion) throws Exception;
-    public boolean actualizarInscripciones(int folio) throws Exception;
-    public boolean eliminarInscripciones(int folio) throws Exception;
+    public boolean insertarInscripcion(Inscripcion inscripcion) throws Exception;
+    public boolean actualizarInscripcion(int folio) throws Exception;
+    public boolean eliminarInscripcion(int folio) throws Exception;
     public boolean eliminarInscripcionesPorMatricula(Alumno alumno) throws Exception;
 }

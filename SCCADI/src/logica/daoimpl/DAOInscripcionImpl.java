@@ -133,7 +133,7 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
    * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD.
    */
   @Override
-  public boolean insertarInscripciones(Inscripcion inscripcion) throws Exception {
+  public boolean insertarInscripcion(Inscripcion inscripcion) throws Exception {
     String query = "INSERT INTO inscripcion(nrc,matricula) values(?,?)";
     try {
       this.connection();
@@ -154,12 +154,12 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
   }
 
   @Override
-  public boolean actualizarInscripciones(int folio) throws Exception {
+  public boolean actualizarInscripcion(int folio) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   @Override
-  public boolean eliminarInscripciones(int folio) throws Exception {
+  public boolean eliminarInscripcion(int folio) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 

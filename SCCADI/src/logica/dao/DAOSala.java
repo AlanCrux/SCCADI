@@ -13,7 +13,7 @@ import logica.dominio.Sala;
  * @author Esmeralda
  */
 public interface DAOSala {
-    public List<Sala> obtenerSala() throws Exception;
+    public List<Sala> obtenerSalas() throws Exception;
     public Sala obtenerSala(int idSala) throws Exception;
     public boolean insertarSala(Sala sala) throws Exception;
     public boolean actualizarSala(int Sala) throws Exception;

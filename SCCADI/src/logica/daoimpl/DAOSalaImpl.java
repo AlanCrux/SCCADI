@@ -21,7 +21,7 @@ public class DAOSalaImpl extends Conexion implements DAOSala {
      * @throws Exception 
      */
     @Override
-    public List<Sala> obtenerSala() throws Exception {
+    public List<Sala> obtenerSalas() throws Exception {
         List<Sala> salas = null;
 
         try {
