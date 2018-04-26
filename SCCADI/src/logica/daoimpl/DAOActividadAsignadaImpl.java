@@ -146,7 +146,7 @@ public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAs
    * @throws Exception
    */
   @Override
-  public List<ActividadAsignada> obtenerActividadAsignada() throws Exception {
+  public List<ActividadAsignada> obtenerActividadesAsignadas() throws Exception {
     List<ActividadAsignada> actividades = null;
     try {
       this.connection();

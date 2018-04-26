@@ -49,7 +49,7 @@ public class TestDAOActividadAsignada {
     @Test
     public void obtenerActividadesAsignadas() {
         try {
-            int tamanoLista = actividad.obtenerActividadAsignada().size();
+            int tamanoLista = actividad.obtenerActividadesAsignadas().size();
             int tamanoEsperado = 20;
             Assert.assertEquals(tamanoEsperado, tamanoLista);
 

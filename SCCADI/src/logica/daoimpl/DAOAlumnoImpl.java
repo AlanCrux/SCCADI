@@ -170,14 +170,14 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
   /**
    * Este metodo nos permite actualizar los datos de un alumno en la base de datos
    *
-   * @param identificador matricula del alumno a modificar
+   * @param matricula matricula del alumno a modificar
    * @param alumno Objeto que contiene toda la informacion de un alumno
    * @return True si la actualizacion se realizo con exito
    * @throws SQLException ocurre si se pierde la conexion con la base de datos o hay algun error en
    * los querys
    */
   @Override
-  public boolean actualizarAlumno(String identificador, Alumno alumno) throws Exception {
+  public boolean actualizarAlumno(String matricula, Alumno alumno) throws Exception {
     try {
       this.connection();
       PreparedStatement st = this.conn.prepareStatement("update Alumno set matricula = ?, "
@@ -189,7 +189,7 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
       st.setString(4, alumno.getProgramaEducativo());
       st.setString(5, alumno.getContactoEmergencia());
       st.setString(6, alumno.getNumeroEmergencia());
-      st.setString(7, identificador);
+      st.setString(7, matricula);
       st.executeUpdate();
       st.close();
     } catch (SQLException e) {

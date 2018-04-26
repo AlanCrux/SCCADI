@@ -94,4 +94,11 @@ public class Alumno {
     this.fotografia = fotografia;
   }
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
+  
+  
+
 }

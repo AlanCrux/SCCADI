@@ -1,48 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1476B7;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="botonAtras" fitHeight="50.0" fitWidth="50.0" layoutX="79.0" layoutY="92.0" onMouseEntered="#efectoMouseSobre" onMouseExited="#efectoMouseFuera" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="69.0">
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../recursos/iconos/back_arrow%20copia.png" />
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lbExperiencia" layoutX="140.0" layoutY="102.0" text="Experiencia educativa" textFill="WHITE" AnchorPane.leftAnchor="140.0">
+      <ImageView fx:id="botonAtras" fitHeight="50.0" fitWidth="50.0" layoutX="79.0" layoutY="92.0" onMouseEntered="#efectoMouseSobre" onMouseExited="#efectoMouseFuera" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="69.0">
+         <image>
+            <Image url="@../recursos/iconos/back_arrow.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbExperiencia" layoutX="140.0" layoutY="102.0" text="Experiencia educativa" AnchorPane.leftAnchor="140.0">
          <font>
             <Font name="Avenir Roman" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lbNrc" layoutX="435.0" layoutY="102.0" text="NRC" textFill="WHITE" AnchorPane.leftAnchor="350.0">
+      <Label fx:id="lbNrc" layoutX="435.0" layoutY="102.0" text="NRC" textFill="#363636" AnchorPane.leftAnchor="350.0">
          <font>
             <Font name="Avenir Roman" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lbNumAlumnos" layoutX="535.0" layoutY="102.0" text="Alumnos inscritos" textFill="WHITE" AnchorPane.leftAnchor="550.0">
+      <Label fx:id="lbNumAlumnos" layoutX="535.0" layoutY="102.0" text="Alumnos inscritos" AnchorPane.leftAnchor="550.0">
          <font>
             <Font name="Avenir Roman" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lbPeriodo" layoutX="140.0" layoutY="60.0" text="Período escolar" textFill="WHITE">
+      <Label fx:id="lbPeriodo" layoutX="140.0" layoutY="60.0" text="Período escolar">
          <font>
             <Font name="Avenir Roman" size="22.0" />
          </font>
       </Label>
-      <ScrollPane hbarPolicy="NEVER" layoutX="69.0" layoutY="142.0" pannable="true" prefHeight="400.0" prefWidth="637.0" style="-fx-background-color: #1476B7;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="150.0">
-         <content>
-            <FlowPane fx:id="mpAlumnos" hgap="10.0" prefHeight="400.0" prefWidth="660.0" style="-fx-background-color: #1476B7;" vgap="10.0" />
-         </content>
-         <padding>
-            <Insets left="10.0" top="10.0" />
-         </padding>
-      </ScrollPane>
+      <ListView fx:id="lst_Alumnos" layoutX="140.0" layoutY="156.0" prefHeight="368.0" prefWidth="365.0" />
+      <Pane layoutX="577.0" layoutY="156.0" prefHeight="155.0" prefWidth="120.0">
+         <children>
+            <ImageView fx:id="imageViewFoto" fitHeight="142.0" fitWidth="120.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/imagenes/IMG_ALUMNO.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <JFXButton fx:id="btnConsultar" layoutX="577.0" layoutY="413.0" onAction="#onActionConsultar" prefHeight="50.0" prefWidth="120.0" style="-fx-border-color: #f5b041;" text="Consultar &#10;progreso">
+         <font>
+            <Font name="Avenir Roman" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnRegistrar" layoutX="577.0" layoutY="474.0" onAction="#onActionRegistrar" prefHeight="50.0" prefWidth="120.0" style="-fx-border-color: blue;" text="Registrar &#10;progreso">
+         <font>
+            <Font name="Avenir Roman" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label fx:id="lbMatricula" layoutX="577.0" layoutY="323.0" text="Matricula">
+         <font>
+            <Font name="Avenir Roman" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbCorreo" layoutX="577.0" layoutY="347.0" text="Correo">
+         <font>
+            <Font name="Avenir Roman" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

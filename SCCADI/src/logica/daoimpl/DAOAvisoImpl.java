@@ -38,7 +38,6 @@ public class DAOAvisoImpl extends Conexion implements DAOAviso {
         avisos.add(aviso);
       }
     } catch (Exception e) {
-      e.printStackTrace();
       throw e;
     }
     return avisos;

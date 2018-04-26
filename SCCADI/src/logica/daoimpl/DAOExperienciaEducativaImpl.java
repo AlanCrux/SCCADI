@@ -97,6 +97,10 @@ public class DAOExperienciaEducativaImpl extends Conexion implements DAOExperien
         experiencia.setIdExperiencia(idExperiencia);
         experiencia.setNivel(rs.getString("nivel"));
         experiencia.setNombre(rs.getString("nombre"));
+        experiencia.setNumAutoevaluaciones(rs.getInt("numAutoevaluaciones"));
+        experiencia.setNumReflexiones(rs.getInt("numReflexiones"));
+        experiencia.setNumBitacoras(rs.getInt("numBitacoras"));
+        experiencia.setNumSeguimiento(rs.getInt("numSeguimiento"));
       }
       rs.close();
       st.close();

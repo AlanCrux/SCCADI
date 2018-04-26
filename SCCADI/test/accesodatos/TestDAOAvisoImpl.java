@@ -29,6 +29,6 @@ public class TestDAOAvisoImpl {
     System.out.println("obtenerAvisos");
     DAOAvisoImpl instance = new DAOAvisoImpl();  
     List<Aviso> result = instance.obtenerAvisos();
-    assertEquals(5, result.size());
+    assertEquals(2, result.size());
   }
 }

@@ -6,6 +6,7 @@ import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import logica.dominio.Asesor;
+import logica.dominio.ExperienciaEducativa;
 
 /**
  * Esta clase nos permite asociar los datos de una sección a un contenedor tipo Button. 
@@ -24,7 +25,7 @@ public class FichaSeccion extends Button {
    * @param experiencia nombre de la experiencia educativa de la sección.
    * @param nivel nivel de la experiencia educativa de la sección. 
    */
-  public FichaSeccion(int nrc, String experiencia, String nivel, String periodo) {
+  public FichaSeccion(int nrc, ExperienciaEducativa experiencia, String nivel, String periodo) {
     datosSeccion = "NRC: " + nrc + "\n";
     datosSeccion += "EE: " + experiencia + "\n";
     datosSeccion += "Nivel: " + nivel;
@@ -65,7 +66,7 @@ public class FichaSeccion extends Button {
    * @param nrc el nrc de la sección.
    * @param experiencia el nombre de la experiencia educativa de la sección. 
    */
-  public void mostrarVentanaAlumnos(int nrc, String experiencia, String periodo) {
+  public void mostrarVentanaAlumnos(int nrc, ExperienciaEducativa experiencia, String periodo) {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("IUAlumnos.fxml"));
     IUAlumnosController controller = new IUAlumnosController();
     loader.setController(controller);

@@ -119,6 +119,37 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
     }
     return incripciones;
   }
+  
+  /**
+   * Obtiene una inscripcion de un alumno en una sección especifica.
+   * @param matricula identificador del alumno. 
+   * @param nrc identificador de la seccion
+   * @return lista con las inscripciones del alumno
+   * @throws Exception ocurre si hay un error en la consulta. 
+   */
+  public Inscripcion obtenerInscripcion(String matricula, int nrc) throws Exception {
+    Inscripcion inscripcion = null; 
+    String consulta = "select * from inscripcion where matricula =? AND nrc=?;";
+
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement(consulta);
+      st.setString(1, matricula);
+      st.setInt(2, nrc);
+      ResultSet rs = st.executeQuery();
+      while (rs.next()) {
+        inscripcion = new Inscripcion();
+        inscripcion.setNrc(rs.getInt("nrc"));
+        inscripcion.setMatricula(rs.getString("matricula"));
+        inscripcion.setFolioInscripcion(rs.getInt("folioInscripcion"));
+      }
+      rs.close();
+      st.close();
+    } catch (Exception ex) {
+      throw ex;
+    }
+    return inscripcion;
+  }
 
   @Override
   public Inscripcion obtenerInscripciones(int folio) throws Exception {
