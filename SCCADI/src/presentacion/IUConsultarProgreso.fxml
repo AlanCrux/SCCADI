@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="botonRegresar" fitHeight="49.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/back_arrow.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tablaActividades" layoutX="39.0" layoutY="151.0" prefHeight="142.0" prefWidth="502.0">
+        <columns>
+          <TableColumn fx:id="columnaActividad" editable="false" prefWidth="350.0" sortable="false" text="Actividad" />
+          <TableColumn fx:id="columnaFechaAct" editable="false" prefWidth="151.0" sortable="false" text="Fecha" />
+        </columns>
+      </TableView>
+      <Label layoutX="39.0" layoutY="71.0" text="Actividades">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="97.0" text="Total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="309.0" layoutY="97.0" text="Porcentaje total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelActivRealizadas" layoutX="245.0" layoutY="97.0" text="Total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="153.0" layoutY="97.0" text="Realizadas: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelTotalActividades" layoutX="88.0" layoutY="97.0" text="Total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="laberlPorcObten" layoutX="218.0" layoutY="124.0" text="total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="124.0" text="Porcentaje obtenido:  ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelPorcTotal" layoutX="443.0" layoutY="96.0" text=" total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="300.0" text="Examenes">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="326.0" text="Total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="307.0" layoutY="326.0" text="Porcentaje total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelExamRealizadas" layoutX="243.0" layoutY="326.0" text="Total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="151.0" layoutY="326.0" text="Realizadas: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelTotalExamenes" layoutX="86.0" layoutY="326.0" text="Total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="laberlPorcObtenExam" layoutX="218.0" layoutY="353.0" text="total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="353.0" text="Porcentaje obtenido:  ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelPorcTotalExamen" layoutX="441.0" layoutY="325.0" text=" total: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tablaExamen" layoutX="37.0" layoutY="380.0" prefHeight="142.0" prefWidth="502.0">
+         <columns>
+            <TableColumn fx:id="columnaDescripcion" editable="false" prefWidth="120.0" sortable="false" text="Descripcion" />
+            <TableColumn fx:id="columnaTipo" editable="false" prefWidth="145.0" sortable="false" text="Tipo" />
+            <TableColumn fx:id="columnaFecha" editable="false" prefWidth="136.0" sortable="false" text="Fecha" />
+            <TableColumn fx:id="columnaCalificacion" editable="false" prefWidth="100.0" sortable="false" text="Calificacion" />
+         </columns>
+      </TableView>
+      <Label layoutX="573.0" layoutY="124.0" text="Bitacoras">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="tfBitacora" editable="false" layoutX="573.0" layoutY="153.0" prefHeight="25.0" prefWidth="119.0" />
+      <Label fx:id="lbPorcBit" layoutX="714.0" layoutY="152.0" prefHeight="27.0" prefWidth="61.0" text="porc">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="573.0" layoutY="195.0" text="Hojas de seguimiento">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="tfHojaSeuimiento" editable="false" layoutX="573.0" layoutY="224.0" prefHeight="25.0" prefWidth="119.0" />
+      <Label fx:id="lbPorcHojaSeg" layoutX="714.0" layoutY="223.0" prefHeight="27.0" prefWidth="61.0" text="porc">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="573.0" layoutY="266.0" text="Reflexión">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="tfReflexion" editable="false" layoutX="573.0" layoutY="295.0" prefHeight="25.0" prefWidth="119.0" />
+      <Label fx:id="lbPorcReflex" layoutX="714.0" layoutY="294.0" prefHeight="27.0" prefWidth="61.0" text="porc">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="573.0" layoutY="339.0" text="Autoevaluacion">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="tfAutoevaluacion" editable="false" layoutX="573.0" layoutY="368.0" prefHeight="25.0" prefWidth="119.0" />
+      <Label fx:id="lbPorcAutoeval" layoutX="714.0" layoutY="367.0" prefHeight="27.0" prefWidth="61.0" text="porc">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="593.0" layoutY="437.0" text="Progreso total:">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="tfProgreso" editable="false" layoutX="601.0" layoutY="465.0" prefHeight="25.0" prefWidth="119.0" />
+   </children>
+</AnchorPane>

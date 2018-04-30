@@ -92,4 +92,10 @@ public class Seccion {
     return asesor;
   }
 
+    @Override
+    public String toString() {
+        return  exp.getNombre() +" "+ exp.getNivel();
+    }
+
+  
 }

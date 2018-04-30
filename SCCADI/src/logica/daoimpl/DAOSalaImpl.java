@@ -33,7 +33,7 @@ public class DAOSalaImpl extends Conexion implements DAOSala {
                 Sala sala = new Sala();
                 sala.setIdSala(rs.getInt("idSala"));
                 sala.setCupo(rs.getInt("cupo"));
-                sala.setNombre(rs.getString("nombre"));
+                sala.setNombre(rs.getString("nombreSala"));
                 salas.add(sala);
             }
         } catch (SQLException e) {

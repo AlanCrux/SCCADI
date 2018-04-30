@@ -10,6 +10,15 @@ public class Asesor {
   private int noPersonal;
   private String nombre;
   private String correo;
+  private String contrasena;
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
   public Asesor() {
   }
@@ -43,5 +52,10 @@ public class Asesor {
   public void setCorreo(String correo) {
     this.correo = correo;
   }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
 
 }

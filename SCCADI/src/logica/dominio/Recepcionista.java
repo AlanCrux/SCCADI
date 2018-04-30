@@ -9,15 +9,25 @@ public class Recepcionista {
   private int noPersonal;
   private String nombre;
   private String correo;
+  private String contrasena;
 
   public Recepcionista() {
   }
 
+  
   public Recepcionista(int noPersonal, String nombre, String correo) {
     this.noPersonal = noPersonal;
     this.nombre = nombre;
     this.correo = correo;
   }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
   public int getNoPersonal() {
     return noPersonal;

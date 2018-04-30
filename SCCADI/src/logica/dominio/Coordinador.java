@@ -9,6 +9,7 @@ public class Coordinador {
   private int noPersonal;
   private String nombre;
   private String correo;
+  private String contrasena;
 
   public Coordinador() {
   }
@@ -18,6 +19,14 @@ public class Coordinador {
     this.nombre = nombre;
     this.correo = correo;
   }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
 
   public int getNoPersonal() {

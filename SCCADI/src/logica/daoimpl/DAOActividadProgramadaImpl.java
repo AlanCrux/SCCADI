@@ -138,4 +138,36 @@ public class DAOActividadProgramadaImpl extends Conexion implements DAOActividad
       }
     }
   }
+  
+    /**
+     * Metodo que obtiene las actividaddes programadas relacionadas a una 
+     * experiencia educativa
+     * @param idExperiencia identificador de la experiencia educativa       
+     * @return Lista de actividades programadas
+     * @throws Exception 
+     */
+    public List<ActividadProgramada> obtenerActividadesProgramadasPorEE(int idExperiencia) throws Exception {
+    List<ActividadProgramada> actividades;
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement("select * from actividadprogramada where idExperiencia = ?");
+      st.setInt(1, idExperiencia);
+      ResultSet rs = st.executeQuery();
+      actividades = new ArrayList();
+      while (rs.next()) {
+        ActividadProgramada actividad = new ActividadProgramada();
+        actividad.setIdActividadProgramada(rs.getInt("idActividadProgramada"));
+        actividad.setNombre(rs.getString("nombre"));
+        actividad.setFechaInicio(rs.getDate("fechaInicio"));
+        actividad.setFechaFin(rs.getDate("fechaFin"));
+        actividad.setModulo(rs.getInt("modulo"));
+        actividad.setUnidad(rs.getInt("unidad"));
+        actividad.setIdExperiencia(rs.getInt("idExperiencia"));
+        actividades.add(actividad);
+      }
+    } catch (Exception e) {
+      throw e;
+    }
+    return actividades;
+  }
 }

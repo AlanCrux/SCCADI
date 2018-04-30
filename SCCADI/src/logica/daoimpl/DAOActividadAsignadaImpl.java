@@ -3,11 +3,13 @@ package logica.daoimpl;
 import datos.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import logica.dao.DAOActividadAsignada;
 import logica.dominio.ActividadAsignada;
+import utilerias.DateConvertUtils;
 
 /**
  *
@@ -268,9 +270,41 @@ public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAs
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
+  /**
+   * Metodo que guarda un registro nuevo de un actividad asignada en la base 
+   * de datos
+   * @param actividadAsignada Objeto del tipo Actividad asignada
+   * @return True si el registro fue correcto
+   * @throws Exception 
+   */
   @Override
   public boolean insertarActividadAsignada(ActividadAsignada actividadAsignada) throws Exception {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String query = " insert into actividadAsignada (idActividadProgramada, "
+                + "noPersonal, idSala, cupoMaximo, fecha, hora) values "
+                + "(?, ?, ?, ?, ?,?);";
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement(query);
+      st.setInt(1, actividadAsignada.getIdActividadProgramda());
+      
+      st.setInt(2, actividadAsignada.getNoPersonal());
+      st.setInt(3, actividadAsignada.getIdSala());
+      st.setInt(4, actividadAsignada.getCupoMaximo());
+      st.setDate(5, java.sql.Date.valueOf(DateConvertUtils.asLocalDate(actividadAsignada.getFecha())));
+      st.setTime(6, actividadAsignada.getHora());
+      st.executeUpdate();
+      return true;
+    } catch (SQLException e) {
+      throw e;
+    } catch (Exception e) {
+      throw e;
+    } finally {
+      try {
+        this.close();
+      } catch (Exception e) {
+        throw e;
+      }
+    }
   }
 
   @Override

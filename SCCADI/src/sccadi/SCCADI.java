@@ -8,7 +8,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import presentacion.controladores.IUAsignarActividadesSemanalesController;
+import presentacion.controladores.IUConsultarAlumnosController;
 import presentacion.controladores.IULoginController;
+import presentacion.controladores.IURegistrarAsistenciaController;
 
 /**
  *
@@ -25,8 +28,8 @@ public class SCCADI extends Application {
    */
   @Override
   public void start(Stage stagePrincipal) {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IULogin.fxml"));
-    IULoginController controller = new IULoginController();
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUConsultarAlumnos.fxml"));
+     IUConsultarAlumnosController controller = new IUConsultarAlumnosController();
     loader.setController(controller);
     controller.mostrarVentana(loader);
   }

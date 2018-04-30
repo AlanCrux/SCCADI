@@ -14,8 +14,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import logica.daoimpl.DAOAsesorImpl;
+import logica.daoimpl.DAOCoordinadorImpl;
+import logica.daoimpl.DAORecepcionistaImpl;
 import logica.dominio.Asesor;
 import logica.dominio.Recepcionista;
 
@@ -26,100 +30,126 @@ import logica.dominio.Recepcionista;
  */
 public class IULoginController implements Initializable {
 
-  @FXML
-  private JFXButton btnIngresar;
-  @FXML
-  private TextField tfNumeroPersonal;
-  @FXML
-  private Hyperlink hpCadi;
+    @FXML
+    private JFXButton btnIngresar;
+    @FXML
+    private TextField tfNumeroPersonal;
+    @FXML
+    private Hyperlink hpCadi;
+    @FXML
+    private TextField tfContrasena;
+    @FXML
+    private Label lbAdvertencia;
 
-  private Asesor objAsesor;
-  private Recepcionista objRecepcionista;
-  private Coordinador objCoordinador;
+    private Asesor objAsesor;
+    private Recepcionista objRecepcionista;
+    private Coordinador objCoordinador;
 
-  /**
-   * Initializes the controller class.
-   */
-  @Override
-  public void initialize(URL url, ResourceBundle rb) {
-    // TODO
-  }
+    DAOAsesorImpl asesorDao = new DAOAsesorImpl();
+    DAOCoordinadorImpl coordinadorDao = new DAOCoordinadorImpl();
+    DAORecepcionistaImpl recepcionistaDao = new DAORecepcionistaImpl();
 
-  @FXML
-  private void ingresar(ActionEvent event) {
-    String numPersonal = tfNumeroPersonal.getText();
-    if (verificarAsesor(numPersonal)) {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUMenuAsesor.fxml"));
-      IUMenuAsesorController controller = new IUMenuAsesorController();
-      loader.setController(controller);
-      controller.setAsesor(objAsesor);
-      controller.mostrarVentana(loader);
-      Stage mainStage = (Stage) btnIngresar.getScene().getWindow();
-      mainStage.close();
-    } else if (verificarCoordinador(numPersonal)) {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUMenuCoordinador.fxml"));
-      IUMenuCoordinadorController controller = new IUMenuCoordinadorController();
-      loader.setController(controller);
-      controller.setCoordinador(objCoordinador);
-      controller.mostrarVentana(loader);
-      Stage mainStage = (Stage) btnIngresar.getScene().getWindow();
-      mainStage.close();
-    } else if (verificarRecepcionista(numPersonal)) {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUMenuRecepcionista.fxml"));
-      IUMenuRecepcionistaController controller = new IUMenuRecepcionistaController();
-      loader.setController(controller);
-      controller.setRecepcionista(objRecepcionista);
-      controller.mostrarVentana(loader);
-      Stage mainStage = (Stage) btnIngresar.getScene().getWindow();
-      mainStage.close();
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        hpCadi = new Hyperlink("https://www.uv.mx/portalcadi/");
+        
     }
-  }
 
-  private boolean verificarAsesor(String numPersonal) {
-    if (numPersonal.equals("asesor")) {
-      Asesor asesor = new Asesor(1234, "Jose Antonio Martinez Salazar", "pepedD@gmail.com");
-      objAsesor = asesor; 
-      return true;
-    } else {
-      return false;
+    @FXML
+    private void ingresar(ActionEvent event) {
+        lbAdvertencia.setVisible(false);
+        int numPersonal = Integer.parseInt(tfNumeroPersonal.getText());
+        String contrasena = tfContrasena.getText();
+        if (verificarAsesor(numPersonal, contrasena)) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUMenuAsesor.fxml"));
+            IUMenuAsesorController controller = new IUMenuAsesorController();
+            loader.setController(controller);
+            controller.setAsesor(objAsesor);
+            controller.mostrarVentana(loader);
+            Stage mainStage = (Stage) btnIngresar.getScene().getWindow();
+            mainStage.close();
+        } else if (verificarCoordinador(numPersonal, contrasena)) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUMenuCoordinador.fxml"));
+            IUMenuCoordinadorController controller = new IUMenuCoordinadorController();
+            loader.setController(controller);
+            controller.setCoordinador(objCoordinador);
+            controller.mostrarVentana(loader);
+            Stage mainStage = (Stage) btnIngresar.getScene().getWindow();
+            mainStage.close();
+        } else if (verificarRecepcionista(numPersonal, contrasena)) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUMenuRecepcionista.fxml"));
+            IUMenuRecepcionistaController controller = new IUMenuRecepcionistaController();
+            loader.setController(controller);
+            controller.setRecepcionista(objRecepcionista);
+            controller.mostrarVentana(loader);
+            Stage mainStage = (Stage) btnIngresar.getScene().getWindow();
+            mainStage.close();
+        } else {
+            lbAdvertencia.setVisible(true);
+        }
     }
-  }
 
-  private boolean verificarCoordinador(String numPersonal) {
-    if (numPersonal.equals("coordinador")) {
-      Coordinador coordinador = new Coordinador(1234, "José Alí Valdivia Ruiz", "ppjavr@gmail.com");
-      objCoordinador = coordinador;
-      return true;
-    } else {
-      return false;
-    }
-  }
+    private boolean verificarAsesor(int numPersonal, String contrasena) {
 
-  private boolean verificarRecepcionista(String numPersonal) {
-    if (numPersonal.equals("recepcionista")) {
-      Recepcionista recepcionista = new Recepcionista(1234, "Miguel Alejandro Cámara Árciga", "arcamsoft@gmail.com");
-      objRecepcionista = recepcionista;
-      return true;
-    } else {
-      return false;
-    }
-  }
+        try {
+            if (numPersonal == asesorDao.obtenerAsesor(numPersonal, contrasena).getNoPersonal()
+                    && contrasena.equals(asesorDao.obtenerAsesor(numPersonal, contrasena).getContrasena())) {
+                objAsesor = asesorDao.obtenerAsesor(numPersonal, contrasena);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception ex) {
+            return false;
+        }
 
-  /**
-   * Muestra la ventana.
-   *
-   * @param loader el loader con la ruta de la ventana que se quiere cargar.
-   */
-  public void mostrarVentana(FXMLLoader loader) {
-    try {
-      Stage stagePrincipal = new Stage();
-      Parent root = (Parent) loader.load();
-      Scene scene = new Scene(root);
-      stagePrincipal.setScene(scene);
-      stagePrincipal.show();
-    } catch (IOException ex) {
-      Logger.getLogger(IULoginController.class.getName()).log(Level.SEVERE, null, ex);
     }
-  }
+
+    private boolean verificarCoordinador(int numPersonal, String contrasena) {
+        try {
+            if (numPersonal == coordinadorDao.obtenerCoordinador(numPersonal, contrasena).getNoPersonal()
+                    && contrasena.equals(coordinadorDao.obtenerCoordinador(numPersonal, contrasena).getContrasena())) {
+                objCoordinador = coordinadorDao.obtenerCoordinador(numPersonal, contrasena);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception ex) {
+            return false;
+        }
+
+    }
+
+    private boolean verificarRecepcionista(int numPersonal, String contrasena) {
+        try {
+            if (numPersonal == recepcionistaDao.obtenerRecepcionista(numPersonal, contrasena).getNoPersonal()
+                    && contrasena.equals(recepcionistaDao.obtenerRecepcionista(numPersonal, contrasena).getContrasena())) {
+                objRecepcionista = recepcionistaDao.obtenerRecepcionista(numPersonal, contrasena);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception ex) {
+            return false;
+        }
+
+    }
+
+    /**
+     * Muestra la ventana.
+     *
+     * @param loader el loader con la ruta de la ventana que se quiere cargar.
+     */
+    public void mostrarVentana(FXMLLoader loader) {
+        try {
+            Stage stagePrincipal = new Stage();
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            stagePrincipal.setScene(scene);
+            stagePrincipal.show();
+        } catch (IOException ex) {
+            Logger.getLogger(IULoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

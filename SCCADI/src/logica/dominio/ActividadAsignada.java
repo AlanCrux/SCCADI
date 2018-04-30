@@ -20,8 +20,7 @@ public class ActividadAsignada {
   private String nombreSala;
   private String nombreAsesor;
 
-  public ActividadAsignada(int idActividadAsignada, int idActividadProgramda, int noPersonal, int idSala, int cupoMaximo, Date fecha, Time hora) {
-    this.idActividadAsignada = idActividadAsignada;
+  public ActividadAsignada(int idActividadProgramda, int noPersonal, int idSala, int cupoMaximo, Date fecha, Time hora) {
     this.idActividadProgramda = idActividadProgramda;
     this.noPersonal = noPersonal;
     this.idSala = idSala;
