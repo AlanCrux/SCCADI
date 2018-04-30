@@ -1,56 +1,46 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package logica.dominio;
 
 /**
  *
- * @author Esmeralda
+ * @author Alan Yoset Garcia Cruz
  */
 public class Reservacion {
-    
-    private int idReservacion;
-    private String matricula;
-    private int idActividadAsignada;
-    private boolean asistio;
 
-    public Reservacion() {
-    }
+  private int idReservacion;
+  private String matricula;
+  private int idActividadAsignada;
 
-    public int getIdReservacion() {
-        return idReservacion;
-    }
+  public Reservacion(int idReservacion, String matricula, int idActividadAsignada) {
+    this.idReservacion = idReservacion;
+    this.matricula = matricula;
+    this.idActividadAsignada = idActividadAsignada;
+  }
 
-    public void setIdReservacion(int idReservacion) {
-        this.idReservacion = idReservacion;
-    }
+  public Reservacion() {
+  }
 
-    public String getMatricula() {
-        return matricula;
-    }
+  public int getIdReservacion() {
+    return idReservacion;
+  }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
+  public void setIdReservacion(int idReservacion) {
+    this.idReservacion = idReservacion;
+  }
 
-    public int getIdActividadAsignada() {
-        return idActividadAsignada;
-    }
+  public String getMatricula() {
+    return matricula;
+  }
 
-    public void setIdActividadAsignada(int idActividadAsignada) {
-        this.idActividadAsignada = idActividadAsignada;
-    }
+  public void setMatricula(String matricula) {
+    this.matricula = matricula;
+  }
 
-    public boolean isAsistio() {
-        return asistio;
-    }
+  public int getIdActividadAsignada() {
+    return idActividadAsignada;
+  }
 
-    public void setAsistio(boolean asistio) {
-        this.asistio = asistio;
-    }
-
-
-    
+  public void setIdActividadAsignada(int idActividadAsignada) {
+    this.idActividadAsignada = idActividadAsignada;
+  }
 }

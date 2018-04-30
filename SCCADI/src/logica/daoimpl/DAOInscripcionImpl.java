@@ -56,14 +56,99 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
     return alumnos;
   }
 
-  @Override
-  public List<Inscripcion> obtenerInscripciones() throws Exception {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
-
+  /**
+   * Obtiene las secciones a las que esta inscrito un alumno.
+   * @param matricula identificador del alumno.
+   * @return lista con las secciones a las que esta inscrito el alumno. 
+   * @throws Exception ocurre si hay un error en la consulta. 
+   */
   @Override
   public List<Seccion> obtenerSecciones(String matricula) throws Exception {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    List<Seccion> secciones = new ArrayList();
+    String consulta = "select * from Seccion as T1 INNER JOIN Inscripcion as T2 ON T1.nrc = T2.nrc where matricula =?;";
+
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement(consulta);
+      st.setString(1, matricula);
+      ResultSet rs = st.executeQuery();
+      while (rs.next()) {
+        Seccion seccion = new Seccion();
+        seccion.setNrc(rs.getInt("nrc"));
+        seccion.setIdExperiencia(rs.getInt("idExperiencia"));
+        seccion.setNoPersonal(rs.getInt("noPersonal"));
+        seccion.setPeriodo(rs.getString("periodo"));
+        seccion.setCupo(rs.getInt("cupo"));
+        secciones.add(seccion);
+      }
+      rs.close();
+      st.close();
+    } catch (Exception ex) {
+      throw ex;
+    }
+    return secciones;
+  }
+
+  /**
+   * Obtiene las inscripciones asociadas a un alumno en la BD.
+   * @param matricula identificador del alumno. 
+   * @return lista con las inscripciones del alumno
+   * @throws Exception ocurre si hay un error en la consulta. 
+   */
+  @Override
+  public List<Inscripcion> obtenerInscripciones(String matricula) throws Exception {
+    List<Inscripcion> incripciones = new ArrayList();
+    String consulta = "select * from inscripcion where matricula =?;";
+
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement(consulta);
+      st.setString(1, matricula);
+      ResultSet rs = st.executeQuery();
+      while (rs.next()) {
+        Inscripcion inscripcion = new Inscripcion();
+        inscripcion.setNrc(rs.getInt("nrc"));
+        inscripcion.setMatricula(rs.getString("matricula"));
+        inscripcion.setFolioInscripcion(rs.getInt("folioInscripcion"));
+        incripciones.add(inscripcion);
+      }
+      rs.close();
+      st.close();
+    } catch (Exception ex) {
+      throw ex;
+    }
+    return incripciones;
+  }
+  
+  /**
+   * Obtiene una inscripcion de un alumno en una sección especifica.
+   * @param matricula identificador del alumno. 
+   * @param nrc identificador de la seccion
+   * @return lista con las inscripciones del alumno
+   * @throws Exception ocurre si hay un error en la consulta. 
+   */
+  public Inscripcion obtenerInscripcion(String matricula, int nrc) throws Exception {
+    Inscripcion inscripcion = null; 
+    String consulta = "select * from inscripcion where matricula =? AND nrc=?;";
+
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement(consulta);
+      st.setString(1, matricula);
+      st.setInt(2, nrc);
+      ResultSet rs = st.executeQuery();
+      while (rs.next()) {
+        inscripcion = new Inscripcion();
+        inscripcion.setNrc(rs.getInt("nrc"));
+        inscripcion.setMatricula(rs.getString("matricula"));
+        inscripcion.setFolioInscripcion(rs.getInt("folioInscripcion"));
+      }
+      rs.close();
+      st.close();
+    } catch (Exception ex) {
+      throw ex;
+    }
+    return inscripcion;
   }
 
   @Override
@@ -79,7 +164,7 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
    * @throws Exception Puede lanzar una excepción si hay error de conexión con la BD.
    */
   @Override
-  public boolean insertarInscripciones(Inscripcion inscripcion) throws Exception {
+  public boolean insertarInscripcion(Inscripcion inscripcion) throws Exception {
     String query = "INSERT INTO inscripcion(nrc,matricula) values(?,?)";
     try {
       this.connection();
@@ -100,12 +185,12 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
   }
 
   @Override
-  public boolean actualizarInscripciones(int folio) throws Exception {
+  public boolean actualizarInscripcion(int folio) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   @Override
-  public boolean eliminarInscripciones(int folio) throws Exception {
+  public boolean eliminarInscripcion(int folio) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
+         </image>
+      </ImageView>
+      <ListView fx:id="lstAvisos" layoutX="78.0" layoutY="130.0" prefHeight="199.0" prefWidth="628.0" style="-fx-font: 18px &quot;Avenir&quot;;" />
+      <Label layoutX="78.0" layoutY="346.0" text="Fecha de incio:">
+         <font>
+            <Font name="Avenir Roman" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="424.0" layoutY="347.0" text="Fecha de fin:">
+         <font>
+            <Font name="Avenir Roman" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="393.0" text="Descripción:">
+         <font>
+            <Font name="Avenir Roman" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfInicio" editable="false" layoutX="200.0" layoutY="345.0">
+         <font>
+            <Font name="Avenir Roman" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfFinal" editable="false" layoutX="528.0" layoutY="345.0">
+         <font>
+            <Font name="Avenir Roman" size="14.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="taDescripcion" editable="false" layoutX="200.0" layoutY="393.0" prefHeight="96.0" prefWidth="508.0" wrapText="true">
+         <font>
+            <Font name="Avenir Roman" size="14.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="274.0" layoutY="69.0" text="TABLERO DE AVISOS">
+         <font>
+            <Font name="Avenir Roman" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="botonAtras" fitHeight="50.0" fitWidth="50.0" layoutX="78.0" layoutY="61.0" onMouseClicked="#salir" onMouseEntered="#efectoMouseSobre" onMouseExited="#efectoMouseFuera" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/back_arrow.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

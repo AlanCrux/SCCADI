@@ -308,7 +308,7 @@ public class IUAdministrarAlumnosController implements Initializable {
       stagePrincipal.setScene(scene);
       stagePrincipal.show();
     } catch (IOException ex) {
-      Logger.getLogger(IUMenuCoordinadorController.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(IUAdministrarAlumnosController.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
   

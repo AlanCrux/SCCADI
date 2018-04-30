@@ -38,6 +38,8 @@ public class Alumno {
     this.numeroEmergencia = numeroEmergencia;
   }
 
+ 
+
   public String getMatricula() {
     return matricula;
   }

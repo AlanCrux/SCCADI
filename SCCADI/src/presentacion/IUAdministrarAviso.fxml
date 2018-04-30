@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="botonAtras" fitHeight="50.0" fitWidth="50.0" layoutX="75.0" layoutY="56.0" onMouseClicked="#salir" onMouseEntered="#efectoMouseSobre" onMouseExited="#efectoMouseFuera" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/back_arrow.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="133.0" layoutY="65.0" text="Administración de avisos">
+         <font>
+            <Font name="Proxima Nova ScOsf Th Regular" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="340.0" layoutY="194.0" text="Fecha inicio:">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="340.0" layoutY="252.0" text="Fecha fin:">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="22.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datePickerInicio" editable="false" layoutX="480.0" layoutY="187.0" prefHeight="40.0" prefWidth="250.0" promptText="Fecha de inicio" style="-fx-font: 15px &quot;Proxima Nova Alt Rg&quot;;" />
+      <DatePicker fx:id="datePickerFin" editable="false" layoutX="480.0" layoutY="245.0" prefHeight="40.0" prefWidth="250.0" promptText="Fecha de fin" style="-fx-font: 15px &quot;Proxima Nova Alt Rg&quot;;" />
+      <Label layoutX="340.0" layoutY="300.0" text="Contenido:">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="taContenido" layoutX="335.0" layoutY="336.0" prefHeight="115.0" prefWidth="399.0" wrapText="true">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextArea>
+      <JFXButton fx:id="btnAceptar" layoutX="335.0" layoutY="469.0" onAction="#onActionAgregar" prefHeight="40.0" prefWidth="120.0" ripplerFill="#2ecc71" style="-fx-border-color: #2ecc71;" text="AGREGAR">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnEditar" layoutX="475.0" layoutY="469.0" onAction="#onActionAgregar" prefHeight="40.0" prefWidth="120.0" style="-fx-border-color: #f1c40f;" text="EDITAR">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnEliminar" layoutX="614.0" layoutY="469.0" onAction="#onActionEliminar" prefHeight="40.0" prefWidth="120.0" style="-fx-border-color: #e74c3c;" text="ELIMINAR">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ListView fx:id="listViewAvisos" layoutX="75.0" layoutY="134.0" prefHeight="376.0" prefWidth="225.0" style="-fx-font: 18px &quot;Proxima Nova Alt Rg&quot;;" />
+      <Label layoutX="340.0" layoutY="134.0" text="Asunto:">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfAsunto" layoutX="480.0" layoutY="127.0" prefHeight="40.0" prefWidth="250.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <Pane fx:id="paneDisable" layoutX="317.0" layoutY="119.0" prefHeight="341.0" prefWidth="431.0" />
+      <JFXButton fx:id="btnGuardar" layoutX="335.0" layoutY="469.0" onAction="#onActionGuardar" prefHeight="40.0" prefWidth="120.0" ripplerFill="#2ecc71" style="-fx-border-color: #2ecc71;" text="GUARDAR" visible="false">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnCancelar" layoutX="475.0" layoutY="469.0" onAction="#onActionCancelar" prefHeight="40.0" prefWidth="120.0" ripplerFill="#cc2f32" style="-fx-border-color: #e74c3c;" text="CANCELAR" visible="false">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

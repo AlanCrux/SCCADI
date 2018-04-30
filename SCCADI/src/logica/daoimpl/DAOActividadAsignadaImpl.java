@@ -64,7 +64,7 @@ public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAs
     try {
       this.connection();
       PreparedStatement st = this.conn.prepareStatement("select actividadprogramada.nombre, sala.nombreSala, actividadasignada.fecha, "
-          + "actividadasignada.hora from experienciaeducativa join sala join "
+          + "actividadasignada.hora, actividadasignada.idActividadAsignada from experienciaeducativa join sala join "
           + "asesor join actividadprogramada join actividadasignada where "
           + "actividadasignada.noPersonal = ? and "
           + "actividadasignada.idActividadProgramada = "
@@ -78,6 +78,7 @@ public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAs
       actividades = new ArrayList();
       while (rs.next()) {
         ActividadAsignada actividad = new ActividadAsignada();
+        actividad.setIdActividadAsignada(rs.getInt("idActividadAsignada"));
         actividad.setNombre(rs.getString("nombre"));
         actividad.setNombreSala(rs.getString("nombreSala"));
         actividad.setFecha(rs.getDate("fecha"));
@@ -146,7 +147,7 @@ public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAs
    * @throws Exception
    */
   @Override
-  public List<ActividadAsignada> obtenerActividadAsignada() throws Exception {
+  public List<ActividadAsignada> obtenerActividadesAsignadas() throws Exception {
     List<ActividadAsignada> actividades = null;
     try {
       this.connection();
@@ -190,7 +191,7 @@ public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAs
       PreparedStatement st = this.conn.prepareStatement("select "
           + "actividadprogramada.nombre 'Actividad', asesor.nombre, "
           + "actividadasignada.fecha, actividadasignada.hora, "
-          + "sala.nombreSala, actividadasignada.cupoMaximo from "
+          + "sala.nombreSala, actividadasignada.cupoMaximo, actividadasignada.idActividadAsignada from "
           + "actividadprogramada join asesor join actividadasignada"
           + " join sala where  actividadasignada.noPersonal ="
           + " asesor.noPersonal and actividadasignada.idActividadProgramada "
@@ -204,6 +205,7 @@ public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAs
       actividades = new ArrayList();
       while (rs.next()) {
         ActividadAsignada actividad = new ActividadAsignada();
+        actividad.setIdActividadAsignada(rs.getInt("idActividadAsignada"));
         actividad.setNombre(rs.getString("Actividad"));
         actividad.setNombreSala(rs.getString("nombreSala"));
         actividad.setNombreAsesor(rs.getString("nombre"));
@@ -308,8 +310,20 @@ public class DAOActividadAsignadaImpl extends Conexion implements DAOActividadAs
   }
 
   @Override
-  public boolean actualizarActividadAsignada(int idActividadAsignada) throws Exception {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  public boolean actualizarActividadAsignada(ActividadAsignada actividad) throws Exception {
+    String query = "UPDATE ActividadAsignada set cupoMaximo = ? where idActividadAsignada = ?";
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement(query);
+      st.setInt(1, actividad.getCupoMaximo());
+      st.setInt(2, actividad.getIdActividadAsignada());
+      st.executeUpdate();
+      st.close();
+      return true;
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return false; 
   }
 
   @Override

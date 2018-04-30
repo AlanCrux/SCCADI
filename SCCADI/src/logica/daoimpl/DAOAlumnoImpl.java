@@ -170,38 +170,6 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
         return true;
     }
 
-    /**
-     * Este metodo nos permite actualizar los datos de un alumno en la base de
-     * datos
-     *
-     * @param identificador matricula del alumno a modificar
-     * @param alumno Objeto que contiene toda la informacion de un alumno
-     * @return True si la actualizacion se realizo con exito
-     * @throws SQLException ocurre si se pierde la conexion con la base de datos
-     * o hay algun error en los querys
-     */
-    @Override
-    public boolean actualizarAlumno(String identificador, Alumno alumno) throws Exception {
-        try {
-            this.connection();
-            PreparedStatement st = this.conn.prepareStatement("update Alumno set matricula = ?, "
-                    + "nombre = ?, correo = ?, programaEducativo = ?, contactoEmergencia = ?, "
-                    + "numeroEmergencia = ? where matricula = ?");
-            st.setString(1, alumno.getMatricula());
-            st.setString(2, alumno.getNombre());
-            st.setString(3, alumno.getCorreo());
-            st.setString(4, alumno.getProgramaEducativo());
-            st.setString(5, alumno.getContactoEmergencia());
-            st.setString(6, alumno.getNumeroEmergencia());
-            st.setString(7, identificador);
-            st.executeUpdate();
-            st.close();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-
-        return true;
-    }
 
     /**
      * Este metodo permite eliminar el registro de un alumno de la base de datos
@@ -223,6 +191,41 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
         }
         return true;
     }
+   /**
+   * Este metodo nos permite actualizar los datos de un alumno en la base de datos
+   *
+   * @param matricula matricula del alumno a modificar
+   * @param alumno Objeto que contiene toda la informacion de un alumno
+   * @return True si la actualizacion se realizo con exito
+   * @throws SQLException ocurre si se pierde la conexion con la base de datos o hay algun error en
+   * los querys
+   */
+
+   
+    @Override
+  public boolean actualizarAlumno(String matricula, Alumno alumno) throws Exception {
+      
+    
+    try {
+      this.connection();
+      PreparedStatement st = this.conn.prepareStatement("update Alumno set matricula = ?, "
+          + "nombre = ?, correo = ?, programaEducativo = ?, contactoEmergencia = ?, "
+          + "numeroEmergencia = ? where matricula = ?");
+
+      st.setString(1, alumno.getMatricula());
+      st.setString(2, alumno.getNombre());
+      st.setString(3, alumno.getCorreo());
+      st.setString(4, alumno.getProgramaEducativo());
+      st.setString(5, alumno.getContactoEmergencia());
+      st.setString(6, alumno.getNumeroEmergencia());
+      st.setString(7, matricula);
+      st.executeUpdate();
+      st.close();
+    } catch (SQLException e) {
+      System.out.println(e);
+    }
+    return true;
+  }
 
     /**
      * Este metodo permite obtener la lista de alumnos filtrados por nombre o
@@ -288,4 +291,7 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
         }
         return alumnos;
     }
+
+
 }
+

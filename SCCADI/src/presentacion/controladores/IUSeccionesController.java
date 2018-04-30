@@ -102,7 +102,7 @@ public class IUSeccionesController implements Initializable {
 
     String nombreExperiencia = experiencia.getNombre();
     String nivel = experiencia.getNivel();
-    FichaSeccion fichaSeccion = new FichaSeccion(nrc, nombreExperiencia, nivel, periodo);
+    FichaSeccion fichaSeccion = new FichaSeccion(nrc, experiencia, nivel, periodo);
     
     fichaSeccion.setPrefSize(160, 70);
     fichaSeccion.setAsesor(asesor);

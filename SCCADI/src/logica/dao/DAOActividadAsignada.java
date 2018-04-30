@@ -13,9 +13,9 @@ import logica.dominio.ActividadAsignada;
  * @author Esmeralda
  */
 public interface DAOActividadAsignada {
-    public List<ActividadAsignada> obtenerActividadAsignada() throws Exception;
+    public List<ActividadAsignada> obtenerActividadesAsignadas() throws Exception;
     public ActividadAsignada obtenerActividadAsignada(int idActividadAsignada) throws Exception;
     public boolean insertarActividadAsignada(ActividadAsignada actividadAsignada) throws Exception;
-    public boolean actualizarActividadAsignada(int idActividadAsignada) throws Exception;
+    public boolean actualizarActividadAsignada(ActividadAsignada actividad) throws Exception;
     public boolean eliminarActividadAsignada(int idActividadAsignada) throws Exception;
 }

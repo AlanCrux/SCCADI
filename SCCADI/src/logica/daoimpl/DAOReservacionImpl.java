@@ -78,6 +78,7 @@ public class DAOReservacionImpl extends Conexion implements DAOReservacion {
     }
   }
 
+
   public List<Alumno> obtenerAlumnosReservacion(int idActividadAsignada) throws Exception{
           String query = " select alumno.matricula, alumno.nombre from alumno "
                   + "join reservacion join actividadAsignada where "
@@ -130,4 +131,5 @@ public class DAOReservacionImpl extends Conexion implements DAOReservacion {
       }
     }
   }
+
 }

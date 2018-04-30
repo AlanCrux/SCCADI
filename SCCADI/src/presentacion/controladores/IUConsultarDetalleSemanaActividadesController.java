@@ -77,7 +77,7 @@ public class IUConsultarDetalleSemanaActividadesController implements Initializa
    */
   public void llenarTabla() {
     try {
-      ObservableList<ActividadAsignada> listaActividades2 = FXCollections.observableList(actividad.obtenerActividadAsignada());
+      ObservableList<ActividadAsignada> listaActividades2 = FXCollections.observableList(actividad.obtenerActividadesAsignadas());
       ObservableList<ActividadAsignada> listaActividadesNueva = FXCollections.observableArrayList();
       Date ahora = new Date();
       for (int i = 0; i < listaActividades2.size(); i++) {

@@ -204,7 +204,7 @@ public class IUInscripcionController implements Initializable {
 
     try {
       daoAlumno.insertarAlumno(alumno);
-      daoInscripcion.insertarInscripciones(inscripcion);
+      daoInscripcion.insertarInscripcion(inscripcion);
       daoSeccion.actualizarSeccion(seccion);
       return true;
     } catch (SQLException ex) {

@@ -1,23 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.dominio;
 
-/**
- *
- * @author Esmeralda
+/*
+ * @author Alan Yoset García Cruz
  */
 public class Progreso {
-    private int idProgreso;
-    private int numBitacoras;
-    private int numAutoevaluaciones;
+    private int idProgreso; 
+    private int numBitacoras; 
+    private int numAutoevaluaciones; 
+    private int numSeguimiento; 
     private int numReflexiones;
-    private int numSeguimiento;
-    private int folioInscripcion;
+    private int folioInscripcion; 
 
     public Progreso() {
+    }
+
+    public Progreso(int idProgreso, int numBitacoras, int numAutoevaluaciones, int numSeguimiento, int numReflexiones) {
+        this.idProgreso = idProgreso;
+        this.numBitacoras = numBitacoras;
+        this.numAutoevaluaciones = numAutoevaluaciones;
+        this.numSeguimiento = numSeguimiento;
+        this.numReflexiones = numReflexiones;
     }
 
     public int getIdProgreso() {
@@ -44,6 +46,7 @@ public class Progreso {
         this.numAutoevaluaciones = numAutoevaluaciones;
     }
 
+
     public int getNumReflexiones() {
         return numReflexiones;
     }
@@ -59,6 +62,7 @@ public class Progreso {
     public void setNumSeguimiento(int numSeguimiento) {
         this.numSeguimiento = numSeguimiento;
     }
+
 
     public int getFolioInscripcion() {
         return folioInscripcion;

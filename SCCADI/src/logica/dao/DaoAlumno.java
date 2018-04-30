@@ -14,7 +14,7 @@ public interface DaoAlumno {
   public List<Alumno> obtenerAlumnosFiltrados(String caracterBusqueda) throws Exception;
   public Alumno obtenerAlumno(String matricula) throws Exception;
   public boolean insertarAlumno(Alumno Alumno) throws Exception;
-  public boolean actualizarAlumno(String identificador, Alumno alumno) throws Exception;
+  public boolean actualizarAlumno(String matricula, Alumno alumno) throws Exception;
   public boolean eliminarAlumno(Alumno alumno) throws Exception;
   public boolean eliminarAlumno(String matricula) throws Exception;
 }
