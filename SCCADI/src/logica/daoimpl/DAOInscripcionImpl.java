@@ -73,12 +73,12 @@ public class DAOInscripcionImpl extends Conexion implements DAOInscripcion {
       st.setString(1, matricula);
       ResultSet rs = st.executeQuery();
       while (rs.next()) {
-        Seccion seccion = new Seccion();
-        seccion.setNrc(rs.getInt("nrc"));
-        seccion.setIdExperiencia(rs.getInt("idExperiencia"));
-        seccion.setNoPersonal(rs.getInt("noPersonal"));
-        seccion.setPeriodo(rs.getString("periodo"));
-        seccion.setCupo(rs.getInt("cupo"));
+        int nrc = rs.getInt("nrc");
+        int idExperiencia = rs.getInt("idExperiencia");
+        int nPersonal = rs.getInt("noPersonal");
+        String periodo = rs.getString("periodo");
+        int cupo = rs.getInt("cupo");
+        Seccion seccion = new Seccion(nrc, idExperiencia, nPersonal, periodo, cupo);
         secciones.add(seccion);
       }
       rs.close();

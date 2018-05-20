@@ -11,7 +11,7 @@ import logica.dominio.Sala;
 
 /**
  *
- * @author Esmeralda
+ * @author Esmeralda Jiménez Ramos
  */
 public class DAOSalaImpl extends Conexion implements DAOSala {
 

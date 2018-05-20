@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.controladores;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

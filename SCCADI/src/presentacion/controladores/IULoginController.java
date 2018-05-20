@@ -52,7 +52,6 @@ public class IULoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         hpCadi = new Hyperlink("https://www.uv.mx/portalcadi/");
-        
     }
 
     @FXML
