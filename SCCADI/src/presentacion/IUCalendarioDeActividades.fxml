@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tablaActividades" layoutX="49.0" layoutY="135.0" prefHeight="385.0" prefWidth="702.0" style="-fx-font: 14px &quot;Avenir&quot;;">
+        <columns>
+          <TableColumn fx:id="colNombre" editable="false" prefWidth="128.0" sortable="false" text="Nombre" />
+          <TableColumn fx:id="colFechaInicio" editable="false" prefWidth="112.0" sortable="false" text="Fecha de inicio" />
+            <TableColumn fx:id="colFechaFin" prefWidth="96.0" text="Fecha de fin" />
+            <TableColumn fx:id="colExperiencia" prefWidth="211.0" text="Experiencia educativa" />
+            <TableColumn fx:id="colModulo" prefWidth="75.0" text="Modulo" />
+            <TableColumn fx:id="colUnidad" prefWidth="77.0" text="Unidad" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="btnRegresar" fitHeight="49.0" fitWidth="62.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/back_arrow.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelMes" layoutX="49.0" layoutY="80.0" text="Mes" textFill="#008d23">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="comboMes" layoutX="572.0" layoutY="85.0" prefHeight="25.0" prefWidth="179.0" promptText="Mes" style="-fx-font: 14px &quot;Avenir&quot;;" />
+   </children>
+</AnchorPane>

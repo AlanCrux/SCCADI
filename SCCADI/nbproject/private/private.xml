@@ -1,34 +1,15 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/dominio/Progreso.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/daoimpl/DAOExperienciaEducativaImpl.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/sccadi/SCCADI.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/daoimpl/DAOInscripcionImpl.java</file>
+            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/daoimpl/DAOActividadProgramadaImpl.java</file>
+            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/dominio/ActividadProgramada.java</file>
+            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/controladores/IUAdministrarAvisoController.java</file>
+            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/controladores/IUCalendarioDeActividadesController.java</file>
             <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/controladores/IUAdministrarAlumnosController.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/dao/DAOInscripcion.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/dao/DAOExamen.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/dominio/Examen.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/daoimpl/DAOExamenImpl.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/daoimpl/DAOCoordinadorImpl.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/dao/DAOProgreso.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/daoimpl/DAOProgresoImpl.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/dao/DAOCoordinador.java</file>
+            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/controladores/IUAsignarActividadesSemanalesController.java</file>
             <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/controladores/IUConsultarProgresoController.java</file>
         </group>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Users/alancrux/Documents/Git/SCCADI/SCCADI/src/sccadi/SCCADI.java</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> 294c329bbc4addffd3000ddf6d7d2a16f53f1d54

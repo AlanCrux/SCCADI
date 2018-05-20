@@ -129,7 +129,7 @@ public class IUAsignarActividadesSemanalesController implements Initializable {
  */
     public void llenarComboSala() {
         try {
-            ObservableList<Sala> listaSalas = FXCollections.observableList(salas.obtenerSala());
+            ObservableList<Sala> listaSalas = FXCollections.observableList(salas.obtenerSalas());
             comboSalas.getItems().addAll(listaSalas);
         } catch (Exception ex) {
             Mensajes.displayWarningAlert("Error conexion", "No se pudo obtener la información de las salas");

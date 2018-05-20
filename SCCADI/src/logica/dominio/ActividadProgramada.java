@@ -14,6 +14,15 @@ public class ActividadProgramada {
   private int modulo;
   private int unidad;
   private int idExperiencia;
+  private String experienciaEducativa;
+
+    public String getExperienciaEducativa() {
+        return experienciaEducativa;
+    }
+
+    public void setExperienciaEducativa(String experienciaEducativa) {
+        this.experienciaEducativa = experienciaEducativa;
+    }
 
   public ActividadProgramada() {
   }

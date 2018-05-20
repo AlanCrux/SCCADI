@@ -6,7 +6,9 @@ import javafx.stage.Stage;
 
 import presentacion.IURegistroProgresoController;
 import presentacion.controladores.IUAdministrarAvisoController;
+import presentacion.controladores.IUCalendarioDeActividadesController;
 import presentacion.controladores.IUConsultarAvisosController;
+import presentacion.controladores.IUConsultarProgresoController;
 import presentacion.controladores.IULoginController;
 import presentacion.controladores.IUReservacionActividadesController;
 
@@ -26,8 +28,8 @@ public class SCCADI extends Application {
   @Override
   public void start(Stage stagePrincipal) {
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUConsultarAvisos.fxml"));
-    IUConsultarAvisosController controller = new IUConsultarAvisosController();
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUCalendarioDeActividades.fxml"));
+    IUCalendarioDeActividadesController controller = new IUCalendarioDeActividadesController();
     loader.setController(controller);
     controller.mostrarVentana(loader);
     

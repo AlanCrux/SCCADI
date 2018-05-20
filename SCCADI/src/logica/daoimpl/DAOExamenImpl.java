@@ -33,7 +33,12 @@ public class DAOExamenImpl extends Conexion implements DAOExamen {
         List<Examen> examenes;
     try {
       this.connection();
-      PreparedStatement st = this.conn.prepareStatement("select * from examen where folioIncripcion =?");
+      PreparedStatement st = this.conn.prepareStatement("select examen.idExamen, "
+              + "examen.tipo, examen.fecha, examen.descripcion, "
+              + "calificacion.calificacion from examen join calificacion "
+              + "join inscripcion where calificacion.idExamen = examen.idExamen "
+              + "and calificacion.folioInscripcion = inscripcion.folioInscripcion "
+              + "and calificacion.folioInscripcion = ?;");
       st.setInt(1, folioInscripcion);
       ResultSet rs = st.executeQuery();
       examenes = new ArrayList();
@@ -44,7 +49,7 @@ public class DAOExamenImpl extends Conexion implements DAOExamen {
         examen.setDescripcion(rs.getString("descripcion"));
         examen.setFecha(rs.getDate("fecha"));
         examen.setTipo(rs.getString("tipo"));
-        examen.setFolioInscripcion(rs.getInt("folioInscripcion"));
+        examen.setFolioInscripcion(folioInscripcion);
         
         examenes.add(examen);
       }

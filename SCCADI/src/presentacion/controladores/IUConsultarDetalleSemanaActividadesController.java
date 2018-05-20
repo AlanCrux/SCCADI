@@ -140,7 +140,6 @@ public class IUConsultarDetalleSemanaActividadesController implements Initializa
   @FXML
   public void filtrarPorExperiencia() {
     int experiencia = comboExperiencia.getValue().getIdExperiencia();
-    System.out.println("experiencia en exp " + experiencia);
 
     try {
       ObservableList<ActividadAsignada> listaActividades2 = FXCollections.observableList(actividad.obtenerActividadesPorExperiencia(experiencia));
