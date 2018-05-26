@@ -156,7 +156,7 @@ public class IUConsultarProgresoController implements Initializable {
 
         for (int i = 0; i < examenes.size(); i++) {
             totalExamenes++;
-            porcentajeObtExamen = porcentajeObtExamen + (examenes.get(i).getCalificacion() * porcentajePorExamen) / 10;
+            //porcentajeObtExamen = porcentajeObtExamen + (examenes.get(i).getCalificacion() * porcentajePorExamen) / 10;
         }
         for (int i = 0; i < actividades.size(); i++) {
             if (actividades.get(i).getAsistio()) {

@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/daoimpl/DAOActividadProgramadaImpl.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/logica/dominio/ActividadProgramada.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/controladores/IUAdministrarAvisoController.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/controladores/IUCalendarioDeActividadesController.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/controladores/IUAdministrarAlumnosController.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/controladores/IUAsignarActividadesSemanalesController.java</file>
-            <file>file:/C:/Users/Esmeralda/Documents/GitHub/SCCADI/SCCADI/src/presentacion/controladores/IUConsultarProgresoController.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

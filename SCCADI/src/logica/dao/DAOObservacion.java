@@ -8,6 +8,6 @@ import logica.dominio.Observacion;
  * @author alan
  */
 public interface DAOObservacion {
-    public List<Observacion> obtenerObservaciones(String matricula, int nrc) throws Exception;
+    public List<Observacion> obtenerObservaciones(int folioInscripcion) throws Exception;
     public boolean insertarObservacion(Observacion observacion) throws Exception;
 }

@@ -27,23 +27,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <TextField fx:id="tfAlumno" layoutX="110.0" layoutY="120.0" onKeyReleased="#buscarAlumno" prefHeight="32.0" prefWidth="242.0" promptText="Alumno" style="-fx-font: 16px &quot;Avenir&quot;;">
+      <TextField fx:id="tfAlumno" layoutX="110.0" layoutY="120.0" onKeyReleased="#buscarAlumno" prefHeight="32.0" prefWidth="242.0" promptText="Alumno" style="-fx-font: 16px &quot;Avenir Book&quot;;">
          <font>
             <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
          </font>
       </TextField>
       <Label fx:id="lbNombreAsesor" layoutX="110.0" layoutY="63.0" text="Control de observaciones">
          <font>
-            <Font name="Avenir Roman" size="22.0" />
+            <Font name="Avenir Book" size="22.0" />
          </font>
       </Label>
-      <TextArea fx:id="taObservacion" layoutX="396.0" layoutY="466.0" prefHeight="50.0" prefWidth="209.0" style="-fx-font: 15px &quot;Avenir&quot;;" />
+      <TextArea fx:id="taObservacion" layoutX="396.0" layoutY="466.0" prefHeight="50.0" prefWidth="209.0" style="-fx-font: 15px &quot;Avenir Book&quot;;" />
       <Label layoutX="399.0" layoutY="442.0" text="Observación:">
          <font>
-            <Font name="Avenir Roman" size="16.0" />
+            <Font name="Avenir Book" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnAgregar" layoutX="626.0" layoutY="466.0" mnemonicParsing="false" onAction="#agregarObservacion" prefHeight="50.0" prefWidth="95.0" text="AÑADIR">
+      <Button fx:id="btnAgregar" disable="true" layoutX="626.0" layoutY="466.0" mnemonicParsing="false" onAction="#agregarObservacion" prefHeight="50.0" prefWidth="95.0" text="AÑADIR">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -53,7 +53,7 @@
       <ComboBox fx:id="comboExperiencias" layoutX="539.0" layoutY="120.0" prefHeight="32.0" prefWidth="182.0" />
       <Label layoutX="399.0" layoutY="124.0" text="Experiencias:">
          <font>
-            <Font name="Avenir Roman" size="16.0" />
+            <Font name="Avenir Book" size="16.0" />
          </font>
       </Label>
    </children>
