@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.controladores;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -180,7 +180,7 @@ public class IURegistroProgresoController implements Initializable {
     @FXML
     private void salir(MouseEvent event) {
         Stage mainStage = (Stage) botonAtras.getScene().getWindow();
-        mainStage.close();
+      mainStage.close();
     }
 
     /**

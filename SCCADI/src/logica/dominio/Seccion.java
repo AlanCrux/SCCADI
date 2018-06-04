@@ -87,6 +87,10 @@ public class Seccion {
   public String getNivel() throws Exception {
     return exp.getNivel();
   }
+  
+  public ExperienciaEducativa getExperienciaEducativa(){
+    return exp;
+  }
 
   public String getAsesor() throws Exception {
     return asesor;

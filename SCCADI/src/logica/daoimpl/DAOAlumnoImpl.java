@@ -45,7 +45,7 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
                 alumnos.add(alumno);
             }
         } catch (SQLException e) {
-            System.out.println("error en la consulta");
+            throw e; 
         }
         return alumnos;
     }
@@ -79,7 +79,7 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
             rs.close();
             st.close();
         } catch (SQLException e) {
-
+          throw e;
         }
         return alumno;
     }
@@ -95,30 +95,30 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
     @Override
     public boolean insertarAlumno(Alumno alumno) throws Exception {
         String query = "INSERT INTO alumno(matricula, nombre, correo, programaEducativo, "
-                + "contactoEmergencia, numeroEmergencia, fotografia) values(?,?,?,?,?,?,?);";
+          + "contactoEmergencia, numeroEmergencia, fotografia) values(?,?,?,?,?,?,?);";
+      try {
+        this.connection();
+        PreparedStatement st = this.conn.prepareStatement(query);
+        st.setString(1, alumno.getMatricula());
+        st.setString(2, alumno.getNombre());
+        st.setString(3, alumno.getCorreo());
+        st.setString(4, alumno.getProgramaEducativo());
+        st.setString(5, alumno.getContactoEmergencia());
+        st.setString(6, alumno.getNumeroEmergencia());
+        st.setBlob(7, alumno.getFotografia());
+        st.executeUpdate();
+        return true;
+      } catch (SQLException e) {
+        throw e;
+      } catch (Exception e) {
+        throw e;
+      } finally {
         try {
-            this.connection();
-            PreparedStatement st = this.conn.prepareStatement(query);
-            st.setString(1, alumno.getMatricula());
-            st.setString(2, alumno.getNombre());
-            st.setString(3, alumno.getCorreo());
-            st.setString(4, alumno.getProgramaEducativo());
-            st.setString(5, alumno.getContactoEmergencia());
-            st.setString(6, alumno.getNumeroEmergencia());
-            st.setBlob(7, alumno.getFotografia());
-            st.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            throw e;
+          this.close();
         } catch (Exception e) {
-            throw e;
-        } finally {
-            try {
-                this.close();
-            } catch (Exception e) {
-                throw e;
-            }
+          throw e;
         }
+      }
     }
 
     /**
@@ -148,6 +148,7 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
             st.close();
         } catch (SQLException e) {
             throw e;
+
         } finally {
             this.close();
         }
@@ -242,8 +243,10 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
             }
 
         } catch (Exception e) {
+          
             System.out.println("error en la consulta");
             System.out.println(e);
+            throw e; 
         }
         return alumnos;
     }

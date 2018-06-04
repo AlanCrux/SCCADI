@@ -32,7 +32,6 @@ import logica.daoimpl.DAOInscripcionImpl;
 import logica.dominio.Alumno;
 import logica.dominio.Asesor;
 import logica.dominio.ExperienciaEducativa;
-import presentacion.IURegistroProgresoController;
 import utilerias.Mensajes;
 
 /**

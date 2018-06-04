@@ -3,9 +3,11 @@ package sccadi;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import logica.dominio.Asesor;
+import presentacion.IUAdministrarExperienciasController;
+import presentacion.IUObservacionesController;
 
-import presentacion.IURegistroProgresoController;
-import presentacion.controladores.IUAdministrarAlumnosController;
+
 import presentacion.controladores.IUAdministrarAvisoController;
 import presentacion.controladores.IUAdministrarSalasController;
 import presentacion.controladores.IUAdministrarUsuariosController;
@@ -31,13 +33,15 @@ public class SCCADI extends Application {
     @Override
     public void start(Stage stagePrincipal) {
 
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUCalendarioDeActividades.fxml"));
-//        IUCalendarioDeActividadesController controller = new IUCalendarioDeActividadesController();
-//        loader.setController(controller);
-//        controller.mostrarVentana(loader);
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUAdministrarSalas.fxml"));
-        IUAdministrarSalasController controller = new IUAdministrarSalasController();
+    /*FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUObservaciones.fxml"));
+    IUObservacionesController controller = new IUObservacionesController();
+    controller.setAsesor(new Asesor(3342, "Hernan Uriel Falconi Falconi", "hernan12@gmail.com"));
+    loader.setController(controller);
+    controller.mostrarVentana(loader);*/
+    
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentacion/IUAdministrarExperiencias.fxml"));
+    IUAdministrarExperienciasController controller = new IUAdministrarExperienciasController();
     loader.setController(controller);
     controller.mostrarVentana(loader);
 

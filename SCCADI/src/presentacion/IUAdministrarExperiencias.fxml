@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="691.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbExperiencia" layoutX="110.0" layoutY="64.0" text="Experiencias educativas">
+         <font>
+            <Font name="Avenir Book" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="39.0" layoutY="52.0" onMouseClicked="#salir" onMouseEntered="#efectoMouseSobre" onMouseExited="#efectoMouseFuera" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/back_arrow.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <TableView fx:id="tbExperiencias" layoutX="110.0" layoutY="138.0" prefHeight="361.0" prefWidth="242.0" style="-fx-font: 16px &quot;Avenir Book&quot;;">
+         <columns>
+            <TableColumn fx:id="tbcNombre" editable="false" prefWidth="104.0" text="Nombre" />
+            <TableColumn fx:id="tbcNivel" prefWidth="137.0" text="Nivel" />
+         </columns>
+      </TableView>
+      <TextField fx:id="tfNombre" editable="false" layoutX="380.0" layoutY="174.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfNumAutoevaluaciones" editable="false" layoutX="380.0" layoutY="246.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfNumActividades" editable="false" layoutX="380.0" layoutY="309.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfBitacoras" editable="false" layoutX="380.0" layoutY="367.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfReflexiones" editable="false" layoutX="380.0" layoutY="433.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfSeguimiento" editable="false" layoutX="380.0" layoutY="498.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfExamenes" editable="false" layoutX="380.0" layoutY="565.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lbExperiencia1" layoutX="380.0" layoutY="149.0" text="Nombre:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfNivel" editable="false" layoutX="585.0" layoutY="174.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lbExperiencia11" layoutX="585.0" layoutY="149.0" text="Nivel:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfPorAutoevaluaciones" editable="false" layoutX="585.0" layoutY="246.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfPorActividades" editable="false" layoutX="585.0" layoutY="309.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfPorBitacoras" editable="false" layoutX="585.0" layoutY="367.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfPorReflexiones" editable="false" layoutX="585.0" layoutY="433.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfPorSeguimiento" editable="false" layoutX="585.0" layoutY="498.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfPorExamenes" editable="false" layoutX="585.0" layoutY="565.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="173.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lbExperiencia12" layoutX="380.0" layoutY="222.0" text="Autoevaluaciones:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbExperiencia121" layoutX="380.0" layoutY="285.0" text="Actividades:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbExperiencia1211" layoutX="380.0" layoutY="346.0" text="Bitácoras:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbExperiencia12111" layoutX="380.0" layoutY="409.0" text="Reflexiones:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbExperiencia121111" layoutX="380.0" layoutY="474.0" text="Hojas de seguimiento:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbExperiencia1211111" layoutX="380.0" layoutY="541.0" text="Exámenes:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbExperiencia122" layoutX="585.0" layoutY="222.0" text="Porcentajes:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnAceptar" layoutX="458.0" layoutY="82.0" onAction="#onActionAgregar" prefHeight="40.0" prefWidth="120.0" ripplerFill="#2ecc71" style="-fx-border-color: #2ecc71;" text="AGREGAR">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnEditar" layoutX="598.0" layoutY="82.0" onAction="#onActionAgregar" prefHeight="40.0" prefWidth="120.0" style="-fx-border-color: #f1c40f;" text="EDITAR">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnEliminar" layoutX="737.0" layoutY="82.0" prefHeight="40.0" prefWidth="120.0" style="-fx-border-color: #e74c3c;" text="ELIMINAR">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="tfModulos" editable="false" layoutX="110.0" layoutY="535.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="88.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfUnidades" editable="false" layoutX="264.0" layoutY="535.0" onKeyReleased="#verificarCampos" prefHeight="37.0" prefWidth="88.0">
+         <font>
+            <Font name="Proxima Nova Alt Rg Regular" size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lbExperiencia1211112" layoutX="110.0" layoutY="511.0" text="Módulos:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbExperiencia12111121" layoutX="264.0" layoutY="511.0" text="Unidades:">
+         <font>
+            <Font name="Avenir Book" size="16.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnGuardar" layoutX="458.0" layoutY="82.0" onAction="#onActionGuardar" prefHeight="40.0" prefWidth="120.0" ripplerFill="#2ecc71" style="-fx-border-color: #2ecc71;" text="GUARDAR" visible="false">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnCancelar" layoutX="598.0" layoutY="82.0" prefHeight="40.0" prefWidth="120.0" ripplerFill="#cc2f32" style="-fx-border-color: #e74c3c;" text="CANCELAR" visible="false">
+         <font>
+            <Font name="Proxima Nova Alt Rg Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>
