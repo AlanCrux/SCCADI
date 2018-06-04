@@ -130,18 +130,24 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
      * @throws SQLException ocurre si se pierde la conexion con la base de datos
      * o hay algun error en los querys
      */
+    @Override
     public boolean actualizarAlumno(Alumno alumno) throws Exception {
         try {
             this.connection();
-            PreparedStatement st = this.conn.prepareStatement("update Alumno set matricula, "
-                    + "nombre, correo, programaEducativo, contactoEmergencia, "
-                    + "numeroEmergencia, fotografia where matricula = ?");
+            PreparedStatement st = this.conn.prepareStatement("update Alumno set matricula =?, "
+                    + "nombre = ?, correo = ?, programaEducativo = ?, contactoEmergencia = ?, "
+                    + "numeroEmergencia = ? where matricula = ?");
             st.setString(1, alumno.getMatricula());
-            ResultSet rs = st.executeQuery();
-            rs.close();
+            st.setString(2, alumno.getNombre());
+            st.setString(3, alumno.getCorreo());
+            st.setString(4, alumno.getProgramaEducativo());
+            st.setString(5, alumno.getContactoEmergencia());
+            st.setString(6, alumno.getNumeroEmergencia());
+            st.setString(7, alumno.getMatricula());
+            st.executeUpdate();
             st.close();
         } catch (SQLException e) {
-            return false;
+            throw e;
         } finally {
             this.close();
         }
@@ -202,30 +208,7 @@ public class DAOAlumnoImpl extends Conexion implements DaoAlumno {
    */
 
    
-    @Override
-  public boolean actualizarAlumno(String matricula, Alumno alumno) throws Exception {
-      
-    
-    try {
-      this.connection();
-      PreparedStatement st = this.conn.prepareStatement("update Alumno set matricula = ?, "
-          + "nombre = ?, correo = ?, programaEducativo = ?, contactoEmergencia = ?, "
-          + "numeroEmergencia = ? where matricula = ?");
 
-      st.setString(1, alumno.getMatricula());
-      st.setString(2, alumno.getNombre());
-      st.setString(3, alumno.getCorreo());
-      st.setString(4, alumno.getProgramaEducativo());
-      st.setString(5, alumno.getContactoEmergencia());
-      st.setString(6, alumno.getNumeroEmergencia());
-      st.setString(7, matricula);
-      st.executeUpdate();
-      st.close();
-    } catch (SQLException e) {
-      System.out.println(e);
-    }
-    return true;
-  }
 
     /**
      * Este metodo permite obtener la lista de alumnos filtrados por nombre o

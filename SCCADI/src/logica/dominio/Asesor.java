@@ -11,6 +11,15 @@ public class Asesor {
   private String nombre;
   private String correo;
   private String contrasena;
+  private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
     public String getContrasena() {
         return contrasena;

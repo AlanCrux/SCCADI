@@ -20,7 +20,7 @@ public interface DAOCoordinador {
 
     public boolean insertarCoordinador(Coordinador coordinador) throws Exception;
 
-    public boolean actualizarCoordinador(int noPersonal) throws Exception;
+    public boolean actualizarCoordinador(Coordinador coordinador) throws Exception;
 
     public boolean eliminarCoordinador(int noPersonal) throws Exception;
     

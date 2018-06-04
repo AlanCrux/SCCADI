@@ -16,6 +16,6 @@ public interface DAOSala {
     public List<Sala> obtenerSalas() throws Exception;
     public Sala obtenerSala(int idSala) throws Exception;
     public boolean insertarSala(Sala sala) throws Exception;
-    public boolean actualizarSala(int Sala) throws Exception;
+    public boolean actualizarSala(Sala sala) throws Exception;
     public boolean eliminarSala(int idSala) throws Exception;
 }

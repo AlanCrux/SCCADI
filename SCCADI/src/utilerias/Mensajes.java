@@ -45,28 +45,14 @@ public class Mensajes {
   }
   
   public static void displayInformation(String title, String message) {
-    Stage primaryStage = new Stage();
-    StackPane stackPane = new StackPane();
-    stackPane.setStyle("-fx-background-color: #0F1F38;");
-    JFXDialogLayout content = new JFXDialogLayout();
-    content.setHeading(new Text(title));
-    content.setBody(new Text(message));
+ 
+    ButtonType btAccept = new ButtonType("Aceptar", ButtonBar.ButtonData.OK_DONE);
 
-    JFXDialog dialog = new JFXDialog(stackPane, content, JFXDialog.DialogTransition.CENTER);
-
-    JFXButton button = new JFXButton("Okay");
-    button.setOnAction((ActionEvent event) -> {
-      dialog.close();
-      primaryStage.close();
-    });
-    content.setActions(button);
-
-    Scene scene = new Scene(stackPane);
-
-    primaryStage.setScene(scene);
-    primaryStage.initStyle(StageStyle.TRANSPARENT);
-    dialog.show();
-    primaryStage.showAndWait();
+    Alert alert = new Alert(Alert.AlertType.INFORMATION, message, btAccept);
+    alert.setTitle(title);
+    alert.setHeaderText(null);
+    
+    alert.showAndWait();
   }
   
   public static boolean displayWarningAlertWithChoice(String title, String message) {

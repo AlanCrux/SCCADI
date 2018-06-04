@@ -172,7 +172,8 @@ public class ExperienciaEducativa {
 
     @Override
     public String toString() {
-        return nombre + " " + nivel;
+        return "ExperienciaEducativa{" + "idExperiencia=" + idExperiencia + ", nombre=" + nombre + ", nivel=" + nivel + ", numBitacoras=" + numBitacoras + ", numAutoevaluaciones=" + numAutoevaluaciones + ", numSeguimiento=" + numSeguimiento + ", numReflexiones=" + numReflexiones + ", numTaller=" + numTaller + ", numExamenes=" + numExamenes + ", porcentajeBitacoras=" + porcentajeBitacoras + ", porcentajeAutoevaluaciones=" + porcentajeAutoevaluaciones + ", porcentajeSeguimiento=" + porcentajeSeguimiento + ", porcentajeReflexiones=" + porcentajeReflexiones + ", porcentajeTaller=" + porcentajeTaller + ", porcentajeExamenes=" + porcentajeExamenes + ", numModulos=" + numModulos + ", numUnidades=" + numUnidades + '}';
     }
+
 
 }

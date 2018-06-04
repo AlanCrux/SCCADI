@@ -12,6 +12,6 @@ public interface DAOAsesor {
   public List<Asesor> obtenerAsesores() throws Exception;
   public Asesor obtenerAsesor(int noPersonal) throws Exception;
   public boolean insertarAsesor(Asesor asesor) throws Exception;
-  public boolean actualizarAsesor(int noPersonal) throws Exception;
+  public boolean actualizarAsesor(Asesor asesor) throws Exception;
   public boolean eliminarAsesor(int noPersonal) throws Exception;
 }

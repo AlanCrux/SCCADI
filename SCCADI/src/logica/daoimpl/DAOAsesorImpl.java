@@ -18,6 +18,7 @@ public class DAOAsesorImpl extends Conexion implements DAOAsesor {
 
     /**
      * Metodo que obtiene una lista de todos los asesores registrados
+     *
      * @return Lista de tipo Asesores
      * @throws Exception
      */
@@ -35,6 +36,8 @@ public class DAOAsesorImpl extends Conexion implements DAOAsesor {
                 asesor.setNoPersonal(rs.getInt("noPersonal"));
                 asesor.setNombre(rs.getString("nombre"));
                 asesor.setCorreo(rs.getString("correo"));
+                asesor.setContrasena(rs.getString("contrasena"));
+                asesor.setTipo("asesor");
                 listaAsesor.add(asesor);
             }
         } catch (SQLException e) {
@@ -75,19 +78,71 @@ public class DAOAsesorImpl extends Conexion implements DAOAsesor {
 
     @Override
     public boolean insertarAsesor(Asesor asesor) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String query = "INSERT INTO asesor(noPersonal, nombre, correo, contrasena) "
+                + "values(?,?,?,?);";
+        try {
+            this.connection();
+            PreparedStatement st = this.conn.prepareStatement(query);
+            st.setInt(1, asesor.getNoPersonal());
+            st.setString(2, asesor.getNombre());
+            st.setString(3, asesor.getCorreo());
+            st.setString(4, asesor.getContrasena());
+            st.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                this.close();
+            } catch (Exception e) {
+                throw e;
+            }
+        }
     }
 
     @Override
-    public boolean actualizarAsesor(int noPersonal) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean actualizarAsesor(Asesor asesor) throws Exception {
+        String query = "UPDATE asesor SET nombre = ?, correo =?, contrasena = ?"
+                + "WHERE noPersonal = ?";
+        try {
+            this.connection();
+            PreparedStatement st = this.conn.prepareStatement(query);
+            st.setString(1, asesor.getNombre());
+            st.setString(2, asesor.getCorreo());
+            st.setString(3, asesor.getContrasena());
+            st.setInt(4, asesor.getNoPersonal());
+            st.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                this.close();
+            } catch (Exception e) {
+                throw e;
+            }
+        }
     }
 
     @Override
     public boolean eliminarAsesor(int noPersonal) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            this.connection();
+            PreparedStatement st = this.conn.prepareStatement("DELETE FROM asesor where noPersonal = ?");
+            st.setInt(1, noPersonal);
+            st.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                this.close();
+            } catch (Exception e) {
+                throw e;
+            }
+        }
     }
-    
+
     public Asesor obtenerAsesor(int noPersonal, String contrasena) throws Exception {
         Asesor asesor = null;
         try {

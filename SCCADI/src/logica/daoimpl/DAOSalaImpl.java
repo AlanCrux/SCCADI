@@ -16,9 +16,10 @@ import logica.dominio.Sala;
 public class DAOSalaImpl extends Conexion implements DAOSala {
 
     /**
-     * Metodo que obtiene una lista de todas las salas registradas 
+     * Metodo que obtiene una lista de todas las salas registradas
+     *
      * @return Lista de tipo Sala
-     * @throws Exception 
+     * @throws Exception
      */
     @Override
     public List<Sala> obtenerSalas() throws Exception {
@@ -49,17 +50,68 @@ public class DAOSalaImpl extends Conexion implements DAOSala {
 
     @Override
     public boolean insertarSala(Sala sala) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String query = "INSERT INTO sala (nombreSala, cupo) VALUES (?,?)";
+        try {
+            this.connection();
+            PreparedStatement st = this.conn.prepareStatement(query);
+            st.setString(1, sala.getNombre());
+            st.setInt(2, sala.getCupo());
+            st.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            throw e;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                this.close();
+            } catch (Exception e) {
+                throw e;
+            }
+        }
     }
 
     @Override
-    public boolean actualizarSala(int Sala) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean actualizarSala(Sala sala) throws Exception {
+        String query = "UPDATE sala SET nombreSala = ?, cupo = ? WHERE idSala = ?";
+        try {
+            this.connection();
+            PreparedStatement st = this.conn.prepareStatement(query);
+            st.setString(1, sala.getNombre());
+            st.setInt(2, sala.getCupo());
+            st.setInt(3, sala.getIdSala());
+            st.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            throw e;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                this.close();
+            } catch (Exception e) {
+                throw e;
+            }
+        }
     }
 
     @Override
     public boolean eliminarSala(int idSala) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            this.connection();
+            PreparedStatement st = this.conn.prepareStatement("DELETE FROM sala where idSala = ?");
+            st.setInt(1, idSala);
+            st.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                this.close();
+            } catch (Exception e) {
+                throw e;
+            }
+        }
     }
 
 }

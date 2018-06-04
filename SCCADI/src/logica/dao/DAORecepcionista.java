@@ -20,7 +20,7 @@ public interface DAORecepcionista {
 
     public boolean insertarRecepcionista(Recepcionista recepcionista) throws Exception;
 
-    public boolean actualizarRecepcionista(int noPersonal) throws Exception;
+    public boolean actualizarRecepcionista(Recepcionista recepcionista) throws Exception;
 
     public boolean eliminarRecepcionista(int noPersonal) throws Exception;
     

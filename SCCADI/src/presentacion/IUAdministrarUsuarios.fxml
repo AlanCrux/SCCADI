@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondos/FONDO_SCCADI.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="49.0" fitWidth="53.0" layoutX="15.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconos/back_arrow.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelPersonal" layoutX="26.0" layoutY="75.0" text="Asesores" textFill="#00802b">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="338.0" text="Numero de personal">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="403.0" text="Correo">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="433.0" layoutY="338.0" text="Nombre">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="433.0" layoutY="403.0" text="Contraseña">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="textNumPersonal" editable="false" layoutX="206.0" layoutY="339.0" onKeyPressed="#verificarNumeroPersonal" prefHeight="25.0" prefWidth="173.0" unFocusColor="BLACK" />
+      <JFXTextField fx:id="textCorreo" editable="false" layoutX="94.0" layoutY="404.0" prefHeight="25.0" prefWidth="289.0" />
+      <JFXTextField fx:id="textNombre" editable="false" layoutX="513.0" layoutY="339.0" prefHeight="25.0" prefWidth="263.0" />
+      <JFXPasswordField fx:id="textContrasena" editable="false" layoutX="536.0" layoutY="404.0" prefHeight="25.0" prefWidth="240.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#007d288f" height="5.0" layoutX="15.0" layoutY="318.0" stroke="#1f93ff00" strokeType="INSIDE" width="770.0" />
+      <JFXButton fx:id="botonAgregar" buttonType="RAISED" layoutX="455.0" layoutY="474.0" onAction="#insertarUsuario" prefHeight="37.0" prefWidth="96.0" style="-fx-background-color: #5DE200;" text="Agregar">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="botonEditar" buttonType="RAISED" layoutX="567.0" layoutY="474.0" onAction="#editarUsuario" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #FFC956;" text="Editar">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="botonEliminar" buttonType="RAISED" layoutX="681.0" layoutY="474.0" onAction="#eliminarUsuario" style="-fx-background-color: #FF5959;" text="Eliminar">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="labelMensaje" alignment="CENTER" layoutX="48.0" layoutY="492.0" prefHeight="30.0" prefWidth="381.0" text="¡Registro exitoso!" textAlignment="CENTER" textFill="#00d707" visible="false">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textBuscar" layoutX="83.0" layoutY="29.0" prefHeight="25.0" prefWidth="263.0" promptText="Buscar...">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Label fx:id="labelTipoUsuario" layoutX="25.0" layoutY="465.0" text="Tipo de usuario" visible="false">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="comboTipoUsuario" layoutX="178.0" layoutY="466.0" prefHeight="25.0" prefWidth="209.0" promptText="Seleccione un tipo de usuario" visible="false" />
+      <JFXComboBox fx:id="comboTipoPersonal" layoutX="444.0" layoutY="31.0" prefHeight="25.0" prefWidth="189.0" promptText="Tipo de personal" />
+      <TableView fx:id="tablaCoordinadores" layoutX="26.0" layoutY="105.0" onMouseClicked="#mostrarCoordinador" prefHeight="200.0" prefWidth="748.0">
+         <columns>
+            <TableColumn fx:id="columnaNumPersonalCoord" editable="false" prefWidth="120.0" sortable="false" text="Num de personal" />
+            <TableColumn fx:id="columnaNombreCoord" editable="false" prefWidth="612.0" sortable="false" text="Nombre" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tablaAsesores" layoutX="26.0" layoutY="105.0" onMouseClicked="#mostrarAsesor" prefHeight="200.0" prefWidth="748.0">
+        <columns>
+          <TableColumn fx:id="columnaNumPersonalAsesor" editable="false" prefWidth="120.0" sortable="false" text="Num de personal" />
+          <TableColumn fx:id="columnaNombreAsesor" editable="false" prefWidth="612.0" sortable="false" text="Nombre" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tablaRecepcionistas" layoutX="26.0" layoutY="105.0" onMouseClicked="#mostrarRecepcionista" prefHeight="200.0" prefWidth="748.0">
+         <columns>
+            <TableColumn fx:id="columnaNumPersonalRecep" editable="false" prefWidth="120.0" sortable="false" text="Num de personal" />
+            <TableColumn fx:id="columnaNombreRecep" editable="false" prefWidth="613.0" sortable="false" text="Nombre" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

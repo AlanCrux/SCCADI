@@ -6,20 +6,28 @@ package logica.dominio;
  */
 public class Recepcionista {
 
-  private int noPersonal;
-  private String nombre;
-  private String correo;
-  private String contrasena;
+    private int noPersonal;
+    private String nombre;
+    private String correo;
+    private String contrasena;
+    private String tipo;
 
-  public Recepcionista() {
-  }
+    public String getTipo() {
+        return tipo;
+    }
 
-  
-  public Recepcionista(int noPersonal, String nombre, String correo) {
-    this.noPersonal = noPersonal;
-    this.nombre = nombre;
-    this.correo = correo;
-  }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Recepcionista() {
+    }
+
+    public Recepcionista(int noPersonal, String nombre, String correo) {
+        this.noPersonal = noPersonal;
+        this.nombre = nombre;
+        this.correo = correo;
+    }
 
     public String getContrasena() {
         return contrasena;
@@ -29,27 +37,27 @@ public class Recepcionista {
         this.contrasena = contrasena;
     }
 
-  public int getNoPersonal() {
-    return noPersonal;
-  }
+    public int getNoPersonal() {
+        return noPersonal;
+    }
 
-  public void setNoPersonal(int noPersonal) {
-    this.noPersonal = noPersonal;
-  }
+    public void setNoPersonal(int noPersonal) {
+        this.noPersonal = noPersonal;
+    }
 
-  public String getNombre() {
-    return nombre;
-  }
+    public String getNombre() {
+        return nombre;
+    }
 
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-  public String getCorreo() {
-    return correo;
-  }
+    public String getCorreo() {
+        return correo;
+    }
 
-  public void setCorreo(String correo) {
-    this.correo = correo;
-  }
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 }

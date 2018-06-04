@@ -10,6 +10,7 @@ public class Coordinador {
   private String nombre;
   private String correo;
   private String contrasena;
+  private String tipo;
 
   public Coordinador() {
   }
@@ -52,5 +53,14 @@ public class Coordinador {
   public void setCorreo(String correo) {
     this.correo = correo;
   }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
 
 }

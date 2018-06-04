@@ -25,7 +25,7 @@ public class TestDAOAlumno {
   @Test
   public void editarAlumno() {
     try {
-      boolean editarAlumno = alumnoAux.actualizarAlumno("S123", alumno);
+      boolean editarAlumno = alumnoAux.actualizarAlumno(alumno);
       boolean resultadoEsperado = true;
       assertEquals(resultadoEsperado, editarAlumno);
     } catch (Exception ex) {

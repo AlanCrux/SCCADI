@@ -98,8 +98,9 @@ public class IUConsultarProgresoController implements Initializable {
     DAOReservacionImpl reservacion = new DAOReservacionImpl();
     Progreso progresoActual = null;
 
-    int folioInscripcion = 2;
-    String matricula = "S15011635";
+    int folioInscripcion;
+
+    String matricula;
     ExperienciaEducativa experienciaEdu = null;
 
     /**
@@ -110,10 +111,12 @@ public class IUConsultarProgresoController implements Initializable {
         llenarTablaExamen();
         llenarTablaActividades();
         obtenerPorcentajes();
-        
 
     }
 
+    /**
+     * Metodo que llena la tabla de los exmanes realizados por el alumno
+     */
     public void llenarTablaExamen() {
         try {
             examenes = FXCollections.observableList(examen.obtenerExamenes(folioInscripcion));
@@ -128,6 +131,10 @@ public class IUConsultarProgresoController implements Initializable {
 
     }
 
+    /**
+     * Metodo que llena la tabla de las actividades a las que ha asistido el
+     * alumno
+     */
     public void llenarTablaActividades() {
         try {
             actividades = FXCollections.observableList(reservacion.obtenerReservacionesPorAlumno(matricula));
@@ -138,17 +145,18 @@ public class IUConsultarProgresoController implements Initializable {
             Logger.getLogger(IUConsultarProgresoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    /**
+     * Metodo que calcula el porcentaje de los criterios de evaluacion de la 
+     * experiencia educativa y de los porcntaje obtenidos por el alumno
+     */
     public void obtenerPorcentajes() {
-
         try {
-
             experienciaEdu = expeEdu.obtenerExperienciasPorAlumno(matricula);
             progresoActual = progreso.obtenerProgreso(folioInscripcion);
         } catch (Exception ex) {
             Logger.getLogger(IUConsultarProgresoController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         double porcentajePorExamen = experienciaEdu.getPorcentajeExamenes() / experienciaEdu.getNumExamenes();
         double porcentajeObtExamen = 0;
         int totalExamenes = 0;
@@ -201,7 +209,23 @@ public class IUConsultarProgresoController implements Initializable {
         double porcentajeObtTotal = porcentajeObtBitacora + porcentajeObtHojaSeg
                 + porcentajeObtReflexion + porcentajeAutoEval + porcentajeActividades
                 + porcentajeObtExamen;
-        tfProgreso.setText(Double.toString(porcentajeObtTotal)+"%");
+        tfProgreso.setText(Double.toString(porcentajeObtTotal) + "%");
+    }
+
+    public int getFolioInscripcion() {
+        return folioInscripcion;
+    }
+
+    public void setFolioInscripcion(int folioInscripcion) {
+        this.folioInscripcion = folioInscripcion;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     /**
